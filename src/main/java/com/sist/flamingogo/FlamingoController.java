@@ -28,6 +28,20 @@ public class FlamingoController {
 		req.setAttribute("jsp", "../planner/plannerMain.jsp");
 		return "user/main/main.jsp";
 	}
+	@RequestMapping("calander.do")
+	public String calander(HttpServletRequest req)
+	{
+		System.out.println("calander");
+		req.setAttribute("jsp", "../planner/calander.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("help.do")
+	public String help(HttpServletRequest req)
+	{
+		System.out.println("help");
+		req.setAttribute("jsp", "../planner/help.jsp");
+		return "user/main/main.jsp";
+	}
 	
 	@RequestMapping("recomm.do")
 	public String recomm(HttpServletRequest req)
