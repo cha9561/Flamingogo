@@ -1,9 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%> --%>
+	<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<!-- <meta charset="UTF-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<link href="user/planner/style.css" rel="stylesheet" type="text/css">
     <!--mdl css-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
@@ -28,8 +31,23 @@
 <script src="js/wow.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
+<link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
+<script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:["iframe"]
+});
+function help_1()
+{
+	Shadowbox.open({
+		content:'user/planner/help.jsp',
+		player:'iframe',
+		width:1000,
+		height:580,
+		title:''
+	});
+}
 
-  <script type="text/javascript">
     var map, places, iw;
 	var markers = [];
 	var autocomplete;
@@ -82,21 +100,21 @@
 			var marker = new google.maps.Marker({
 				position : event.latLng,
 				map : map,
-				title : 'ìœ„ì¹˜ë§ˆì»¤',
+				title : 'À§Ä¡¸¶Ä¿',
 				icon:image
 				
 			});
 			attachMessage(marker, event.latLng);
-			//ì„ ì„ ê·¸ë¦¬ê¸° ìœ„í•´ ì¢Œí‘œë¥¼ ë„£ëŠ”ë‹¤.
+			//¼±À» ±×¸®±â À§ÇØ ÁÂÇ¥¸¦ ³Ö´Â´Ù.
 			Coordinates.push(event.latLng);
-			//ë§ˆì»¤ ë‹´ê¸°
+			//¸¶Ä¿ ´ã±â
 			MarkersArray.push(marker);
-			//arrayì— ë‹´ì€ ìœ„ë„,ê²½ë„ ë°ì´íƒ€ë¥¼ ê°€ì§€ê³  ë™ì„  ê·¸ë¦¬ê¸°
+			//array¿¡ ´ãÀº À§µµ,°æµµ µ¥ÀÌÅ¸¸¦ °¡Áö°í µ¿¼± ±×¸®±â
 			flightPath();
 		});
 	}
 
-	//í•´ë‹¹ ìœ„ì¹˜ì— ì£¼ì†Œë¥¼ ê°€ì ¸ì˜¤ê³ , ë§ˆí¬ë¥¼ í´ë¦­ì‹œ infowindowì— ì£¼ì†Œë¥¼ í‘œì‹œí•œë‹¤.
+	//ÇØ´ç À§Ä¡¿¡ ÁÖ¼Ò¸¦ °¡Á®¿À°í, ¸¶Å©¸¦ Å¬¸¯½Ã infowindow¿¡ ÁÖ¼Ò¸¦ Ç¥½ÃÇÑ´Ù.
 	function attachMessage(marker, latlng) {
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
@@ -142,7 +160,7 @@
 		});
 	}
 	
-	//ë™ì„ ê·¸ë¦¬ê¸°
+	//µ¿¼±±×¸®±â
 	function flightPath() {
 		for (i in travelPathArray) {
 			travelPathArray[i].setMap(null);
@@ -321,9 +339,9 @@
 				</p>
 				
 				<form name="controls">
-				<p class="gwd-p-zobl" id="title1" style="border-style: solid;">ìˆ™ì†Œ
+				<p class="gwd-p-zobl" id="title1" style="border-style: solid;">¼÷¼Ò
 					<input type="radio" name="type" value="lodging" onclick="search()" />
-					<span class="gwd-span-1iwa">ë§›ì§‘</span> 
+					<span class="gwd-span-1iwa">¸ÀÁı</span> 
 					<input type="radio" name="type" value="restaurant" onclick="search()" />
 				</p>
 				</form>
@@ -339,19 +357,19 @@
 				
 				<div class="gwd-div-1d7o" id="planing1" style=""></div>
 				<div class="gwd-div-1r07" id="planing2" style=""></div>
-				<a href="help.do">
-				<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">ì‚¬ìš©ë²•</button></a>
+				
+				<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="help_1()">»ç¿ë¹ı</button>
 				<a href="calander.do">
-				<button id="bt2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">ì¼ì •í‘œ</button></a>
-				<button id="bt3" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">í”Œë˜ë„ˆ ì´ˆê¸°í™”</button>
+				<button id="bt2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">ÀÏÁ¤Ç¥</button></a>
+				<button id="bt3" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">ÇÃ·¡³Ê ÃÊ±âÈ­</button>
 				<!-- Accent-colored flat button -->
-				<button class="mdl-button mdl-js-button mdl-button--accent" id="bt4">ì¶œë°œì¼</button>
-				<button class="mdl-button mdl-js-button mdl-button--accent" id="bt5">ì—¬í–‰ê¸°ê°„</button>
+				<button class="mdl-button mdl-js-button mdl-button--accent" id="bt4">Ãâ¹ßÀÏ</button>
+				<button class="mdl-button mdl-js-button mdl-button--accent" id="bt5">¿©Çà±â°£</button>
 				<div class="mdl-textfield mdl-js-textfield" id="tf">
 					<input class="mdl-textfield__input" type="text" id="sample3">
 					<label class="mdl-textfield__label" for="sample3">Text...</label>
 				</div>
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="bt5">í”Œë˜ë„ˆ ì €ì¥</button>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="bt5">ÇÃ·¡³Ê ÀúÀå</button>
 						
 				<div class="gwd-div-h7fg" id="planing3"></div>
 				<gwd-map id="google_map" class="gwd-map-12mt"> </gwd-map>

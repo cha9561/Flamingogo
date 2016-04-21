@@ -16,7 +16,6 @@
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
 	
-	<!--페이지-->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -24,60 +23,45 @@
 		<li data-target="#myCarousel" data-slide-to="3"></li>
 		<li data-target="#myCarousel" data-slide-to="4"></li>
 	</ol>
-	<!--페이지-->
 
 	<div class="carousel-inner">
-		<!--슬라이드1-->
 		<div class="item active"> 
-			<img src="user/planner/image/01.png" style="width:100%" alt="First slide">
+			<img src="image/01.png" style="width:100%" alt="First slide">
 			<div class="container">
 				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>
-		<!--슬라이드1-->
-
-		<!--슬라이드2-->
 		<div class="item"> 
-			<img src="user/planner/image/02.png" style="width:100%" data-src="" alt="Second slide">
+			<img src="image/02.png" style="width:100%" data-src="" alt="Second slide">
 			<div class="container">
 				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>
-		<!--슬라이드2-->
-		
-		<!--슬라이드3-->
 		<div class="item"> 
-			<img src="user/planner/image/03.png" style="width:100%" data-src="" alt="Third slide">
+			<img src="image/03.png" style="width:100%" data-src="" alt="Third slide">
 			<div class="container">
 				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>
-		<!--슬라이드3-->
-		
-		<!--슬라이드4-->
 		<div class="item"> 
-			<img src="user/planner/image/04.png" style="width:100%" data-src="" alt="Forth slide">
+			<img src="image/04.png" style="width:100%" data-src="" alt="Forth slide">
 			<div class="container">
 				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>
-		<!--슬라이드4-->
-		
-		<!--슬라이드5-->
 		<div class="item"> 
-			<img src="user/planner/image/05.png" style="width:100%" data-src="" alt="Fifth slide">
+			<img src="image/05.png" style="width:100%" data-src="" alt="Fifth slide">
 			<div class="container">
 				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>
-		<!--슬라이드5-->
+	
 	</div>
-	<!--이전, 다음 버튼-->
 	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
 	<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
 </div>
