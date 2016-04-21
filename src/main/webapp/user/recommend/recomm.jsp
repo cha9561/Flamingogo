@@ -16,8 +16,8 @@
    href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
 <!-- CSS Global Compulsory -->
-<link rel="stylesheet" href="../css1/bootstrap.min.css">
-<link rel="stylesheet" href="../css1/shop.style.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/shop.style.css">
 <link rel="stylesheet" type="text/css"
    href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 
@@ -39,6 +39,7 @@
 
       </div>
    </div>
+   
    <br>
 
    <div class="col-md-2 col-sm-6">
