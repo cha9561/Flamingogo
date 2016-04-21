@@ -6,17 +6,34 @@
     <meta charset="EUC-KR">
     <title>Insert title here</title>
     <link rel="stylesheet" type="text/css" href="table.css">
+    <link rel="stylesheet" type="text/css"
+	href="../../shadow/css/shadowbox.css">
+	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
     <script type="text/javascript">
         function postfind()
         {
             window.open("../member/postfind.jsp","postfind",
                     "width=430,height=350,menubar=no,toolbar=no,scrollbars=yes");
         }
-        function idcheck()
+        Shadowbox.init({
+    		players:["iframe"]
+    	});
+    	function idcheck()
+    	{
+    		Shadowbox.open({
+    			content:'idcheck.jsp',
+    			player:'iframe',
+    			width:400,
+    			height:200,
+    			title:''
+    		});
+    	}
+        /* function idcheck()
         {
-            window.open("../member/idcheck.jsp","idcheck",
+        	alert("idcheck")
+            window.open("idcheck.jsp","idcheck",
                     "width=350,height=150,menubar=no,toolbar=no,scrollbars=no");
-        }
+        } */
     </script>
 <style>
     body, code {
