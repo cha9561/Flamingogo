@@ -86,6 +86,7 @@
                    &nbsp;
                    Password:<input type=password name=pwd size=10 id="pwd">
                    <input type=button value="로그인" id="logBtn">
+                   <input type=button value="회원가입" id="joinBtn">
                   </form>
                  </c:if>	
                  <c:if test="${sessionScope.id!=null }">
