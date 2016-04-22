@@ -10,8 +10,19 @@ public class TourController {
 	@RequestMapping("tour.do")
 	public String tour(HttpServletRequest req)
 	{
-		System.out.println("tour");
 		req.setAttribute("jsp", "../tour/tour.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("ctour.do")
+	public String ctour(HttpServletRequest req)
+	{
+		req.setAttribute("jsp", "../tour/ctour.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("detail.do")
+	public String detail(HttpServletRequest req)
+	{
+		req.setAttribute("jsp", "../tour/tourdetail.jsp");
 		return "user/main/main.jsp";
 	}
 }

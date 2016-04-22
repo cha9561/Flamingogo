@@ -11,10 +11,10 @@
 	<title>투어상품 상세보기</title>
 
 	<!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="user/main/css/thumbnail-gallery.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +46,7 @@
         <div class="row">
 
             <div class="col-md-7">
-                <img class="img-responsive" src="img/p1.jpg" width="90%" alt="">
+                <img class="img-responsive" src="user/tour/img/p1.jpg" width="90%" alt="">
             </div>
 
             <div class="col-md-5">
@@ -109,11 +109,11 @@
 
                     <div class="timeline-heading">
 	
-		                        <img  class="img-responsive lazy"  src="img/p1-1.png" alt=""/>
+		                        <img  class="img-responsive lazy"  src="user/tour/img/p1-1.png" alt=""/>
 	
-		                        <img  class="img-responsive lazy"  src="img/p1-2.png" alt=""/>
+		                        <img  class="img-responsive lazy"  src="user/tour/img/p1-2.png" alt=""/>
 	
-		                        <img  class="img-responsive lazy"  src="img/p1-3.png" alt=""/>
+		                        <img  class="img-responsive lazy"  src="user/tour/img/p1-3.png" alt=""/>
 	
 
                     </div>
@@ -213,9 +213,9 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
+    <script src="user/main/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="user/main/js/bootstrap.min.js"></script>
 </body>
 </html>
