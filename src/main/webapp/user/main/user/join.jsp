@@ -6,6 +6,7 @@
     <meta charset="EUC-KR">
     <title>Insert title here</title>
     <link rel="stylesheet" type="text/css" href="table.css">
+        <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
     <script type="text/javascript">
         function postfind()
         {
@@ -43,7 +44,7 @@
 <center>
     <h3>회원 가입</h3>
     <div class="joinWrite">
-    <form name="join_frm" action="../member/join_ok.do" method="post">
+    <form name="join_frm" action="join_ok.do" method="post">
         <table border=1 bordercolor="black" width=500
                cellpadding="0" cellspacing="0">
             <tr>
