@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
+<%-- <<<<<<< HEAD
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     
-	<title>Åõ¾î»óÇ° »ó¼¼º¸±â</title>
+	<title>ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ó¼¼ºï¿½ï¿½ï¿½</title>
 
 	<!-- Bootstrap Core CSS -->
     <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
@@ -42,18 +44,40 @@
 	.demo-card-square > .mdl-card__img {
 	}
 	</style>
+=======
+<head>	
+	 <meta charset="EUC-KR" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>í”Œë¼ë°ê³ </title>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/basicstyle.css" />
+	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<!--mdlfont -->
+	<link rel="stylesheet"
+		  href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- mdl js-->
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<!--mdl css-->
+	<link rel="stylesheet"
+		  href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+
+
+>>>>>>> refs/heads/heera
 </head>
 <body>
+<<<<<<< HEAD
 	<!-- Page Content -->
     <div class="container" style="margin-top:50px">
 
         <!-- product imformation -->
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 		  <div class="mdl-tabs__tab-bar">
-		    <a href="#about-panel" class="mdl-tabs__tab is-active">¸¶ÀÌÆäÀÌÁö</a>
-		    <a href="#members-panel" class="mdl-tabs__tab">ÇÃ·¡³Ê</a>
-		    <a href="#albums-panel" class="mdl-tabs__tab">À§½Ã¸®½ºÆ®</a>
-		    <a href="#board-panel" class="mdl-tabs__tab">³ªÀÇ±Û</a>
+		    <a href="#about-panel" class="mdl-tabs__tab is-active">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>
+		    <a href="#members-panel" class="mdl-tabs__tab">ï¿½Ã·ï¿½ï¿½ï¿½</a>
+		    <a href="#albums-panel" class="mdl-tabs__tab">ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½Æ®</a>
+		    <a href="#board-panel" class="mdl-tabs__tab">ï¿½ï¿½ï¿½Ç±ï¿½</a>
 		 </div>
 		 
   		 <div class="mdl-tabs__panel is-active" id="about-panel" style="margin-top:10px"> 
@@ -75,12 +99,12 @@
 		      </div>
 		      <div class="mdl-card__supporting-text">
 		        	ID : Lorem<br>
-		        	¼ºº° : MAN<br>
-		        	³ªÀÌ : Aenan convallis.<br>
+		        	ï¿½ï¿½ï¿½ï¿½ : MAN<br>
+		        	ï¿½ï¿½ï¿½ï¿½ : Aenan convallis.<br>
 		      </div>
 		      <div class="mdl-card__actions mdl-card--border">
 		        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-		          	³»Á¤º¸ ¼öÁ¤ÇÏ±â
+		          	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 		        </a>
 		      </div>
 		    </div>
@@ -106,8 +130,8 @@
   
   <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
     <div class="material-icons">account_box</div>
-    id <span class="label label-success">2016³â 4¿ù 5ÀÏ Åõ¾îÂü°¡</span><br>
-         ÇÑÁÙ¸®ºä
+    id <span class="label label-success">2016ï¿½ï¿½ 4ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span><br>
+         ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½
 
   </div>
   
@@ -120,7 +144,7 @@
          <input type="hidden" name="bno" value="${vo.no }">
          <input type="hidden" name="page" value="${page}">
          <textarea rows="10" cols="150" name="reply_data"  id="reply_data"></textarea>
-         <input type=button value="¹®ÀÇÇÏ±â" id="replyBtn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+         <input type=button value="ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½" id="replyBtn"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
         </form>
       </td>
      </tr>
@@ -130,8 +154,8 @@
   
   <div class="mdl-tabs__panel" id="board-panel" style="margin-top:10px">
     <div class="material-icons">account_box</div>
-    id <span class="label label-success">2016³â 4¿ù 5ÀÏ Åõ¾îÂü°¡</span><br>
-         ÇÑÁÙ¸®ºä
+    id <span class="label label-success">2016ï¿½ï¿½ 4ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</span><br>
+         ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½
 
   </div>
  
@@ -145,5 +169,102 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="user/main/js/bootstrap.min.js"></script>
+=======
+<h3>ì•¼</h3>
+<!-- <div id="wrap">
+
+	<section>
+		<article>			
+			<div class="bg bg1">		
+				<span>Maldives</span>
+			</div>			
+		</article>
+		
+		<article>		
+			<div class="txt">
+				<i class="fa fa-arrow-right"></i>
+				<p>
+					<strong>A Whole New World</strong><br />
+					<em>ì™œì•ˆë¼</em>
+				</p>
+			</div>	
+		</article>
+		
+		<article>			
+			<div class="txt">	
+				<i class="fa fa-spin fa-refresh"></i>
+				<p><strong>Reservation</strong></p>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="bg bg2">
+				<span>Suite</span>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="bg bg3">
+				<span>Surf</span>
+			</div>	
+		</article>
+		
+		<article>	
+			<div class="txt">	
+				<i class="fa fa-arrow-right"></i>
+				<p>
+					<strong>A Dazzling Place</strong><br />
+					<em>I can show you the world. Shining Shimmering Splended.<br />
+					Tell me when you decide .</em>
+				</p>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="bg bg4">
+				<span>Sauna</span>
+			</div>
+		</article>
+		
+		<article>	
+			<div class="txt">	
+				<i class="fa fa-arrow-right"></i>
+				<strong>Hot spot</strong><br />
+				<em>a best place to have a vacation <br />
+				Tell me when you</em>
+			</div>	
+		</article>
+		
+		<article>		
+			<div class="bg bg5">
+				<span>Diner</span>
+			</div>
+		</article>
+		
+		<article>	
+			<div class="bg bg6">
+				<span>Spa</span>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="txt">	
+				<i class="fa fa-arrow-right"></i>
+				<p>
+					<strong>Open Space</strong><br />
+					<em>I Can show you the world</em>
+				</p>
+			</div>	
+		</article>
+		
+		<article>	
+			<div class="bg bg7">
+				<span>Tour</span>
+			</div>		
+		</article>
+		
+	</section>
+	</div> -->
+>>>>>>> refs/heads/heera
 </body>
-</html>
+</html> --%>

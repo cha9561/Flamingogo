@@ -65,23 +65,32 @@
         	 });
          });
         </script>
-</head>
-<body>
 
+    </head>
+    <body>
+    
+    
+    	<header>
+			<a href="#"><h1>logo</h1></a>
+			<ul id="gnb">
+				<div>
+				<c:if test="${sessionScope.id!=null }">
+					 <c:if test="${sessionScope.admin==0 }">
+					<li><a href="mypage.do"><div id="mypage" class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div>MyPage</a></li>
+					</c:if>
+					<c:if test="${sessionScope.admin==1 }">
+						<li><a href="contact.html">예약현황보기</a></li>
+					</c:if>
 
-	<header>
-		<a href="#"><h1>logo</h1></a>
-		<ul id="gnb">
-			<div>
-				<li><a href="plannerMain.do">Planner</a></li>
-				<li><a href="recomm.do">플라밍Go's<br>recomm
-				</a></li>
-				<li><a href="tour.do">Tour</a></li>
-				<li><a href="squrePage.do">Open space</a></li>
-				<c:if test="${sessionScope.admin==1 }">
-					<li><a href="contact.html">Reserve</a></li>
 				</c:if>
-		</ul>
+
+				<li><a href="plannerMain.do"><i class="fa  fa-map-marker"></i>Planner</a></li>
+				<li><a href="recomm.do"><i class="fa fa-thumbs-o-up"></i>플라밍Go's<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recomm</a></li>
+				<li><a href="tour.do"><i class="fa fa-plane"></i>Tour</a></li>
+				<li><a href="squrePage.do"><i class="fa  fa-smile-o"></i>Open space</a></li>	
+				
+			</ul>
+
 
 		<div class="snsSet">
 			<a href="#"><img src="user/main/img/sns1.png" alt="about" /></a> <a
@@ -94,26 +103,38 @@
 
 	<nav>
 		<div id="navi">
-			<c:if test="${sessionScope.id==null }">
-				<form method="post" action="login.do" id="logForm">
-					ID:<input type=text name=id size=12 id="id"> &nbsp;
-					Password:<input type=password name=pwd size=10 id="pwd"> <input
-						type=button value="로그인" id="logBtn"> <input type=button
-						value="회원가입" id="joinBtn" onclick="join()">
-				</form>
-			</c:if>
-			<c:if test="${sessionScope.id!=null }">
-				<form method="post" action="logout.do" id="logoutForm">
 
-					${sessionScope.id }(${sessionScope.admin==0?"일반":"관리자" })님
-					환영합니다!!&nbsp; <input type=button value="로그아웃" id="logoutBtn">
-				</form>
-			</c:if>
-		</div>
+				 <c:if test="${sessionScope.id==null }">
+				  <form method="post" action="login.do" id="logForm">
+				   ID : <input type=text name=id size=12 id="id">
+                   &nbsp;
+                   Password : <input type=password name=pwd size=10 id="pwd">
+                
+                &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="logBtn">
+                <i class="fa fa-chevron-circle-right"></i> 로그인
+                </button>
+				
+                  </form>
+                 </c:if>	
+                 <c:if test="${sessionScope.id!=null }">
+                  <form method="post" action="logout.do" id="logoutForm">
+          
+				   ${sessionScope.id }(${sessionScope.admin==0?"일반":"관리자" })님 환영합니다!!&nbsp;
+                  &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="logoutBtn">
+                <i class="fa fa-chevron-circle-right"></i> 로그아웃
+                </button>&nbsp;
+               
+                  </form>
+                 </c:if>			 
+				</div>
+
 	</nav>
 	<section>
-		<jsp:include page="${jsp }"></jsp:include>
-		<!-- <article>			
+	<jsp:include page="${jsp }"></jsp:include>
+	
+	</section>
+	<!-- <section>
+		<article>			
 			<div class="bg bg1">		
 				<span>Maldives</span>
 			</div>			
@@ -201,10 +222,11 @@
 			<div class="bg bg7">
 				<span>Tour</span>
 			</div>		
-		</article> -->
 
+		</article> 
+		
 	</section>
-
-
-</body>
+			
+-->
+    </body>
 </html>

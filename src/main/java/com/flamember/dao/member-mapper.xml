@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flamember.dao.member-mapper">
+	<!-- ID 체크 -->
+	<select id="memberIdCount" resultType="int" parameterType="String"> <!-- 아이디가 들어가고 몇갠지 세어져서 나오니..  -->
+		SELECT COUNT(*) FROM member
+		WHERE id=#{id}
+		</select>
+	<select id="memberGetPwd" resultType="Member" parameterType="String">
+		SELECT pwd,name,admin FROM member
+		WHERE id=#{id}
+	</select> 
+	
+</mapper>
