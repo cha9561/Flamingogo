@@ -11,11 +11,11 @@
 	
 	<title>투어 상품 - 플라밍고</title>
 
-<!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap Core CSS -->
+    <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="user/main/css/thumbnail-gallery.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,29 +31,29 @@
 </head>
 <body>
 	<!-- Page Content -->
-    <div class="content container" style="padding-top:0px">
-	<p style="text-align:left"><img src="img/france.gif"> 프랑스 
+    <div class="container" style="margin-top:50px">
+	<p style="text-align:left"><img src="user/tour/img/france.gif"> 프랑스 
 	<a href="ctour.do">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button>
 	</a>
 	</p>
        <div class="row">
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="tourdetail.jsp"><img width="95%"  src="img/p1.jpg" alt=""></a>
+           		<a href="detail.do"><img width="95%"  src="user/tour/img/p1.jpg" alt=""></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="img/p2.jpg" alt=""></a>
+           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="user/tour/img/p2.jpg" alt=""></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="img/p3.jpg" alt=""></a>
+           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="user/tour/img/p3.jpg" alt=""></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="img/p4.jpg" alt=""></a>
+           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="user/tour/img/p4.jpg" alt=""></a>
             </div>
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="img/czech.gif"> 체코
+	<p style="text-align:left"><img src="user/tour/img/czech.gif"> 체코
 	<a href="ctour.jsp">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
 	</p>
@@ -73,7 +73,7 @@
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="img/spain.gif"> 스페인
+	<p style="text-align:left"><img src="user/tour/img/spain.gif"> 스페인
 	<a href="ctour.jsp">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
 	</p>
@@ -93,7 +93,7 @@
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="img/sw.gif"> 스위스 
+	<p style="text-align:left"><img src="user/tour/img/sw.gif"> 스위스 
 	<a href="ctour.jsp">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
 	</p>
@@ -113,7 +113,7 @@
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="img/italy.gif"> 이탈리아 
+	<p style="text-align:left"><img src="user/tour/img/italy.gif"> 이탈리아 
 	<a href="ctour.jsp">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
 	</p>
@@ -133,7 +133,7 @@
 	</div>
 	<hr/>
 
-	<p style="text-align:left"><img src="img/uk.gif"> 영국
+	<p style="text-align:left"><img src="user/tour/img/uk.gif"> 영국
 	<a href="ctour.jsp">
 	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
 	</p>
@@ -157,10 +157,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
+    <script src="user/main/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="user/main/js/bootstrap.min.js"></script>
     
 </body>
 </html>

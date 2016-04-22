@@ -10,12 +10,12 @@
 
 	<title>마이페이지 - 플라밍고</title>
 	
-	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="user/main/css/bootstrap.css" rel="stylesheet">
 	<!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="user/main/css/thumbnail-gallery.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,11 +31,22 @@
 	.list-item {
 	  width: 250px;
 	}
+	.demo-card-square.mdl-card {
+	  width: 250px;
+	  height: 400px;
+	}
+	.demo-card-square > .mdl-card__title {
+	  color: #fff;
+	  background:
+	    bottom right 15% no-repeat #46B6AC;
+	}
+	.demo-card-square > .mdl-card__img {
+	}
 	</style>
 </head>
 <body>
 	<!-- Page Content -->
-    <div class="content container" style="padding-top:0px;" >
+    <div class="content container" style="margin-top:50px;" >
 	
 	<div class="row">
 
@@ -47,7 +58,7 @@
         <h2 class="mdl-card__title-text">Update</h2>
       </div> -->
       <div class="mdl-card__img mdl-card--expand">
-      	<img src=img/profile.jpg width=250 height="220">
+      	<img src=user/my/img/profile.jpg width=250 height="220">
       </div>
       <div class="mdl-card__supporting-text">
         	ID : Lorem<br>
@@ -90,22 +101,22 @@
 		  	<div class="col-xs-6 col-sm-4"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
 		 	 <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
 		  	<div class="col-xs-6 col-sm-4"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
-			</div>
+		</div>
 			
-			<div class="row" style="margin-bottom:10px">
+		<div class="row" style="margin-bottom:10px">
 		  	<div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
 		 	 <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
 		  	<div class="col-xs-6 col-sm-4"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
-			</div>
+		</div>
 		</div>
 		</div>
 	</div>
 	<!-- /.container -->
 
     <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
+    <script src="user/main/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="user/main/js/bootstrap.min.js"></script>
 </body>
 </html>

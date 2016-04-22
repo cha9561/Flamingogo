@@ -10,12 +10,12 @@
     
 	<title>나라별 투어상품</title>
 
-	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="user/main/css/bootstrap.css" rel="stylesheet">
 	<!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="user/main/css/thumbnail-gallery.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,11 +30,11 @@
 </head>
 <body>
 	<!-- Page Content -->
-    <div class="content container" style="" >
+    <div class="container" style="margin-top:50px">
     
 		<div class="row">
 		  	<div class="col-md-12">
-			    <img src="img/11101_B.PNG" alt="">
+			    <img src="user/tour/img/11101_B.PNG" alt="">
 			    	<hr/>
 				    <div class="row">
 				      <div class="col-md-12">
@@ -49,9 +49,9 @@
 	<!-- /.container -->
 	
 	<!-- jQuery -->
-    <script src="../js/jquery.js"></script>
+    <script src="user/main/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="user/main/js/bootstrap.min.js"></script>
 </body>
 </html>
