@@ -5,15 +5,14 @@
 <head>
     <meta charset="EUC-KR">
     <title>Insert title here</title>
-    <link rel="stylesheet" type="text/css" href="table.css">
-<<<<<<< HEAD
+
     <link rel="stylesheet" type="text/css"
 	href="../../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
-=======
+
         <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
->>>>>>> refs/heads/heera
-    <script type="text/javascript">
+
+<script type="text/javascript">
         function postfind()
         {
             window.open("../member/postfind.jsp","postfind",

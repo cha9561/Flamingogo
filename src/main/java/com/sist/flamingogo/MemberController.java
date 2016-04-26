@@ -63,4 +63,14 @@ public class MemberController {
 		return "user/main/main.jsp";
 	}
 	
+	@RequestMapping("idcheck_ok.do")
+	public String idcheck_ok(HttpServletRequest req)
+	{
+		String id=req.getParameter("id");
+		int count=MemberDAO.memberIdCheck(id);
+		req.setAttribute("count",count);
+		System.out.println("count"+count);
+		return "user/main/user/idcheck_ok.jsp";
+	}
+	
 }
