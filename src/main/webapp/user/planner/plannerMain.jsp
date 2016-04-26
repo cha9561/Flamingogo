@@ -105,7 +105,7 @@ function help_1()
 		}); 
 		
 		
-		 google.maps.event.addListener(map, 'click', function(event) {
+		 /* google.maps.event.addListener(map, 'click', function(event) {
 			var image = "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
 			var marker = new google.maps.Marker({
 				position : event.latLng,
@@ -121,11 +121,11 @@ function help_1()
 			MarkersArray.push(marker);
 			//array에 담은 위도,경도 데이타를 가지고 동선 그리기
 			flightPath();
-		}); 
+		});  */
 	}
 
 	// 드롭 마커 보기
-	/* function viewMarker() {
+	 function viewMarker() {
 		if(startLat)
 		{
 			$.ajax({
@@ -164,7 +164,7 @@ function help_1()
 			          		      '</div>'+
 			          		      '</div>';  
 							google.maps.event.addListener(marker, "click", function(){
-								infowindow.setContent(contentString);
+								infowindow.setContent(this.html);
 								infowindow.open(map, this);
 							});
 							
@@ -174,7 +174,7 @@ function help_1()
 				}
 			});
 		}
-	} */
+	} 
 
 	// 마커 제거 함수
 	function fnRemoveMarker()
@@ -189,7 +189,7 @@ function help_1()
 	});
 
 	//해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
-	 function attachMessage(marker, latlng) {
+	 /* function attachMessage(marker, latlng) {
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			'latLng' : latlng
@@ -232,7 +232,7 @@ function help_1()
 				}
 			}
 		});
-	} 
+	}  */
 	
 	//동선그리기
 	function flightPath() {
@@ -279,7 +279,7 @@ function help_1()
 		iw.open(map, markers[0]);
 	}
 
-	 function search() {
+	 /* function search() {
 		var type;
 		for (var i = 0; i < document.controls.type.length; i++) {
 			if (document.controls.type[i].checked) {
@@ -308,7 +308,7 @@ function help_1()
 				}
 			}
 		});
-	} 
+	}  */
 
 	function clearMarkers() {
 		for (var i = 0; i < markers.length; i++) {
@@ -360,7 +360,7 @@ function help_1()
 		}
 	}
 
-	/* function showInfoWindow(i) {
+	 function showInfoWindow(i) {
 		return function (place, status) {
 			if (iw) {
 				iw.close();
@@ -375,7 +375,7 @@ function help_1()
 			
 		}
 		
-	} */
+	} 
 
 	function getIWContent(place) {
 		var content = '<table style="border:0"><tr><td style="border:0;">';

@@ -13,12 +13,10 @@ public class MemberDAO {
 	{
 		try
 		{
-
 			/*1. Config.xml 파싱요청*/
 			Reader reader=Resources.getResourceAsReader("Config.xml");//class쪽으로 넘겨주면 파싱이 된다.
 			ssf=new SqlSessionFactoryBuilder().build(reader);
 			//파싱이 다되고 xml 파싱된것을 가지고 있다가 ssf로 넘겨준다.
-			
 		}catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
@@ -38,7 +36,7 @@ public class MemberDAO {
 			MemberDTO d=session.selectOne("memberGetPwd",id);
 			if(pwd.equals(d.getPwd()))
 			{
-				result=d.getName()+"|"+d.getAdmin();
+				result=d.getName()+"|"+d.getAdmin_no();
 			}else{
 				result="NOPWD";
 			}
