@@ -71,22 +71,6 @@
 	</div>
 
 
-	<div class="tab-v5">
-	<!-- <div >
-
-                 <ul class="nav nav-tabs" role="tablist"  >
-                        <li class="active"><a href="index.asp?srcserial=111011003"><h3>전체</h3></a></li>
-
-                        <li ><a href="index.asp?srcserial=111011003&slptype=24"><h3>호텔</h3></a></li>
-                        <li ><a href="index.asp?srcserial=111011003&slptype=22"><h3>호스텔</h3></a></li>
-                        <li ><a href="index.asp?srcserial=111011003&slptype=21"><h3>민박</h3></a></li>
-                    </ul>
-	</div> -->
-	
-	<div class="clearfix"></div>
-
-	</div>
-
 
 <h4>플라밍GO회원에게 추천하는 맛집들</h4>
 
@@ -107,7 +91,7 @@
 					<p align="right" style="padding-top: 15px">
 
 
-						<span class="label label-default">+</span></a>
+						<span class="label label-default">+</span>
 						<button
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>

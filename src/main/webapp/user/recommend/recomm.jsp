@@ -5,37 +5,55 @@
 <html>
 <head>
 <meta name="viewport"
-   content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+   content="width=device-width,initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>추천 숙소 , 플라밍GO</title>
 <meta http-equiv="Content-Language" content="ko">
 <meta charset="UTF-8">
 
 <!-- Web Fonts -->
-<link rel='stylesheet' type='text/css'
+<!-- <link rel='stylesheet' type='text/css'
    href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
-<!-- CSS Global Compulsory -->
+CSS Global Compulsory
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/shop.style.css">
 <link rel="stylesheet" type="text/css"
    href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+<link
+   href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+   rel="stylesheet"> -->
 
+<link rel="stylesheet" href="basicstyle.css" />
+<script type="text/javascript" src="js/prefixfree.min.js"></script>
+<!--mdlfont -->
+<link rel="stylesheet"
+   href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- mdl js-->
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+<script type="text/javascript" src="js/prefixfree.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<!--mdl css-->
+<link rel="stylesheet"
+   href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<link rel="stylesheet" type="text/css"
+   href="user/shadow/css/shadowbox.css">
+<script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
 </head>
 <body>
       
    <div
-      style="padding-top: 100px; width: 100%; height: 500px; background: url('http://www.mrwallpaper.com/wallpapers/Waterfall-Landscape-1920x1080.jpg'); no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+      style="padding-top: 100px; width: 100%; height: 780px; background: url('http://www.mrwallpaper.com/wallpapers/Waterfall-Landscape-1920x1080.jpg'); no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
       <h2 style="text-align: center;" class="light_heavy_30_shadowed">
          꼼꼼한 플라밍GO 회원들이 선택한 가성비 높은 숙소들을 살펴보세요!
       </h2>
       <div style="padding-left: 500px;">
          <input type="text" id="autoc" name="slpcityname"
             placeholder="어느 도시의 숙소를 찾고 계신가요?"
-            style="width: 650px; height: 40px; font-size: 17pt">
+            style="width: 50%; height: 40px; font-size: 17pt">
          
-         <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Accommodation</button>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect">Restaurant</button>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Hotel</button>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Restaurant</button>
 
       </div>
    </div>
@@ -45,54 +63,54 @@
    <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">프랑스/영국</h3>
       <ul class="list-unstyled style-list">
-         <li><a href="/slp/index.asp?srcserial=111011004"><img
+         <li><a href="hot_stay.do?srcserial=111011004"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                파리</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011003"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                니스</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011050"><img
+         <li><a href="hot_stay.do?srcserial=111011003"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                안시</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011005"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                아비뇽</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011010"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                리옹</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011014"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                마르세유</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011012"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                스트라스부르</a></li>
-         <li><a href="/slp/index.asp?srcserial=111011110"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                아를</a></li>
 
-         <li><a href="/slp/index.asp?srcserial=111031001"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11103_s.gif">
                런던</a></li>
-         <li><a href="/slp/index.asp?srcserial=111031009"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11103_s.gif">
                글래스고</a></li>
-         <li><a href="/slp/index.asp?srcserial=111031008"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11103_s.gif">
                에든버러</a></li>
-         <li><a href="/slp/index.asp?srcserial=111031004"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11103_s.gif">
                옥스퍼드</a></li>
 
-         <!-- <li><a href="/slp/index.asp?srcserial=111081001"><img
+         <!-- <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11108_s.gif">
                브뤼셀</a></li>
-         <li><a href="/slp/index.asp?srcserial=111081002"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11108_s.gif">
                브뤼헤</a></li>
-         <li><a href="/slp/index.asp?srcserial=111071001"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11107_s.gif">
                암스테르담</a></li>
-         <li><a href="/slp/index.asp?srcserial=111101001"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11110_s.gif">
                더블린</a></li> -->
       </ul>
