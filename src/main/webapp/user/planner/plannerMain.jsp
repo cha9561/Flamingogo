@@ -7,10 +7,14 @@
 <head>
 <!-- <meta charset="UTF-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 	<link href="user/planner/style.css" rel="stylesheet" type="text/css">
     <!--mdl css-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-
+<link href="user/main/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -24,6 +28,12 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <!-- Plugin JavaScript -->
 <script src="js/jquery.easing.min.js"></script>
@@ -42,7 +52,7 @@ function help_1()
 	Shadowbox.open({
 		content:'user/planner/help.jsp',
 		player:'iframe',
-		width:1000,
+		width:1010,
 		height:580,
 		title:''
 	});
@@ -95,7 +105,7 @@ function help_1()
 		}); 
 		
 		
-		google.maps.event.addListener(map, 'click', function(event) {
+		 google.maps.event.addListener(map, 'click', function(event) {
 			var image = "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
 			var marker = new google.maps.Marker({
 				position : event.latLng,
@@ -111,11 +121,75 @@ function help_1()
 			MarkersArray.push(marker);
 			//array에 담은 위도,경도 데이타를 가지고 동선 그리기
 			flightPath();
-		});
+		}); 
 	}
 
+	// 드롭 마커 보기
+	/* function viewMarker() {
+		if(startLat)
+		{
+			$.ajax({
+				type: "GET",
+				url: "js/marker.js",
+				 beforeSend: function() {
+					fnRemoveMarker();	// 조회 전 기존 마커 제거
+				 },
+				success: function (json) {
+					var markerList = $.parseJSON(json);
+					var listLen = markerList.length;
+					for(var i=0; i<listLen; i++){
+						if (parseFloat(startLat) <= parseFloat(markerList[i].lat) && parseFloat(startLng) <= parseFloat(markerList[i].lng) && parseFloat(endLat) >= parseFloat(markerList[i].lat) && parseFloat(endLng) >= parseFloat(markerList[i].lng))
+						{
+							var marker = new google.maps.Marker({
+								position: new google.maps.LatLng(markerList[i].lat,markerList[i].lng),
+								map: map,
+								draggable: false,
+								icon: markerList[i].icon,
+								html: markerList[i].cont
+							});
+							markers.push(marker);
+							var infowindow = new google.maps.InfoWindow()
+							var contentString = 
+			          			  '<div id="content">'+
+			          		      '<div id="siteNotice">'+
+			          		      '<a href="">'+
+			        		      '<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">+</button>'+
+			        		      '</a>'+
+			          		      '</div>'+
+			          		      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+			          		      '<div id="bodyContent">'+
+			          		      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+			          		      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+			          		      '(last visited June 22, 2009).</p>'+
+			          		      '</div>'+
+			          		      '</div>';  
+							google.maps.event.addListener(marker, "click", function(){
+								infowindow.setContent(contentString);
+								infowindow.open(map, this);
+							});
+							
+						}
+					}
+					
+				}
+			});
+		}
+	} */
+
+	// 마커 제거 함수
+	function fnRemoveMarker()
+	{
+		for (var i = 1; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}
+	}
+
+	$( window ).load(function() {
+		initialize();
+	});
+
 	//해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
-	function attachMessage(marker, latlng) {
+	 function attachMessage(marker, latlng) {
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			'latLng' : latlng
@@ -158,7 +232,7 @@ function help_1()
 				}
 			}
 		});
-	}
+	} 
 	
 	//동선그리기
 	function flightPath() {
@@ -205,7 +279,7 @@ function help_1()
 		iw.open(map, markers[0]);
 	}
 
-	function search() {
+	 function search() {
 		var type;
 		for (var i = 0; i < document.controls.type.length; i++) {
 			if (document.controls.type[i].checked) {
@@ -234,7 +308,7 @@ function help_1()
 				}
 			}
 		});
-	}
+	} 
 
 	function clearMarkers() {
 		for (var i = 0; i < markers.length; i++) {
@@ -286,7 +360,7 @@ function help_1()
 		}
 	}
 
-	function showInfoWindow(i) {
+	/* function showInfoWindow(i) {
 		return function (place, status) {
 			if (iw) {
 				iw.close();
@@ -301,7 +375,7 @@ function help_1()
 			
 		}
 		
-	}
+	} */
 
 	function getIWContent(place) {
 		var content = '<table style="border:0"><tr><td style="border:0;">';
@@ -317,8 +391,8 @@ function help_1()
 
 <body onload="initialize()">
 	<gwd-doubleclick id="gwd-ad" polite-load=""> 
-	<div is="gwd-pagedeck" class="gwd-page-container" id="pagedeck">
-		<div is="gwd-page" id="page1"
+			<div is="gwd-pagedeck" class="gwd-page-container" id="pagedeck">
+			<div is="gwd-page" id="page1"
 			class="gwd-page-wrapper gwd-page-size gwd-lightbox gwd-div-8ehm"
 			data-gwd-width="1280px" data-gwd-height="780px">
 			<div class="gwd-page-content gwd-page-size gwd-div-1aei">
@@ -346,7 +420,10 @@ function help_1()
 				</p>
 				</form>
 				
+				<gwd-map id="google_map" class="gwd-map-12mt"> </gwd-map>
+				
 				<div class="gwd-div-2h60" style=""></div>
+				
 				<div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
 				
 				<div class="gwd-div-1wk8" style="border-style: solid;" id="place2"></div>
@@ -357,7 +434,7 @@ function help_1()
 				
 				<div class="gwd-div-1d7o" id="planing1" style=""></div>
 				<div class="gwd-div-1r07" id="planing2" style=""></div>
-				
+				<div class="gwd-div-h7fg" id="planing3" style=""></div>
 				<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="help_1()">사용법</button>
 				<a href="calander.do">
 				<button id="bt2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">일정표</button></a>
@@ -369,10 +446,10 @@ function help_1()
 					<input class="mdl-textfield__input" type="text" id="sample3">
 					<label class="mdl-textfield__label" for="sample3">Text...</label>
 				</div>
+				
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="bt5">플래너 저장</button>
-						
-				<div class="gwd-div-h7fg" id="planing3"></div>
-				<gwd-map id="google_map" class="gwd-map-12mt"> </gwd-map>
+				
+				
 			</div>
 		</div>
 		
