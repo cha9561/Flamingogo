@@ -25,7 +25,7 @@ public class MemberController {
 	{
 		String id=req.getParameter("id");
 		String pwd=req.getParameter("pwd");
-		
+		System.out.println("id :"+id+"pwd :"+pwd);
 		//DB¿¬µ¿
 		String res=MemberDAO.memberLogin(id, pwd);
 		String name="";
@@ -43,7 +43,7 @@ public class MemberController {
 		}
 		
 		req.setAttribute("res", res);
-		
+		System.out.println("rest :"+res);
 		return "user/main/user/login.jsp";
 	}
 	

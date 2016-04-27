@@ -33,6 +33,30 @@ CSS Global Compulsory
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <script type="text/javascript" src="js/prefixfree.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#findBtn').click(function(){
+		var find=$('#find').val();
+		/* alert(find); */
+		if(find.trim()=="")
+		 {
+			 $('#find').focus();
+			 return;
+		 }
+		$('#findForm').submit();
+	});
+	/* $('#findRestBtn').click(function(){
+		var find=$('#find').val();
+		alert(find);
+		if(find.trim()=="")
+		 {
+			 $('#find').focus();
+			 return;
+		 }
+		$('#findForm').submit();
+	}); */
+});
+</script>
 <!--mdl css-->
 <link rel="stylesheet"
    href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
@@ -48,22 +72,22 @@ CSS Global Compulsory
          꼼꼼한 플라밍GO 회원들이 선택한 가성비 높은 숙소들을 살펴보세요!
       </h2>
       <div style="padding-left: 500px;">
-         <input type="text" id="autoc" name="slpcityname"
-            placeholder="어느 도시의 숙소를 찾고 계신가요?"
-            style="width: 50%; height: 40px; font-size: 17pt">
-         
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Hotel</button>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Restaurant</button>
-
+      	<form method="post" action="find_recomm.do" id="findForm">
+         <input type="text" id="find" name=find
+            placeholder="어느 도시의 정보를 찾고 계신가요?"
+            style="width: 50%; height: 40px; font-size: 17pt">  
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="findBtn">찾기</button>
+			<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="findRestBtn">Restaurant</button> -->
+		</form>
       </div>
    </div>
    
    <br>
 
-   <div class="col-md-2 col-sm-6">
+<!--    <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">프랑스/영국</h3>
       <ul class="list-unstyled style-list">
-         <li><a href="hot_stay.do?srcserial=111011004"><img
+         <li><a href="hot_stay.do?find="파리"><img
                src="http://www.stubbyplanner.com/images/is/flag/11101_s.gif">
                파리</a></li>
          <li><a href="hot_stay.do"><img
@@ -101,7 +125,7 @@ CSS Global Compulsory
                src="http://www.stubbyplanner.com/images/is/flag/11103_s.gif">
                옥스퍼드</a></li>
 
-         <!-- <li><a href="hot_stay.do"><img
+         <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11108_s.gif">
                브뤼셀</a></li>
          <li><a href="hot_stay.do"><img
@@ -112,11 +136,11 @@ CSS Global Compulsory
                암스테르담</a></li>
          <li><a href="hot_stay.do"><img
                src="http://www.stubbyplanner.com/images/is/flag/11110_s.gif">
-               더블린</a></li> -->
+               더블린</a></li>
       </ul>
-   </div>
+   </div> -->
 
-   <div class="col-md-2 col-sm-6">
+<!--    <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">이태리/스위스</h3>
       <ul class="list-unstyled style-list">
          <li><a href="/slp/index.asp?srcserial=111041004"><img
@@ -156,7 +180,7 @@ CSS Global Compulsory
          <li><a href="/slp/index.asp?srcserial=111021005"><img
                src="http://www.stubbyplanner.com/images/is/flag/11102_s.gif">
                취리히</a></li>
-         <!-- <li><a href="/slp/index.asp?srcserial=111021015"><img
+         <li><a href="/slp/index.asp?srcserial=111021015"><img
                src="http://www.stubbyplanner.com/images/is/flag/11102_s.gif">
                베른</a></li>
          <li><a href="/slp/index.asp?srcserial=111021007"><img
@@ -164,10 +188,10 @@ CSS Global Compulsory
                그린델발트</a></li>
          <li><a href="/slp/index.asp?srcserial=111021008"><img
                src="http://www.stubbyplanner.com/images/is/flag/11102_s.gif">
-               제네바</a></li> -->
+               제네바</a></li>
       </ul>
-   </div>
-   <div class="col-md-2 col-sm-6">
+   </div> -->
+<!--    <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">독일</h3>
       <ul class="list-unstyled style-list">
          <li><a href="/slp/index.asp?srcserial=111061006"><img
@@ -206,13 +230,13 @@ CSS Global Compulsory
          <li><a href="/slp/index.asp?srcserial=111061016"><img
                src="http://www.stubbyplanner.com/images/is/flag/11106_s.gif">
                함부르크</a></li>
-         <!-- <li><a href="/slp/index.asp?srcserial=111061030"><img
+         <li><a href="/slp/index.asp?srcserial=111061030"><img
                src="http://www.stubbyplanner.com/images/is/flag/11106_s.gif">
-               밤베르크</a></li> -->
+               밤베르크</a></li>
       </ul>
-   </div>
+   </div> -->
 
-   <div class="col-md-2 col-sm-6">
+ <!--   <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">지중해</h3>
       <ul class="list-unstyled style-list">
          <li><a href="/slp/index.asp?srcserial=121011002"><img
@@ -252,7 +276,7 @@ CSS Global Compulsory
          <li><a href="/slp/index.asp?srcserial=121031002"><img
                src="http://www.stubbyplanner.com/images/is/flag/12103_s.gif">
                산토리니</a></li>
-         <!-- <li><a href="/slp/index.asp?srcserial=121021001"><img
+         <li><a href="/slp/index.asp?srcserial=121021001"><img
                src="http://www.stubbyplanner.com/images/is/flag/12102_s.gif">
                리스본</a></li>
          <li><a href="/slp/index.asp?srcserial=121021008"><img
@@ -272,12 +296,12 @@ CSS Global Compulsory
          <li><a href="/slp/index.asp?srcserial=121041035"><img
                src="http://www.stubbyplanner.com/images/is/flag/12104_s.gif">
                샤프란볼루</a></li>
- -->
+
       </ul>
-   </div>
+   </div> -->
 
 
-   <div class="col-md-2 col-sm-6">
+   <!-- <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">동유럽</h3>
       <ul class="list-unstyled style-list">
          <li><a href="/slp/index.asp?srcserial=131011001"><img
@@ -319,7 +343,7 @@ CSS Global Compulsory
                src="http://www.stubbyplanner.com/images/is/flag/13107_s.gif">
                블레드</a></li>
 
-         <!-- <li><a href="/slp/index.asp?srcserial=131061001"><img
+         <li><a href="/slp/index.asp?srcserial=131061001"><img
                src="http://www.stubbyplanner.com/images/is/flag/13106_s.gif">
                두브로브니크</a></li>
          <li><a href="/slp/index.asp?srcserial=131061002"><img
@@ -336,13 +360,13 @@ CSS Global Compulsory
                자다르</a></li>
          <li><a href="/slp/index.asp?srcserial=131061011"><img
                src="http://www.stubbyplanner.com/images/is/flag/13106_s.gif">
-               흐바르</a></li> -->
+               흐바르</a></li>
 
       </ul>
 
-   </div>
+   </div> -->
 
-   <div class="col-md-2 col-sm-6">
+   <!-- <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">북유럽</h3>
       <ul class="list-unstyled style-list">
          <li><a href="/slp/index.asp?srcserial=141041002"><img
@@ -392,7 +416,7 @@ CSS Global Compulsory
 
       </ul>
 
-   </div>
+   </div> -->
 
 </body>
 </html>
