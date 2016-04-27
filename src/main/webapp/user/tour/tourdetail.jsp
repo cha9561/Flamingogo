@@ -35,7 +35,7 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">¸ù»ý¹Ì¼Ð ½ºÆä¼È ¾ß°æ Åõ¾î! (¼Ò±Ô¸ð/½º³À)
+                <h3 class="page-header">¸ù»ý¹Ì¼Ð ½ºÆä¼È ¾ß°æ Åõ¾î! (¼Ò±Ô¸ð/½º³À) ${count } ${pname }
                     <!--<small>Item Subheading</small>  -->
                 </h3>
             </div>
