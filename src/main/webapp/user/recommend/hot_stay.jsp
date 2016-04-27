@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,101 +25,37 @@
 
 <body class="header-fixed" >
 
-
-
-	<div class="wrapper">
-
-		<div class="header-v5 ">
-
-			<div class="topbar-v3">
-				<!--  <div class="search-open">
-                <div class="container">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="search-close"><i class="icon-close"></i></div>
-                </div>    
-            </div>
- -->
-				<div class="container">
-					<div class="row">
-
-						<!-- <div class="col-sm-6">
-							Topbar Navigation
-							<ul class="left-topbar">
-								<li><a href="/">가자! 플라밍GO</a></li>
-							</ul>
-						</div>
- -->
-
-						<!-- End Topbar v3 -->
-
-						<!-- Navbar -->
-						<div class="navbar navbar-default mega-menu" role="navigation">
-							<div class="container">
-
-								<a class="navbar-brand" href="/"
-									style="padding-left: 0px; padding-right: 0px; margin-left: 10px; margin-right: 60px">
-									<img id="banner" src="image/ban.png" alt="Logo">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	</div>
-
-
-	<div class="tab-v5">
-	<div >
-
-                 <ul class="nav nav-tabs" role="tablist"  >
-                        <li class="active"><a href="index.asp?srcserial=111011003"><h3>전체</h3></a></li>
-
-                        <li ><a href="index.asp?srcserial=111011003&slptype=24"><h3>호텔</h3></a></li>
-                        <li ><a href="index.asp?srcserial=111011003&slptype=22"><h3>호스텔</h3></a></li>
-                        <li ><a href="index.asp?srcserial=111011003&slptype=21"><h3>민박</h3></a></li>
-                    </ul>
-	</div>
 	
-	<div class="clearfix"></div>
-
-	</div>
-
 
 <h4>플라밍GO회원에게 추천하는 숙소들</h4>
 
 	<div class="row" id="wrapper">
 		<div class="col-sm-12 col-md-8">
-
+		  <c:forEach var="vo" items="${list }">
 			<div class="row" style="margin-bottom: 10px;">
 				<div class="col-sm-12 col-md-4">
 					<img
-						src="http://d3b39vpyptsv01.cloudfront.net/photo/1/2/4eb7d8e9a080150d0b1143b54894cdab_m.jpg"
+						src="${vo.img }"
 						class="img-responsive">
 				</div>
 				<div class="col-sm-12 col-md-8">
-
-					<h2>A.Villa Saint Exupery Beach</h2>
-					<h5>5분이면 바다에 도착할 수 있고 역은 10분거리에 위치해 있다. 와이파이가 잘 안잡히는게 단점이다.</h5>
-
+					
+					<h2>${vo.title }</h2>
+					<h4>소개: ${vo.msg }</h4>
+					<h4>review: ${vo.review }</h4>
 					<p align="right" style="padding-top: 15px">
-
-
-						<span class="label label-default">+</span></a>
-						<button
-							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-							<i class="material-icons">위시리스트 추가</i>
-						</button>
+						<!-- Accent-colored raised button with ripple -->
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">상세보기</button>
 						<!-- <a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Villa+Saint+Exupery+Beach&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a> -->
 					</p>
 					<hr>
-
 				</div>
+				
 			</div>
-
-			<div class="row" style="margin-bottom: 10px;">
+		 </c:forEach>
+ 			
+ 	<!-- 		
+ 			<div class="row" style="margin-bottom: 10px;">
 
 				<div class="col-sm-12 col-md-4">
 					<img
@@ -139,7 +75,7 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=Antares+Hostel&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a> -->
+						<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=Antares+Hostel&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a>
 					</p>
 					<hr>
 
@@ -167,7 +103,7 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Hostel+Baccarat&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a> -->
+						<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Hostel+Baccarat&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a>
 					</p>
 					<hr>
 
@@ -192,7 +128,7 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Hostel+Pastoral&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a> -->
+						<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Hostel+Pastoral&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a>
 
 					</p>
 					<hr>
@@ -217,8 +153,8 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="/review/write.asp?region=111011003&spotname=Hostel Meyerbeer Beach&category=slp&spotserial=11101100320015" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=Hostel+Meyerbeer+Beach&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>-->
+						<a href="/review/write.asp?region=111011003&spotname=Hostel Meyerbeer Beach&category=slp&spotserial=11101100320015" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=Hostel+Meyerbeer+Beach&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>
 
 					</p>
 					<hr>
@@ -243,8 +179,8 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="/review/write.asp?region=111011003&spotname=Nice Riviera Sweet Home&category=slp&spotserial=11101100320018" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.nicehomesweethome.com/" target="_blank" class="btn-u btn-u-green">홈페이지</a> -->
+						<a href="/review/write.asp?region=111011003&spotname=Nice Riviera Sweet Home&category=slp&spotserial=11101100320018" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.nicehomesweethome.com/" target="_blank" class="btn-u btn-u-green">홈페이지</a>
 					</p>
 					<hr>
 				</div>
@@ -268,8 +204,8 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="/review/write.asp?region=111011003&spotname=Nice Camelias&category=slp&spotserial=11101100320004" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Nice+Camelias&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a> -->
+						<a href="/review/write.asp?region=111011003&spotname=Nice Camelias&category=slp&spotserial=11101100320004" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Nice+Camelias&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>
 					</p>
 					<hr>
 				</div>
@@ -293,8 +229,8 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="/review/write.asp?region=111011003&spotname=Saint Gothard&category=slp&spotserial=11101100320009" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Saint+Gothard&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a> -->
+						<a href="/review/write.asp?region=111011003&spotname=Saint Gothard&category=slp&spotserial=11101100320009" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Saint+Gothard&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>
 					</p>
 					<hr>
 				</div>
@@ -319,8 +255,8 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- <a href="/review/write.asp?region=111011003&spotname=Premiere Classe Nice-Promenade des Anglais&category=slp&spotserial=11101100320007" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Premiere+Classe+Nice%2DPromenade+des+Anglais&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a> -->
+						<a href="/review/write.asp?region=111011003&spotname=Premiere Classe Nice-Promenade des Anglais&category=slp&spotserial=11101100320007" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Premiere+Classe+Nice%2DPromenade+des+Anglais&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>
 					</p>
 					<hr>
 				</div>
@@ -344,16 +280,16 @@
 							class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 							<i class="material-icons">위시리스트 추가</i>
 						</button>
-						<!-- 	<a href="/review/write.asp?region=111011003&spotname=HOSTEL SMITH&category=slp&spotserial=11101100320017" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
-		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=HOSTEL+SMITH&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a> -->
+							<a href="/review/write.asp?region=111011003&spotname=HOSTEL SMITH&category=slp&spotserial=11101100320017" class="btn-u btn-u-default">리뷰쓰기 <span class="label label-default">+50마일</span></a>
+		<a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick&ss=HOSTEL+SMITH&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">실시간 가격확인/예약</a>
 
 					</p>
 					<hr>
 				</div>
-			</div>
+			</div> 
 		</div>
 	</div>
-	
+	 -->
 
 </body>
 </html> 
