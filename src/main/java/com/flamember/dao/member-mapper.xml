@@ -3,11 +3,11 @@
 <mapper namespace="com.flamember.dao.member-mapper">
 	<!-- ID 체크 -->
 	<select id="memberIdCount" resultType="int" parameterType="String"> <!-- 아이디가 들어가고 몇갠지 세어져서 나오니..  -->
-		SELECT COUNT(*) FROM member
+		SELECT COUNT(*) FROM userinform
 		WHERE id=#{id}
 		</select>
 	<select id="memberGetPwd" resultType="Member" parameterType="String">
-		SELECT pwd,name,admin FROM member
+		SELECT pwd,name,admin FROM userinform
 		WHERE id=#{id}
 	</select> 
 	
