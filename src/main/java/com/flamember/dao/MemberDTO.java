@@ -14,35 +14,35 @@ REGDATE
  */
 import java.util.*;
 public class MemberDTO {
-  private String id;
-  private String pwd;
-  private String name;
-  private String sex;
-  private String birth;
-  private String tel;
-  private String post;
-  private String addr1;
-  private String addr2;
-  private Date regdate;
-  private int logcount;
-  private String tel1;
-  private String tel2;
-  private String tel3;
-  private String post1;
-  private String post2;
-  public int getAdmin_no() {
-	return admin_no;
-}
-public void setAdmin_no(int admin_no) {
-	this.admin_no = admin_no;
-}
-private int admin_no;
-public void setTel(String tel) {
-	this.tel = tel;
-}
-public void setPost(String post) {
-	this.post = post;
-}
+	private String id;
+	private String pwd;
+	private String name;
+	private String sex;
+	private String birth;
+	private String tel;
+	private String post;
+	private String addr1;
+	private String addr2;
+	private Date regdate;
+	private int logcount;
+	private String tel1;
+	private String tel2;
+	private String tel3;
+	private String post1;
+	private String post2;
+	private int admin_no;
+	public int getAdmin_no() {
+		return admin_no;
+	}
+	public void setAdmin_no(int admin_no) {
+		this.admin_no = admin_no;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public void setPost(String post) {
+		this.post = post;
+	}
 	public String getId() {
 		return id;
 	}
@@ -133,8 +133,8 @@ public void setPost(String post) {
 	public String getPost() {
 		return post1+"-"+post2;
 	}
-	  
-  
+
+
 }
 
 
