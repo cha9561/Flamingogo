@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.mongodb.DBAddress;
+
 public class MemberDAO {
 	private static SqlSessionFactory ssf;
 	static
@@ -26,14 +28,20 @@ public class MemberDAO {
 	{
 		String result="";
 		SqlSession session=ssf.openSession();//Ä¿³Ø¼Ç °¡Á®¿È
+		System.out.println("id:"+id+"pwd :"+pwd);
 		int count=session.selectOne("memberIdCount",id);
+		System.out.println("count :"+count);
 		if(count==0)
 		{
 			result="NOID";
 		}
 		else
 		{
+			System.out.println("memberLogin");
 			MemberDTO d=session.selectOne("memberGetPwd",id);
+			//MemberDTO d=session.select
+			System.out.println("zz");
+			System.out.println("Get:"+d.getPwd());
 			if(pwd.equals(d.getPwd()))
 			{
 				result=d.getName()+"|"+d.getAdmin_no();

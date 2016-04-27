@@ -7,7 +7,11 @@
 		WHERE id=#{id}
 		</select>
 	<select id="memberGetPwd" resultType="Member" parameterType="String">
+<<<<<<< HEAD
 		SELECT pwd,name,admin_no FROM userinform
+=======
+		SELECT pwd,name,admin FROM userinform
+>>>>>>> refs/remotes/origin/master
 		WHERE id=#{id}
 	</select> 
 	
