@@ -172,7 +172,7 @@ Shadowbox.init({
 									<tr>
 						             <td colspan="2" align=center>
 						              <input type="submit" value="가입" id="joinBtn">
-						              <input type="button" value="취소" onclick="javascript:history.back()">
+						              <input type="button" value="취소" onclick="">
 						               </td>
            							</tr>
          </table>
