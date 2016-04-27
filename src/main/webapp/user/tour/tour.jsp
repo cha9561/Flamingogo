@@ -39,7 +39,8 @@
 	</p>
        <div class="row">
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="detail.do"><img width="95%"  src="user/tour/img/p1.jpg" alt=""></a>
+           		<img width="95%"  src="user/tour/img/p1.jpg" alt="¸ù»ø¹Ì¼Ð ¾ß°æ º¥Åõ¾î">
+           		<a href="detail.do?pno=1"><center>¸ù»ø¹Ì¼Ð ¾ß°æ º¥Åõ¾î</center></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
            		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="user/tour/img/p2.jpg" alt=""></a>
