@@ -30,12 +30,12 @@ public class MemberDTO {
   private String tel3;
   private String post1;
   private String post2;
-  private int admin;
-	public int getAdmin() {
-	return admin;
+  private int admin_no;
+	public int getAdmin_no() {
+	return admin_no;
 }
-public void setAdmin(int admin) {
-	this.admin = admin;
+public void setAdmin_no(int admin_no) {
+	this.admin_no = admin_no;
 }
 public void setTel(String tel) {
 	this.tel = tel;
