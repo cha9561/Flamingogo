@@ -46,7 +46,7 @@ public class MemberDAO {
 			System.out.println("Get:"+d.getPwd());
 			if(pwd.equals(d.getPwd()))
 			{
-				result=d.getName()+"|"+d.getAdmin();
+				result=d.getName()+"|"+d.getAdmin_no();
 			}else{
 				result="NOPWD";
 			}
