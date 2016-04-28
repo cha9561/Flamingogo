@@ -7,4 +7,14 @@
 	<select id="tourCategory" resultType="String">
 	 SELECT category FROM product
 	</select>
+	<sql id="info">
+	  SELECT pno,pic FROM product
+	</sql>
+	<select id="tourList" resultType="Tour">
+		<include refid="info"/>
+	</select>
+	<select id="categoryList" resultType="Tour" parameterType="String">
+		<include refid="info"/>
+		WHERE category=#{category}
+	</select>
 </mapper>
