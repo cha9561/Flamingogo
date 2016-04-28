@@ -32,6 +32,7 @@
 <body>
 	<!-- Page Content -->
     <div class="container" style="margin-top:50px">
+    
 	<p style="text-align:left"><img src="user/tour/img/france.gif"> ÇÁ¶û½º 
 	<a href="ctour.do">
 	<button class="mdl-button mdl-js-button mdl-button--raised">´õº¸±â</button>
@@ -43,10 +44,10 @@
            		<a href="detail.do?pno=1"><center>¸ù»ø¹Ì¼Ð ¾ß°æ º¥Åõ¾î</center></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="user/tour/img/p2.jpg" alt=""></a>
+           		<a href="detail.do?pno=2"><img width="95%" src="user/tour/img/p2.jpg" alt=""></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="user/tour/img/p3.jpg" alt=""></a>
+           		<a href="detail.do?pno=3"><img width="95%" src="user/tour/img/p3.jpg" alt=""></a>
             </div>
             <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
            		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="user/tour/img/p4.jpg" alt=""></a>
