@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,25 +33,20 @@
 <body>
 	<!-- Page Content -->
     <div class="container" style="margin-top:50px">
+    
 	<p style="text-align:left"><img src="user/tour/img/france.gif"> ÇÁ¶û½º 
-	<a href="ctour.do">
+	<a href="ctour.do?category=ÇÁ¶û½º">
 	<button class="mdl-button mdl-js-button mdl-button--raised">´õº¸±â</button>
 	</a>
 	</p>
        <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<img width="95%"  src="user/tour/img/p1.jpg" alt="¸ù»ø¹Ì¼Ð ¾ß°æ º¥Åõ¾î">
-           		<a href="detail.do?pno=1"><center>¸ù»ø¹Ì¼Ð ¾ß°æ º¥Åõ¾î</center></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="user/tour/img/p2.jpg" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="user/tour/img/p3.jpg" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="user/tour/img/p4.jpg" alt=""></a>
-            </div>
+       <c:forEach var="vo" items="${list }">
+	       <c:if test="${(vo.pno>0 && vo.pno<5)}">
+	       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+	       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+	       	</div>
+	       </c:if>
+       </c:forEach>
 	</div>
 	<hr/>
 	
@@ -59,19 +55,14 @@
 	<button class="mdl-button mdl-js-button mdl-button--raised">´õº¸±â</button></a>
 	</p>
        <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041029"><img width="95%"  src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-	</div>
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>10 && vo.pno<15)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
+	   </div>
 	<hr/>
 	
 	<p style="text-align:left"><img src="user/tour/img/spain.gif"> ½ºÆäÀÎ

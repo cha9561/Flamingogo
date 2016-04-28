@@ -35,8 +35,8 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">¸ù»ý¹Ì¼Ð ½ºÆä¼È ¾ß°æ Åõ¾î! (¼Ò±Ô¸ð/½º³À) ${count } ${pname }
-                    <!--<small>Item Subheading</small>  -->
+                <h3 class="page-header">¸ù»ý¹Ì¼Ð ½ºÆä¼È ¾ß°æ Åõ¾î! (¼Ò±Ô¸ð/½º³À) ${vo.pname}                 
+                <!--<small>Item Subheading</small>  -->
                 </h3>
             </div>
         </div>
@@ -90,6 +90,9 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="reserve.jsp">
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">¿¹¾àÇÏ±â</button></a>
+			
+
+				
 			</p>
 			</div>
         </div>
