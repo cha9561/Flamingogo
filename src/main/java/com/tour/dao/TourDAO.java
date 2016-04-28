@@ -24,7 +24,8 @@ public class TourDAO {
     public static ProductVO tourContent2(int pno)
     {
     	SqlSession session=ssf.openSession();
-    	ProductVO vo=session.selectOne("tourContent", pno);
+    	ProductVO vo=session.selectOne("tourContent2", pno);
+    	System.out.println("pname"+vo.getPname());
     	session.close();
     	return vo;
     }

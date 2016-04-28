@@ -11,7 +11,7 @@
 		FROM product
 		WHERE pno=#{pno}
 	</select>
-	<select id="tourCount" resultType="int" parameterType="String">
+	<select id="tourCount" resultType="int">
 		SELECT COUNT(*) FROM product
 	</select>
 </mapper>
