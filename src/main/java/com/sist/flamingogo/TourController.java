@@ -16,12 +16,21 @@ public class TourController {
 	@RequestMapping("tour.do")
 	public String tour(HttpServletRequest req)
 	{
+		List<TourVO> list=TourDAO.tourList();
+		
+		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../tour/tour.jsp");
 		return "user/main/main.jsp";
 	}
 	@RequestMapping("ctour.do")
-	public String ctour(HttpServletRequest req)
+	public String ctour(HttpServletRequest req) throws Exception
 	{
+		req.setCharacterEncoding("UTF-8");
+		String category=req.getParameter("category");
+		System.out.println("category:"+category);
+		List<TourVO> list=TourDAO.categoryList(category);
+		System.out.println("list:"+list);
+		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../tour/ctour.jsp");
 		return "user/main/main.jsp";
 	}
