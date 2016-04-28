@@ -55,4 +55,13 @@ public class MemberDAO {
 	}
 	//auto커밋은 수정, 업데이트, 딜리트 일때 꼭 날려줘야함 -> sqlSession session=ssf.openSession(true);
 	//select인 경우 -> sqlSession=ssf.openSession();  //true, false가 이렇게 있으면 close() 해주고 다시 생성해줘야 함.
+	public static int memberIdCheck(String id)
+	{
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("memberIdCount",id);
+		session.close();
+		return count;
+	}
+
+	
 }

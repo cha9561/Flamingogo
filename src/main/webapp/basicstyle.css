@@ -90,6 +90,12 @@ article:hover .txt strong { color:#fff;}
 	padding-top:1px;
 }
 
+.memberBtn
+{
+	float:right;
+	position:relative;
+
+}
 
 @media screen and (min-width:1280px) and (max-width:1599px) {  
 	

@@ -55,12 +55,29 @@ public class MemberController {
 		return "user/main/user/logout.jsp";
 	}
 	
-	@RequestMapping("join.do")
-	public String memberJoin(HttpServletRequest req)
+	@RequestMapping("idcheck_ok.do")
+	public String memberIdCheck(HttpServletRequest req)
 	{
+		System.out.println("확인");
+		String id=req.getParameter("id");
+		int count=MemberDAO.memberIdCheck(id);
+		req.setAttribute("count",count);
+		
+		return "user/main/user/idcheck_ok.jsp";
+	}
+	
+	/*@RequestMapping("join_ok.do")
+	public String memberJoin(HttpServletRequest req) throws Exception
+	{
+		System.out.println("회원가입 폼 넘기기 확인");
+		
+		req.setCharacterEncoding("EUC-KR");
+		//String name=
+		
+		
 		System.out.println("joinpage");
 		req.setAttribute("jsp", "../main/user.jsp");
 		return "user/main/main.jsp";
 	}
-	
+	*/
 }
