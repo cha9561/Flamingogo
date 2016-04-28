@@ -1,10 +1,16 @@
 package com.sist.flamingogo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.tour.dao.*;
+
+
 @Controller("tc")
 public class TourController {
 	@RequestMapping("tour.do")
@@ -24,15 +30,22 @@ public class TourController {
 	{
 		String pno=req.getParameter("pno");
 		
-		int count=TourDAO.tourCount();
-		//ProductVO vo=TourDAO.tourContent2(Integer.parseInt(pno));
+		TourVO vo=TourDAO.tourContent(Integer.parseInt(pno));
 		
-		String pname=TourDAO.tourContent(Integer.parseInt(pno));		
-		System.out.println("pname"+pname);
-		System.out.println("count:"+count);
-		//req.setAttribute("vo", vo);
-		req.setAttribute("pname", pname);
-		req.setAttribute("count", count);
+		List<String> list=TourDAO.tourCategory();
+		System.out.println("list:"+list);
+		/*StringTokenizer st=new StringTokenizer(category, ",");
+		while(st.hasMoreTokens())
+    	{
+			list.add(st.nextToken());
+    	}
+		List<String> list=new ArrayList<String>();
+		for(List<String> list:list)
+    	{
+		   System.out.println("list:"+no);
+    	}*/
+		req.setAttribute("list", list);
+		req.setAttribute("vo", vo);
 		req.setAttribute("jsp", "../tour/tourdetail.jsp");
 		return "user/main/main.jsp";
 	}
