@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
-
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-    <meta charset="EUC-KR">
+    <meta charset="utf-8">
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
@@ -21,7 +19,7 @@ function addSpot(spotname,spotserial,lat,lng,imgurl,a,b)
 <style>
 a,b,div,td,p
 {
-	font-family:'µ¸¿ò'
+	font-family:'ë‹ì›€'
 }
 td, b
 {
@@ -42,8 +40,8 @@ a img{
 <tr>
 
 <td valign="top" width="75" align="center">
-	<a  href="javascript:parent.openGuideBook('111021005','Ãë¸®È÷')"><img border=0 src="http://static.flickr.com/62/184685094_043aa87a21_s.jpg" width="75"></a>
-	<div style="background:#353535;width:75px;height:15px;padding-top:5px;"><a  href="javascript:parent.openGuideBook('111021005','Ãë¸®È÷')"><font style="color:#ffffff;font-size:9pt;">°¡ÀÌµåºÏ</font></a></div>
+	<a  href="javascript:parent.openGuideBook('121021001','ë¦¬ìŠ¤ë³¸')"><img border=0 src="http://static.flickr.com/41/82196007_3f6bfddbae_s.jpg" width="75"></a>
+	<div style="background:#353535;width:75px;height:15px;padding-top:5px;"><a  href="javascript:parent.openGuideBook('121021001','ë¦¬ìŠ¤ë³¸')"><font style="color:#ffffff;font-size:9pt;">ê°€ì´ë“œë¶</font></a></div>
 </td>
 
 	<td width="10px">&nbsp;</td>
@@ -53,23 +51,18 @@ a img{
 
 <table  cellpadding="0">
 <tr><td height="20px">
-	<a  href="javascript:parent.openGuideBook('111021005','Ãë¸®È÷')"><img border="0" src="http://www.stubbyplanner.com/images/is/flag/11102_s.gif"> <b>Ãë¸®È÷</b></a>
+	<a  href="javascript:parent.openGuideBook('121021001','ë¦¬ìŠ¤ë³¸')"><img border="0" src="http://www.stubbyplanner.com/images/is/flag/12102_s.gif"> <b>ë¦¬ìŠ¤ë³¸</b></a>
 </td></tr>
 
-<tr><td>¾Æ¸§´Ù¿î ÀÚ¿¬°æ°üÀ» °¡Áø ±¹Á¦ ±İÀ¶ÀÇ Áß½ÉÁö.</td></tr>
+<tr><td>í¬ë¥´íˆ¬ì¹¼ì˜ ìˆ˜ë„.ë²¨ë ˜ì˜ íƒ‘ì´ ìœ ëª…í•˜ë‹¤.</td></tr>
 
-<tr><td align="left" height="25px" valign="bottom"><font style="font-size:8pt" color="#C0C0C0">½ºÀ§½º3À§ </font></td></tr>
+<tr><td align="left" height="25px" valign="bottom"><font style="font-size:8pt" color="#C0C0C0">í¬ë¥´íˆ¬ê°ˆ1ìœ„ </font></td></tr>
 </table>
 </td>
 
-<td width="40px"><a href="javascript:addCity('Ãë¸®È÷','111021005','47.3691175247919','8.53817939758301','1','30|64|7|2|0');" title="ÀÌ µµ½Ã¸¦ ³» ·çÆ®¿¡ Ãß°¡"><img src="http://www.stubbyplanner.com/img_v8/Btn_AddCity.png"></a></td>
+<td width="40px"><a href="javascript:addCity('ë¦¬ìŠ¤ë³¸','121021001','38.7069460515939','-9.13521766662598','1','3|50|23|18|6');" title="ì´ ë„ì‹œë¥¼ ë‚´ ë£¨íŠ¸ì— ì¶”ê°€"><img src="http://www.stubbyplanner.com/img_v8/Btn_AddCity.png"></a></td>
 </tr>
 </table>
 
-
-<table>
-	<tr><td></td></tr>
-
-</table>
 </body>
 </html>
