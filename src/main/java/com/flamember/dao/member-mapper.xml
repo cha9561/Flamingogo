@@ -11,4 +11,11 @@
 		WHERE id=#{id}
 	</select> 
 	
+	<insert id="memberJoin" parameterType="Member">
+	  	<selectKey keyProperty="id_no" resultType="int" order="BEFORE">
+	  		SELECT NVL(MAX(id_no)+1,1) as id_no FROM userinform
+	  	</selectKey>
+  INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
+  VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0)		     
+	</insert>
 </mapper>

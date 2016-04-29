@@ -63,5 +63,11 @@ public class MemberDAO {
 		return count;
 	}
 
+	public static void memberJoin(MemberDTO vo)
+	{
+		  SqlSession session=ssf.openSession(true);
+		  session.update("memberJoin",vo);
+		  session.close();
+	}
 	
 }
