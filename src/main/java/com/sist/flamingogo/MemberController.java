@@ -1,5 +1,6 @@
 package com.sist.flamingogo;
 
+import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletRequest;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.flamember.dao.MemberDAO;
+import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
@@ -66,18 +68,48 @@ public class MemberController {
 		return "user/main/user/idcheck_ok.jsp";
 	}
 	
-	/*@RequestMapping("join_ok.do")
+	@RequestMapping("join_ok.do")
 	public String memberJoin(HttpServletRequest req) throws Exception
 	{
 		System.out.println("회원가입 폼 넘기기 확인");
 		
 		req.setCharacterEncoding("EUC-KR");
-		//String name=
+		String id=req.getParameter("id");
+		String pwd=req.getParameter("pwd");
+		String name=req.getParameter("name");
+		String sex=req.getParameter("sex");		
+		String birth=req.getParameter("birth");
+		String tel=req.getParameter("tel");
+		String email=req.getParameter("email");
+		System.out.println(id+pwd+name+sex+birth+tel+email);
+		MemberDTO vo=new MemberDTO();
+		vo.setName(name);
+		vo.setId(id);
+		vo.setPwd(pwd);
+		vo.setSex(sex);
+		vo.setBirth(birth);
+		vo.setTel(tel);
+		vo.setEmail(email);
 		
+		MemberDAO.memberJoin(vo);
+		System.out.println("joinok->gomypage");
 		
-		System.out.println("joinpage");
-		req.setAttribute("jsp", "../main/user.jsp");
+		req.setAttribute("id", id);
+		req.setAttribute("jsp", "user/main/user/join_ok.jsp");
 		return "user/main/main.jsp";
 	}
-	*/
+	
+    @RequestMapping("mypage.do")
+    public String mypage(HttpServletRequest req)
+    {
+    	HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	req.setAttribute("jsp","user/my/myDefaultpage.jsp");
+    	
+    	
+    	return "user/main.jsp";
+    }
+    
+    
+	
 }

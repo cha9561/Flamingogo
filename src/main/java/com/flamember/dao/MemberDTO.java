@@ -15,34 +15,69 @@ REGDATE
 import java.util.*;
 public class MemberDTO {
   private String id;
+  private int id_no;
   private String pwd;
   private String name;
   private String sex;
+  private String profile_picture;
   private String birth;
   private String tel;
-  private String post;
-  private String addr1;
-  private String addr2;
+  private String email;
+  private String email1;
+  private String email2;
   private Date regdate;
   private int logcount;
   private String tel1;
   private String tel2;
   private String tel3;
-  private String post1;
-  private String post2;
-  private int admin;
-	public int getAdmin() {
-	return admin;
+  private int admin_no;
+  
+
+  
+public int getId_no() {
+	return id_no;
 }
-public void setAdmin(int admin) {
-	this.admin = admin;
+
+public void setId_no(int id_no) {
+	this.id_no = id_no;
 }
+
+public String getProfile_picture() {
+	return profile_picture;
+}
+
+public void setProfile_picture(String profile_picture) {
+	this.profile_picture = profile_picture;
+}
+
+public String getEmail1() {
+	return email1;
+}
+
+public void setEmail1(String email1) {
+	this.email1 = email1;
+}
+
+public String getEmail2() {
+	return email2;
+}
+
+public void setEmail2(String email2) {
+	this.email2 = email2;
+}
+
+public int getAdmin_no() {
+	return admin_no;
+}
+
+public void setAdmin_no(int admin_no) {
+	this.admin_no = admin_no;
+}
+
 public void setTel(String tel) {
 	this.tel = tel;
 }
-public void setPost(String post) {
-	this.post = post;
-}
+
 	public String getId() {
 		return id;
 	}
@@ -73,18 +108,7 @@ public void setPost(String post) {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -109,31 +133,26 @@ public void setPost(String post) {
 	public void setTel2(String tel2) {
 		this.tel2 = tel2;
 	}
+
 	public String getTel3() {
 		return tel3;
 	}
 	public void setTel3(String tel3) {
 		this.tel3 = tel3;
 	}
-	public String getPost1() {
-		return post1;
-	}
-	public void setPost1(String post1) {
-		this.post1 = post1;
-	}
-	public String getPost2() {
-		return post2;
-	}
-	public void setPost2(String post2) {
-		this.post2 = post2;
-	}
+	
 	public String getTel() {
 		return tel1+"-"+tel2+"-"+tel3;
 	}
-	public String getPost() {
-		return post1+"-"+post2;
+	
+	public String getEmail() {
+		return email1+"@"+email2;
 	}
-	  
+	
+	public void setEmail(String email) {
+			this.email = email;
+		}
+
   
 }
 

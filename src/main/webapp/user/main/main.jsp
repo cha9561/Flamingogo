@@ -47,7 +47,7 @@
 			player:'iframe',
 			width:600,
 			height:500,
-			title:'회원가입'
+			title:''
 		});
 	}
          $(function(){

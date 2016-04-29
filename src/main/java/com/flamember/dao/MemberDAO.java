@@ -38,7 +38,7 @@ public class MemberDAO {
 			MemberDTO d=session.selectOne("memberGetPwd",id);
 			if(pwd.equals(d.getPwd()))
 			{
-				result=d.getName()+"|"+d.getAdmin();
+				result=d.getName()+"|"+d.getAdmin_no();
 			}else{
 				result="NOPWD";
 			}
@@ -57,5 +57,11 @@ public class MemberDAO {
 		return count;
 	}
 
+	public static void memberJoin(MemberDTO vo)
+	{
+		  SqlSession session=ssf.openSession(true);
+		  session.update("memberJoin",vo);
+		  session.close();
+	}
 	
 }

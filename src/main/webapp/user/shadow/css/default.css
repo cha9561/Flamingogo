@@ -239,7 +239,7 @@ select		{	font-family: Dotum,Dotumche,tahoma; font-size:11px;color: #5B5B5B; lin
 #mojor_write {     width : 450px;	margin : 15px;	}
 #mojor_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
 #mojor_write .input_button {	width : 70px;	}
-#mojor_write textarea {	border : 1px solid #000;	}
+#mojor_write textarea {	border : 1px solid #ffffff;	}
 /* 여기까지 명진이가 쓸려고 만든 css입니다.*/
 
 
