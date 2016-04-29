@@ -12,11 +12,72 @@
 	
 	
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<!-- <script type="text/javascript">
+$(function(){
+	sendMessage("POST","tour_info.do", null, tourCallback);
+});
+function tourCallback()
+{
+	if(httpRequest.readyState==4)
+	{
+		if(httpRequest.status==200)
+		{
+			//alert(httpRequest.responseText);
+			$('#tn').html(httpRequest.responseText);
+		}
+	}
+}
+</script> -->
 <body>
-	<center>
-		<h3>예약</h3>
+	<!-- Page Content -->
+    <div class="container" style="margin-top:50px">
+    	
+    	<div class="row" style="margin-top:15px">
+    		<div class="col-md-12">
+    			<p>예약</p>
+    			<hr>
+    		</div>
+    	</div>
+    	
+    	<div class="row" style="margin-top:15px">
+    		<form method="post" action="tour_date.do" id="frm1">
+    		<div class="col-md-3">
+    			<p>예약</p>
+    			<hr>
+    		</div>
+    		<div class="col-md-9">
+    			<p>예약</p>
+    			<hr>
+    		</div>
+    	</div>
+    	
+    	<form method="post" action="reserve.do" id="frm1">
+				<input type="hidden" name="pno" id="pno" value="${vo.pno}">
+				<input type="hidden" name="pname" id="pname" value="${vo.pname}">
+				<input type="hidden" name="category" id="category" value="${vo.category}">
+				<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button>
+			</form>
+    </div>
+		<table>
+		
+		<tr>
+		 <th>
+			<h3>예약</h3>
+		 </th>
+		</tr>
+		
+		<tr>
+			<td id="tn">${vo.pname}</td>
+ 		</tr>
+		
+		<tr>
 			<a href="rinfo.jsp">
 			<button>날짜 선택</button></a>
-	</center>
+		</tr>
+		
+		
+		</table>
 </body>
 </html>

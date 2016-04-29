@@ -37,13 +37,41 @@
 		  	<div class="col-md-12">
 			    <img src="user/tour/img/11101_B.PNG" alt="">
 			    	<hr/>
-				    <div class="row">
+				    <div class="row" style="margin-top:15px">
 				      <div class="col-md-12">
 				      <c:forEach var="vo" items="${list }">
-				      <c:if test="${vo.pno<3 }">
-					    <div class="col-xs-6 col-sm-4"><img src="${vo.pic}" alt=""></div>
-					  	<!-- <div class="col-xs-6 col-md-4"><img src="http://placehold.it/350x300" alt=""></div>
-					  	<div class="col-xs-6 col-md-4"><img src="http://placehold.it/350x300" alt=""></div> -->
+				      <c:if test="${vo.pno<=3 }">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%"></a>
+					    </div>
+					  	</c:if>
+					  </c:forEach>
+					  </div>
+				    </div>
+				    
+				    <div class="row" style="margin-top:15px">
+				      <div class="col-md-12">
+				      <c:forEach var="vo" items="${list }">
+				      <c:if test="${(vo.pno<=6 && vo.pno>3)}">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%"></a>
+					    </div>
+					  	</c:if>
+					  </c:forEach>
+					  </div>
+				    </div>
+				    
+				    <div class="row" style="margin-top:15px">
+				      <div class="col-md-12">
+				      <c:forEach var="vo" items="${list }">
+				      <c:if test="${(vo.pno<=9 && vo.pno>6)}">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%">
+					    </a>
+					    </div>
 					  	</c:if>
 					  </c:forEach>
 					  </div>

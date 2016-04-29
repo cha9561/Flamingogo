@@ -34,37 +34,61 @@ $(function(){
 		$('#frm1').submit();
 	});
 });
-
+$(function(){
+	$('#btn2').click(function(){
+		$('#frm2').submit();
+	});
+});
+$(function(){
+	$('#btn3').click(function(){
+		$('#frm3').submit();
+	});
+});
+$(function(){
+	$('#btn4').click(function(){
+		$('#frm4').submit();
+	});
+});
+$(function(){
+	$('#btn5').click(function(){
+		$('#frm5').submit();
+	});
+});
+$(function(){
+	$('#btn6').click(function(){
+		$('#frm6').submit();
+	});
+});
 </script>  
 </head>
 <body>
 	<!-- Page Content -->
     <div class="container" style="margin-top:50px">
     
-	<!-- <a href="ctour.do?category=프랑스"></a> -->
 	<form method="post" action="ctour.do" id="frm1">
 	<img src="user/tour/img/france.gif"> 프랑스 
 	<input type="hidden" name="category" id="category" value="프랑스">
-	<!-- <p style="padding-top:0px; padding-left:50px;"> </p>-->
 	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">더보기</button>
 	</form>
 	
        <div class="row" style="margin-top:15px">
-       <c:forEach var="vo" items="${list }">
-	       <c:if test="${(vo.pno>0 && vo.pno<5)}">
-	       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-	       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
-	       	</div>
-	       </c:if>
-       </c:forEach>
-	</div>
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>0 && vo.pno<5)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
+	   </div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="user/tour/img/czech.gif"> 체코
-	<a href="ctour.jsp">
-	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
-	</p>
-       <div class="row">
+	<form method="post" action="ctour.do" id="frm2">
+	<img src="user/tour/img/czech.gif"> 체코
+	<input type="hidden" name="category" id="category" value="체코">
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn2">더보기</button>
+	</form>
+	
+       <div class="row" style="margin-top:15px">
 	       <c:forEach var="vo" items="${list }">
 		       <c:if test="${(vo.pno>10 && vo.pno<15)}">
 		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
@@ -72,7 +96,7 @@ $(function(){
 		       	</div>
 		       </c:if>
 	       </c:forEach>
-	   </div>
+	</div>
 	<hr/>
 	
 	<p style="text-align:left"><img src="user/tour/img/spain.gif"> 스페인

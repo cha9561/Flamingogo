@@ -27,9 +27,11 @@ public class TourController {
 	{
 		req.setCharacterEncoding("EUC-KR");
 		String category=req.getParameter("category");
-		System.out.println("category:"+category);
+		System.out.println("카테고리:"+category);
+		
 		List<TourVO> list=TourDAO.categoryList(category);
-		System.out.println("list:"+list);
+		System.out.println("카테고리 리스트:"+list);
+		
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../tour/ctour.jsp");
 		return "user/main/main.jsp";
@@ -41,21 +43,41 @@ public class TourController {
 		
 		TourVO vo=TourDAO.tourContent(Integer.parseInt(pno));
 		
-		List<String> list=TourDAO.tourCategory();
-		System.out.println("list:"+list);
-		/*StringTokenizer st=new StringTokenizer(category, ",");
-		while(st.hasMoreTokens())
-    	{
-			list.add(st.nextToken());
-    	}
-		List<String> list=new ArrayList<String>();
-		for(List<String> list:list)
-    	{
-		   System.out.println("list:"+no);
-    	}*/
-		req.setAttribute("list", list);
 		req.setAttribute("vo", vo);
 		req.setAttribute("jsp", "../tour/tourdetail.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("reserve.do")
+	public String reserve(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+		String pname=req.getParameter("pname");
+		String category=req.getParameter("category");
+		
+		TourVO vo=new TourVO();
+		vo.setPno(Integer.parseInt(pno));
+		vo.setPname(pname);
+		vo.setCategory(category);
+		
+		req.setAttribute("vo", vo);
+		req.setAttribute("jsp", "../tour/reserve.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("tour_date.do")
+	public String tour_date(HttpServletRequest req)
+	{
+		
+		
+		req.setAttribute("jsp", "../tour/reserve.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("tour_info.do")
+	public String tour_info(HttpServletRequest req)
+	{
+		
+		
+		req.setAttribute("jsp", "../tour/reserve.jsp");
 		return "user/main/main.jsp";
 	}
 }

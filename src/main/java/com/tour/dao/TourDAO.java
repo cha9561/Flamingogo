@@ -25,6 +25,16 @@ public class TourDAO {
 	
 	public static TourVO tourContent(int pno)
 	{
+		try{
+		SqlSession session=ssf.openSession();
+		TourVO vo=session.selectOne("tourContent",pno);
+		session.close();
+		
+		return vo;
+		}catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
 		SqlSession session=ssf.openSession();
 		TourVO vo=session.selectOne("tourContent",pno);
 		session.close();
