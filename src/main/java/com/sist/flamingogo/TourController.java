@@ -25,7 +25,7 @@ public class TourController {
 	@RequestMapping("ctour.do")
 	public String ctour(HttpServletRequest req) throws Exception
 	{
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("EUC-KR");
 		String category=req.getParameter("category");
 		System.out.println("category:"+category);
 		List<TourVO> list=TourDAO.categoryList(category);

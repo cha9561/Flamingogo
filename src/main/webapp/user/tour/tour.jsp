@@ -28,18 +28,28 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+<script type="text/javascript">
+$(function(){
+	$('#btn1').click(function(){
+		$('#frm1').submit();
+	});
+});
+
+</script>  
 </head>
 <body>
 	<!-- Page Content -->
     <div class="container" style="margin-top:50px">
     
-	<p style="text-align:left"><img src="user/tour/img/france.gif"> ÇÁ¶û½º 
-	<a href="ctour.do?category=ÇÁ¶û½º">
-	<button class="mdl-button mdl-js-button mdl-button--raised">´õº¸±â</button>
-	</a>
-	</p>
-       <div class="row">
+	<!-- <a href="ctour.do?category=ÇÁ¶û½º"></a> -->
+	<form method="post" action="ctour.do" id="frm1">
+	<img src="user/tour/img/france.gif"> ÇÁ¶û½º 
+	<input type="hidden" name="category" id="category" value="ÇÁ¶û½º">
+	<!-- <p style="padding-top:0px; padding-left:50px;"> </p>-->
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">´õº¸±â</button>
+	</form>
+	
+       <div class="row" style="margin-top:15px">
        <c:forEach var="vo" items="${list }">
 	       <c:if test="${(vo.pno>0 && vo.pno<5)}">
 	       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
