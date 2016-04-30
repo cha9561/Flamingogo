@@ -140,48 +140,133 @@
 	}
 
 	// 드롭 마커 보기
-	function viewMarker() {
-		if (startLat) {
-			$
-					.ajax({
-						type : "GET",
-						url : "js/marker.js",
-						beforeSend : function() {
-							fnRemoveMarker(); // 조회 전 기존 마커 제거
-						},
-						success : function(json) {
+	var stockholm = new google.maps.LatLng(48.859, 2.342);
 
-							var markerList = $.parseJSON(json);
-							var listLen = markerList.length;
-							for (var i = 0; i < listLen; i++) {
-								if (parseFloat(startLat) <= parseFloat(markerList[i].lat)
-										&& parseFloat(startLng) <= parseFloat(markerList[i].lng)
-										&& parseFloat(endLat) >= parseFloat(markerList[i].lat)
-										&& parseFloat(endLng) >= parseFloat(markerList[i].lng)) {
-									var marker = new google.maps.Marker({
-										position : new google.maps.LatLng(
-												markerList[i].lat,
-												markerList[i].lng),
-										map : map,
-										draggable : false,
-										icon : markerList[i].icon,
-										html : markerList[i].cont
-									});
-									markers.push(marker);
-									var infowindow = new google.maps.InfoWindow()
-									var contentString = '<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="planner_step1_infowindow.asp?lastcity=&lang=ko&s='+R[0]+'"></iframe>'; 
-									google.maps.event.addListener(marker,
-											"click", function() {
-												infowindow.setContent(this.html);
-												
-												infowindow.open(map, this);
-											});
-								}
-							}
+  var marker;
+  var map;
+  var allMarkers = [];
+  var myMarkers=[];
+  var recommMarkers=[];
+  var prv_infowindow;
+
+function resized()
+{
+	newMapHeight=eval($(window).height())-81;
+	newRouteHeight=eval($(window).height())-225;
+	newHighlightHeight=eval($(window).height())-230;
+
+	$("#map_container").css("height",newMapHeight+4);
+	$("#map_canvas").css("height",newMapHeight);
+	$("#highlight").css("height",newHighlightHeight);
+	$("#btn_map_toggle").css("top",(newMapHeight+2)*-1);
+
+	var is_chrome = window.chrome;
+	var bias=137;
+	if(!is_chrome)
+		var bias=138;
+
+//	$("#city_list").css("top",(newMapHeight+bias)*-1);
+//	$("#city_list").css("height",newMapHeight);
+//	$("#if_citylist").css("height",newMapHeight);
+	$("#cityroute").css("height",newMapHeight-153);
+}
+var isfirst=true;
+function initialize() {
+	
+	resized();
+
+
+	var mapOptions = {
+	      zoom: 4,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP,
+	      center: stockholm,
+	      streetViewControl: false,
+	  mapTypeControl: true,
+	  mapTypeControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	      panControl: true,
+	  panControlOptions: {
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	      zoomControl: true,
+	    zoomControlOptions: {
+	        style: google.maps.ZoomControlStyle.SMALL,
+	        position: google.maps.ControlPosition.RIGHT_TOP
+	    },
+	      scaleControl: true
+	};
+ 
+ 	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	google.maps.event.addListener(map, 'tilesloaded', function() {
+		
+		SWlongitude=map.getBounds().getSouthWest().lng();
+		SWlatitude=map.getBounds().getSouthWest().lat();
+		NElongitude=map.getBounds().getNorthEast().lng();
+		NElatitude=map.getBounds().getNorthEast().lat();
+		zoomLevel=map.getZoom();
+		
+		$.ajax({
+			type:"GET",
+			  url:"../../js/marker.js",
+			  data: {
+				lang:"ko",
+				SMKey:SWlongitude+"|"+zoomLevel,
+				SiteType:"city",
+				SWlongitude:SWlongitude,
+				SWlatitude:SWlatitude,
+				NElongitude:NElongitude,
+				NElatitude:NElatitude,
+				zoomLevel:zoomLevel
+			  },
+			  success: function(json) {
+
+				var strv = data;
+				if(strv!=null)
+				{
+
+					clearMarkers();
+
+					var RcvData=decodeURIComponent(strv).replace(/\+/g, ' ');
+					var MarkerA=RcvData.split("@");	
+
+					for(i=0;i<MarkerA.length-1;i++) //0:serial,1:markerName,2:longitude,3:latitude,4:taxSerial,5:SiteLevel,6:sitetax,7:sitename_eng
+					{
+						var R=MarkerA[i+1].split("#");
+						
+						var imgurl="http://www.stubbyplanner.com/img_v8/selectcityICON_red.png";
+//						var imgurl = "http://www.stubbyplanner.com/images/is/flag/"+R[0].substring(0,5)+"_s.gif";
+
+						var title = R[1];
+						var zIdx= 10/(eval(R[5])+1);
+						
+						var posn = new google.maps.LatLng(R[3],R[2]);
+						var marker = createMarker(posn,R[0], title, imgurl,zIdx);
+						marker.setMap(map);
+						allMarkers.push(marker);
+
+						if(isfirst)
+						{
+				
+							infowindow = new google.maps.InfoWindow();
+							thtml='<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="planner_step1_infowindow.asp?lastcity=&lang=ko&s='+R[0]+'"></iframe>';
+							infowindow.setContent(thtml);
+							infowindow.open(map,marker);
+							prv_infowindow=infowindow;
+							
+							showIntro();
+							
+							isfirst=false;
 						}
-					});
-		}
-	}
+
+
+
+					}
+
+		  		}
+			}
+		});
+	  });
 
 	// 마커 제거 함수
 	function fnRemoveMarker() {
