@@ -65,9 +65,12 @@ public class MemberDAO {
 
 	public static void memberJoin(MemberDTO vo)
 	{
+			System.out.println("memberJoin-"+vo.getTel());
 		  SqlSession session=ssf.openSession(true);
-		  session.update("memberJoin",vo);
+		  session.insert("memberJoin",vo);
+		  System.out.println("memberJoin2-"+vo.getName());
 		  session.close();
+
 	}
 	
 }

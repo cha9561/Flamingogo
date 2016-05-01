@@ -79,19 +79,25 @@ public class MemberController {
 		String name=req.getParameter("name");
 		String sex=req.getParameter("sex");		
 		String birth=req.getParameter("birth");
-		String tel=req.getParameter("tel");
-		String email=req.getParameter("email");
-		System.out.println(id+pwd+name+sex+birth+tel+email);
+		String tel1=req.getParameter("tel1");
+		String tel2=req.getParameter("tel2");
+		String tel3=req.getParameter("tel3");
+		String email1=req.getParameter("email1");
+		String email2=req.getParameter("email2");
+		
 		MemberDTO vo=new MemberDTO();
 		vo.setName(name);
 		vo.setId(id);
 		vo.setPwd(pwd);
 		vo.setSex(sex);
 		vo.setBirth(birth);
-		vo.setTel(tel);
-		vo.setEmail(email);
+	
+		vo.setTel(tel1+"-"+tel2+"-"+tel3);
 		
+		vo.setEmail(email1+"@"+email2);
+		System.out.println("ÀÌ¸§"+vo.getName());
 		MemberDAO.memberJoin(vo);
+		
 		System.out.println("joinok->gomypage");
 		
 		req.setAttribute("id", id);
@@ -103,13 +109,19 @@ public class MemberController {
     public String mypage(HttpServletRequest req)
     {
     	HttpSession session=req.getSession();
-    	String id=(String)session.getAttribute("id");
-    	req.setAttribute("jsp","user/my/myDefaultpage.jsp");
+    	req.setAttribute("jsp","user/main/myDefaultpage.jsp");
     	
     	
     	return "user/main.jsp";
     }
     
+	@RequestMapping("join.do")
+	public String join(HttpServletRequest req)
+	{
+		System.out.println("join");
+		req.setAttribute("jsp", "user/join.jsp");
+		return "user/main/main.jsp";
+	}
     
 	
 }
