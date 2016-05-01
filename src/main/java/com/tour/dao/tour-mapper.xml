@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tour.dao.tour-mapper">
-	<select id="tourContent" resultType="String" parameterType="int">
-		SELECT pname
-		FROM product
-		WHERE pno=#{pno}
+	<select id="tourContent" resultType="Tour" parameterType="int">
+		SELECT pname,psubname,category,course,time,info,price,pic FROM product WHERE pno=#{pno}
 	</select>
-	<select id="tourContent2" resultType="Product" parameterType="int">
-		SELECT pname,psubname,category,course,time,info,price
-		FROM product
-		WHERE pno=#{pno}
+	<select id="tourCategory" resultType="String">
+	 SELECT category FROM product
 	</select>
-	<select id="tourCount" resultType="int" parameterType="String">
+<!-- 
+	<select id="tourCount" resultType="int">
 		SELECT COUNT(*) FROM product
+ -->
+	<sql id="info">
+	  SELECT pno,pic FROM product
+	</sql>
+	<select id="tourList" resultType="Tour">
+		<include refid="info"/>
+	</select>
+	<select id="categoryList" resultType="Tour" parameterType="String">
+		<include refid="info"/>
+		WHERE category=#{category}
 	</select>
 </mapper>
