@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.recommend.dao.recomm-mapper">
+	<select id="cityCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM rcity
+		WHERE name=#{city}
+	</select>
+	<select id="findCityInform" resultType="Reco" parameterType="String">
+	SELECT stay,rest FROM rcity
+	WHERE name=#{city}
+	</select>
+</mapper>

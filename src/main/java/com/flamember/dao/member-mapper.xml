@@ -18,4 +18,8 @@
   INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
   VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0)		     
 	</insert>
+	<!-- <select id="findStay" resultType="int" parameterType="String">
+	SELECT COUNT(*) FROM rcity
+	WHERE name=#{name}
+	</select> -->
 </mapper>

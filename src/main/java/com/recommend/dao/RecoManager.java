@@ -13,48 +13,40 @@ import java.io.*;
 import java.net.*;
 public class RecoManager {
 	
-	Map<String, String> stay_map=new HashMap<String, String>();
-	Map<String, String> rest_map=new HashMap<String, String>();
-	
-	public RecoManager()
-	{
-		stay_map.put("니스", "111011003");
-		stay_map.put("파리", "111011004");
-		stay_map.put("아비뇽", "111011005");
-	}
 	public List<StayVO> StayAllData(String city)
 	{
 		List<StayVO> hlist=new ArrayList<StayVO>();
-		String serial=(String)stay_map.get(city);
-		if(serial==null)
-			return null;
-		System.out.println("StayAllData serial:"+serial);
+		RecoVO rvo=new RecoVO();
+		rvo=RecoDAO.findCityInform(city);
+		System.out.println("StayAllData serial:"+rvo.getStay());
+		String stay_serial=rvo.getStay();
+		if(stay_serial==null)
+		{
+			hlist=null;
+			return hlist;
+		}
 		try
 		{
 			/*String serial=(String)*/
-			Document doc=Jsoup.connect("http://www.stubbyplanner.com/slp/index.asp?srcserial="+serial).get();
-
-
+			Document doc=Jsoup.connect("http://www.stubbyplanner.com/slp/index.asp?srcserial="+stay_serial).get();
 			Elements titleElem=doc.select("div.row div.col-md-8 h2");
 			Elements imageElem=doc.select("div.row div.col-md-4 img");
 			Elements msgElem=doc.select("div.row div.col-md-8 h5");
 
 			for(int i=0;i<titleElem.size();i++)
 			{
-
 				Element telem=titleElem.get(i);
 				Element ielem=imageElem.get(i);
 				Element melem=msgElem.get(i);
 
 				String img=ielem.attr("src");
 
-				StayVO vo=new StayVO();
+				StayVO svo=new StayVO();
 
-				vo.setTitle(telem.text());
-				vo.setImg(img);
-				vo.setMsg(melem.text());
-				hlist.add(vo);
-				/*System.out.println(img);*/
+				svo.setTitle(telem.text());
+				svo.setImg(img);
+				svo.setMsg(melem.text());
+				hlist.add(svo);
 			}
 		}
 		catch(Exception ex)
@@ -64,41 +56,55 @@ public class RecoManager {
 		return hlist;
 	}
 
-	public List<RestaurantVO> RestarantAllData()
-	{
-		List<RestaurantVO> slist=new ArrayList<RestaurantVO>();
-		try
-		{
-			Document doc=Jsoup.connect("https://www.tripadvisor.co.kr/Restaurants-g274707-Prague_Bohemia").get();
+	public List<RestaurantVO> RestarantAllData(String city)
+	   {
+			List<RestaurantVO> slist=new ArrayList<RestaurantVO>();
+			RecoVO rvo=new RecoVO();
+			rvo=RecoDAO.findCityInform(city);
+			System.out.println("StayAllData serial:"+rvo.getRest());
+			String serial=rvo.getRest();
+	      if(serial==null)
+	         return null;
+	   
+	      try
+	      {
+	         Document doc=Jsoup.connect("http://www.siksinhot.com/hot/location/main.do?upHpAreaId=403&hpAreaId="+serial).get();
+	         //Elements rankElem=doc.select("li.place-item div.gridBox div.bestNum");
+	         Elements titleElem=doc.select("li.place-item div.gridBox div.gridInfo span.pltit");
+	         Elements imageElem=doc.select("li.place-item div.pthumbImg img.cropImg");
+	         Elements briefElem=doc.select("li.place-item div.gridBox div.gridInfo span.plmsg");
+	         Elements sectorElem=doc.select("li.place-item div.gridBox div.gridInfo span.plcate");
+	         
+	         for(int i=0;i<titleElem.size();i++)
+	         {
+	            Element telem=titleElem.get(i);
+	            //Element relem=rankElem.get(i);
+	            Element belem=briefElem.get(i);
+	            Element selem=sectorElem.get(i);
+	            Element ielem=imageElem.get(i);
+	            String img=ielem.attr("src");
+	            
+	            RestaurantVO s=new RestaurantVO();
+	            s.setSector(selem.text());
+	            //System.out.println(selem.text());
+	           // s.setRank(Integer.parseInt(relem.text()));
+	            //System.out.println("RestarantAllData2 "+Integer.parseInt(relem.text()));
+	            s.setTitle(telem.text());
+	            //System.out.println("RestarantAllData3 "+telem.text());
+	            s.setImage(img);
+	            //System.out.println("RestarantAllData5 "+img);
+	            s.setBrief(belem.text());
+	           // System.out.println("RestarantAllData4 "+belem.text());
+	            slist.add(s);
+	         }
+	      }
+	      catch(Exception ex)
+	      {
+	         System.out.println(ex.getMessage());
+	      }
+	      return slist;
+	   }
 
-			Elements rankElem=doc.select("div.popRanking div.slim_ranking");
-			Elements titleElem=doc.select("div.isting_title a.property_title");
-			Elements imageElem=doc.select("div.box-image a span.thumb-image img");
-			Elements reviewElem=doc.select("li.cssTruncatedSnippet span.titel a");
-
-			for(int i=0;i<rankElem.size();i++)
-			{
-				Element relem=rankElem.get(i);
-				Element telem=titleElem.get(i);
-				Element ielem=imageElem.get(i);
-				Element velem=reviewElem.get(i);
-
-				String img=ielem.attr("src");
-
-				RestaurantVO vo=new RestaurantVO();
-				vo.setRank(Integer.parseInt(relem.text()));
-				vo.setTitle(telem.text());
-				vo.setImage(img);
-				vo.setReview(relem.text());
-				slist.add(vo);
-			}
-		}
-		catch(Exception ex)
-		{
-			System.out.println(ex.getMessage());
-		}
-		return slist;
-	}
 
 	/*public StayVO StayDetail(int rank)
 	{

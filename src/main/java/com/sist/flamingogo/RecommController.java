@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.recommend.dao.RecoManager;
+import com.recommend.dao.RestaurantVO;
 import com.recommend.dao.StayVO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -33,17 +34,16 @@ public class RecommController {
 		
 		RecoManager r=new RecoManager();
 		List<StayVO> hlist=r.StayAllData(find);
-		if(hlist == null)
+		List<RestaurantVO> rlist=r.RestarantAllData(find);
+		if(hlist == null && rlist==null)
 		{
 			System.out.println("hlist is null!!");
-			/*req.setAttribute("notData", "1");
-			req.setAttribute("jsp", "../recommend/recomm.jsp");*/
 			return "user/recommend/notData.jsp";
 		}
 		else
 		{
-			req.setAttribute("list", hlist);
-		
+			req.setAttribute("hlist", hlist);
+			req.setAttribute("rlist", rlist);
 			req.setAttribute("jsp", "../recommend/hot_stay.jsp");
 			return "user/main/main.jsp";
 		}
