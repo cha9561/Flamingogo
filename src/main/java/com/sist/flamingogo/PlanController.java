@@ -28,4 +28,12 @@ public class PlanController {
 		req.setAttribute("jsp", "../planner/help.jsp");
 		return "user/main/main.jsp";
 	}
+	@RequestMapping("NewFile.do")
+	public String NewFile(HttpServletRequest req)
+	{
+		req.getParameter("coordinateArr[]");
+		System.out.println("New");
+		req.setAttribute("jsp", "../planner/NewFile2.jsp");
+		return "user/main/main.jsp";
+	}
 }

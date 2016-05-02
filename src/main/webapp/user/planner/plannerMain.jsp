@@ -15,6 +15,7 @@
     <!--mdl css-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
+<link href="user/planner/map.css" rel="stylesheet" type="text/css">
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -39,6 +40,7 @@
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/jquery.fittext.js"></script>
 <script src="js/wow.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script type="text/javascript" src="../../js/ajax.js"></script>
 <!-- Custom Theme JavaScript -->
 <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
@@ -58,27 +60,41 @@ function help_1()
 	});
 }
 
-    var map, places, iw;
-	var markers = [];
-	var autocomplete;
-	var MarkersArray = [];
-	var Coordinates = [];
+    //var map, places, iw;
+	//var markers = [];
+	//var autocomplete;
+	//var MarkersArray = [];
+	var poly;
+	
+	/* var CoordinatesArr = [{lat: 37.772, lng: -122.214},
+	                      {lat: 21.291, lng: -157.821},
+	                      {lat: -18.142, lng: 178.431},
+	                      {lat: -27.467, lng: 153.027}]; */
 	var travelPathArray = [];
+	//var map;
+	var markers = [];
 	var map;
+	var infowindow = null;
+
+	var startLat = null;
+	var startLng = null;
+	var endLat = null;
+	var endLng = null;
+	
 	function initialize() {
 		var myLatlng = new google.maps.LatLng(48.859, 2.342);
 		var myOptions = {
 			zoom: 7,
 			center: myLatlng,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
+			mapTypeId: google.maps.MapTypeId.TERRAIN
 		};
 		map = new google.maps.Map(document.getElementById('google_map'), myOptions);
-		places = new google.maps.places.PlacesService(map);
-		google.maps.event.addListener(map, 'tilesloaded', tilesLoaded);
-		autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-		google.maps.event.addListener(autocomplete, 'place_changed', function () {
+		//places = new google.maps.places.PlacesService(map);
+		//google.maps.event.addListener(map, 'tilesloaded', tilesLoaded);
+		//autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+		/* google.maps.event.addListener(autocomplete, 'place_changed', function () {
 			showSelectedPlace();
-		});
+		}); */
 		
 		    google.maps.event.addListener(map, 'idle', function(){
 			startLat = map.getBounds().getSouthWest().lat();
@@ -104,8 +120,23 @@ function help_1()
 			viewMarker();
 		}); 
 		
+		var lineSymbol = {
+			    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+			  };
 		
-		   google.maps.event.addListener(map, 'click', function(event) {
+		poly = new google.maps.Polyline({
+		    strokeColor: '#000000',
+		    strokeOpacity: 1.0,
+		    strokeWeight: 3,
+		    icons: [{
+			      icon: lineSymbol,
+			      offset: '100%'
+			    }]
+		    
+		  });
+		poly.setMap(map);
+		
+		  /* google.maps.event.addListener(map, 'click', function(event) {
 			var image = "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
 			var marker = new google.maps.Marker({
 				position : event.latLng,
@@ -122,16 +153,30 @@ function help_1()
 			//array에 담은 위도,경도 데이타를 가지고 동선 그리기
 			flightPath();
 
-		});   
+		});     */
 
 	}
+	function addLatLng(lat,lng) {
+		  var path = poly.getPath();
 
+		  // Because path is an MVCArray, we can simply append a new coordinate
+		  // and it will automatically appear.
+		  //path.push(event.latLng);
+			path.push(new google.maps.LatLng(lat,lng))
+		  // Add a new marker at the new plotted point on the polyline.
+		  var marker = new google.maps.Marker({
+		    position: new google.maps.LatLng(lat,lng),
+		    title: '#' + path.getLength(),
+		    icon:'http://www.stubbyplanner.com/img_v8/marker.png',
+		    map: map
+		  });
+		}
 	// 드롭 마커 보기
-	  /* function viewMarker() {
+	    function viewMarker() {
 		if(startLat)
 		{
 			$.ajax({
-				type: "GET",
+				type: "POST",
 				url: "js/marker.js",
 				 beforeSend: function() {
 					fnRemoveMarker();	// 조회 전 기존 마커 제거
@@ -147,11 +192,12 @@ function help_1()
 								map: map,
 								draggable: false,
 								icon: markerList[i].icon,
-								html: markerList[i].cont
+								html: markerList[i].addr ,
+								cityname: markerList[i].cont
 							});
 							markers.push(marker);
 							var infowindow = new google.maps.InfoWindow()
-							var contentString = '<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="http://localhost:8080/flamingogo/user/planner/plannerstep1.jsp"></iframe>' 
+							//var contentString = '<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="http://localhost:8080/flamingogo/user/planner/plannerstep1.jsp"></iframe>' 
 							google.maps.event.addListener(marker, "click", function(){
 								infowindow.setContent(this.html);
 								infowindow.open(map, this);
@@ -163,12 +209,14 @@ function help_1()
 				}
 			});
 		}
-	}   */
+	}    
 
+	    
 	// 마커 제거 함수
 	function fnRemoveMarker()
 	{
-		for (var i = 1; i < markers.length; i++) {
+		for (var i = 1; i < markers.length; i++) 
+		{
 			markers[i].setMap(null);
 		}
 	}
@@ -178,7 +226,7 @@ function help_1()
 	});
 
 	//해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
-	   function attachMessage(marker, latlng) {
+	    /* function attachMessage(marker, latlng) {
 		geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			'latLng' : latlng
@@ -187,11 +235,11 @@ function help_1()
 				if (results[0]) {
 					 var contentString = 
 
-						 '<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="http://localhost:8080/flamingogo/user/planner/plannerstep1.jsp"></iframe>'
+						 '<iframe width="350px"  scrolling="no" height="100px" frameborder="0" src="http://localhost:8080/flamingogo/user/planner/plannerstep1.jsp">address_nm</iframe>'
 
 					var address_nm = results[0].formatted_address;
 					var infowindow = new google.maps.InfoWindow({
-						content : contentString,
+						content : address_nm,
 						size : new google.maps.Size(50, 50)
 					});
 					
@@ -201,17 +249,62 @@ function help_1()
 				}
 			}
 		});
-
-	}
-	function setMapByCoord(x, y){
-	    var loc = new google.maps.LatLng(x, y);
-
-	    globalMap.setCenter(loc);
-	}
-
+	}  */
 	
+	/* function setMapByCoord(x, y){
+	    var loc = new google.maps.LatLng(x, y);
+	    globalMap.setCenter(loc);
+	} */
+	function Coordinates(lat,lng)
+	{
+		for(i=0;i<CoordinatesArr.length;i++)
+		{
+			if(CoordinatesArr[i]==null)
+			{
+				CoordinatesArr[i]=new google.maps.LatLng(lat, lng);
+				break;
+			}
+			else
+				continue;
+		}
+	}
+	
+	
+	(function(){
+		('.plnSave').click(function(){
+			if (confirm("저장하시겠습니까??") == true){    //확인
+			    document.form.submit();
+			}else{   //취소
+			    return;
+			}
+		});
+	});
+	
+	
+	
+	/* function flightPath() {
+		for (i in travelPathArray) {
+			travelPathArray[i].setMap(null);
+		}
+		var lineSymbol = {
+			    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+			  };
+		var flightPath = new google.maps.Polyline({
+			path : CoordinatesArr,
+			strokeColor : "black",
+			strokeOpacity : 0.5,
+			strokeWeight : 3,
+			icons: [{
+			      icon: lineSymbol,
+			      offset: '100%'
+			    }]
+		});
+		 */
+	//flightPath.setMap(map);
+	//alert("zz"+travelPathArray[1]);
+	//travelPathArray.push(flightPath);
 	//동선그리기
-	function flightPath() {
+	/* function flightPath() {
 		for (i in travelPathArray) {
 			travelPathArray[i].setMap(null);
 		}
@@ -229,17 +322,19 @@ function help_1()
 			    }]
 		});
 		flightPath.setMap(map);
+		//alert("zz"+travelPathArray[1]);
 		travelPathArray.push(flightPath);
-	}
+	} */
 	
-	function tilesLoaded() {
+	/* function tilesLoaded() {
 		google.maps.event.clearListeners(map, 'tilesloaded');
 		google.maps.event.addListener(map, 'zoom_changed', search);
 		google.maps.event.addListener(map, 'dragend', search);
 		search();
-	}
+	} */
 
-	function showSelectedPlace() {
+	/* function showSelectedPlace() {
+		//alert();
 		clearResults();
 		clearMarkers();
 		var place = autocomplete.getPlace();
@@ -249,13 +344,15 @@ function help_1()
 			position: place.geometry.location,
 			map: map
 		});
+		
+		//alert(markers[0]);
 		iw = new google.maps.InfoWindow({
 			content: getIWContent(place)
 		});
 		iw.open(map, markers[0]);
-	}
+	} */
 
-	  function search() {
+	  /*  function search() {
 		var type;
 		for (var i = 0; i < document.controls.type.length; i++) {
 			if (document.controls.type[i].checked) {
@@ -300,9 +397,9 @@ function help_1()
 		return function () {
 			markers[i].setMap(map);
 		}
-	}
+	} 
 
-	function addResult(result, i) {
+	 function addResult(result, i) {
 		var results = document.getElementById('results');
 		var tr = document.createElement('tr');
 		tr.style.backgroundColor = (i % 2 == 0 ? '#F0F0F0' : '#FFFFFF');
@@ -360,8 +457,8 @@ function help_1()
 		content += '<td style="border:0;"><b><a href="' + place.url + '">' + place.name + '</a></b>';
 		content += '</td></tr></table>';
 		return content;
-	}
-	google.maps.event.addDomListener(window, 'load', initialize);
+	} */
+	//google.maps.event.addDomListener(window, 'load', initialize); 
 	</script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 </head>
@@ -374,34 +471,34 @@ function help_1()
 			data-gwd-width="1280px" data-gwd-height="780px">
 			<div class="gwd-page-content gwd-page-size gwd-div-1aei">
 			
-				<div class="gwd-div-19b4" style="" id="listing">
+				<!-- <div class="gwd-div-19b4" style="" id="listing">
 				  <table id="results"></table>
 				  
-				</div>
+				</div> -->
 				<div class="gwd-div-16m9" style="border-style: solid;"></div>
 				<div class="gwd-div-1e92" id="calander" style="">
 					<input type="month"/>
 				</div>
-				<div class="gwd-div-1ka9" style="border-style: solid;"></div>
+				<!-- <div class="gwd-div-1ka9" style="border-style: solid;"></div>
 				
-				
-				<p class="gwd-p-19oj">
+				 -->
+				<!-- <p class="gwd-p-19oj">
 					<br class="">
 				</p>
-				
-				<form name="controls">
+				 -->
+				<!-- <form name="controls">
 				<p class="gwd-p-zobl" id="title1" style="border-style: solid;">숙소
 					<input type="radio" name="type" value="lodging" onclick="search()" />
 					<span class="gwd-span-1iwa">맛집</span> 
 					<input type="radio" name="type" value="restaurant" onclick="search()" />
 				</p>
-				</form>
+				</form> -->
 				
-				<gwd-map id="google_map" class="gwd-map-12mt"> </gwd-map>
+				<gwd-map id="google_map" class="gwd-map"> </gwd-map>
 				
 				<div class="gwd-div-2h60" style=""></div>
-				
-				<div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
+				<div id="place">
+				<!-- <div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
 				
 				<div class="gwd-div-1wk8" style="border-style: solid;" id="place2"></div>
 				
@@ -411,7 +508,8 @@ function help_1()
 				
 				<div class="gwd-div-1d7o" id="planing1" style=""></div>
 				<div class="gwd-div-1r07" id="planing2" style=""></div>
-				<div class="gwd-div-h7fg" id="planing3" style=""></div>
+				<div class="gwd-div-h7fg" id="planing3" style=""></div> -->
+				</div>
 				<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="help_1()">사용법</button>
 				<a href="calander.do">
 				<button id="bt2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">일정표</button></a>
@@ -423,9 +521,13 @@ function help_1()
 					<input class="mdl-textfield__input" type="text" id="sample3">
 					<label class="mdl-textfield__label" for="sample3">Text...</label>
 				</div>
-				
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="bt5">플래너 저장</button>
-				
+				<form action="NewFile.do" method="post">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="plnSave" >
+				<input type=hidden name="no" value="CoordinatesArr[i]">
+				<input type=hidden name="no" value="cityname">
+				플래너 저장
+				</button>
+				</form>
 				
 			</div>
 		</div>
