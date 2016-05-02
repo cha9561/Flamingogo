@@ -103,32 +103,16 @@ Shadowbox.init({
 						return;
 					}
 					
-					$('#resImg').attr("src","joinok.png");
-					$('#resImg').css("cursor","pointer"); 
-					
+					$('#join_frm').submit();
+					ShadowClose();
+		 
 					
 			   });
 			   
 			  
 			   
-			   
-			   $('#resImg').click(function(){
-					var src=$('#resImg').attr("src");
-					if(src=="join.png")
-					{
-						return;
-			
-					}
-					else
-					{
 					
-						$('#join_frm').submit();
-						ShadowClose();
-					}
-				   
-			 	}); 
-		   });
-	  
+					
 	  //Ã¢´Ý±â
 	  function ShadowClose() {
     		    parent.Shadowbox.close();
