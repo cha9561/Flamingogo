@@ -5,8 +5,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 <typeAliases>
 <!-- vo는 무조건 config.xml에 등록 -->
-<typeAlias type="com.flamember.dao.MemberDTO" alias="Member"/>
-<typeAlias type="com.tour.dao.ProductVO" alias="Product"/>
+	<typeAlias type="com.flamember.dao.MemberDTO" alias="Member"/>
+	<typeAlias type="com.tour.dao.TourVO" alias="Tour"/>
+	<typeAlias type="com.recommend.dao.RecoVO" alias="Reco"/>
 </typeAliases>
 <environments default="development">
 <environment id="development">
@@ -22,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 </environment>
 </environments>
 <mappers>
-<mapper resource="com/tour/dao/tour-mapper.xml"/>
 <mapper resource="com/flamember/dao/member-mapper.xml"/>
-
+<mapper resource="com/tour/dao/tour-mapper.xml"/>
+<mapper resource="com/recommend/dao/recomm-mapper.xml"/>
 </mappers>
 </configuration>

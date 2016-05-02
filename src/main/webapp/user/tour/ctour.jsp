@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,11 +37,43 @@
 		  	<div class="col-md-12">
 			    <img src="user/tour/img/11101_B.PNG" alt="">
 			    	<hr/>
-				    <div class="row">
+				    <div class="row" style="margin-top:15px">
 				      <div class="col-md-12">
-					    <div class="col-xs-6 col-sm-4"><img src="http://placehold.it/350x300" alt=""></div>
-					  	<div class="col-xs-6 col-md-4"><img src="http://placehold.it/350x300" alt=""></div>
-					  	<div class="col-xs-6 col-md-4"><img src="http://placehold.it/350x300" alt=""></div>
+				      <c:forEach var="vo" items="${list }">
+				      <c:if test="${vo.pno<=3 }">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%"></a>
+					    </div>
+					  	</c:if>
+					  </c:forEach>
+					  </div>
+				    </div>
+				    
+				    <div class="row" style="margin-top:15px">
+				      <div class="col-md-12">
+				      <c:forEach var="vo" items="${list }">
+				      <c:if test="${(vo.pno<=6 && vo.pno>3)}">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%"></a>
+					    </div>
+					  	</c:if>
+					  </c:forEach>
+					  </div>
+				    </div>
+				    
+				    <div class="row" style="margin-top:15px">
+				      <div class="col-md-12">
+				      <c:forEach var="vo" items="${list }">
+				      <c:if test="${(vo.pno<=9 && vo.pno>6)}">
+					    <div class="col-xs-6 col-sm-4">
+					    <a href="detail.do?pno=${vo.pno }">
+					    <img src="${vo.pic}" width="95%">
+					    </a>
+					    </div>
+					  	</c:if>
+					  </c:forEach>
 					  </div>
 				    </div>
 		  	</div>

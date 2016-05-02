@@ -46,6 +46,15 @@ li:first-child {
 ------------------------------------*/
 .wrapper {
   background: #fff;
+  height: 100%;
+  margin-left:50%;
+  width: 50%;
+}
+.wrapper1 {
+  background: #fff;
+  height: 100%;
+  margin-left:0%;
+  width: 50%;
 }
 
 .boxed-layout {

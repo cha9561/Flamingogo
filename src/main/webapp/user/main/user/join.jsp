@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-    <title>Insert title here</title>
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
 
     <link rel="stylesheet" type="text/css"
 	href="../../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
 
 <script type="text/javascript">
@@ -19,20 +20,16 @@ Shadowbox.init({
     	function idcheck()
     	{
     		Shadowbox.open({
-    			content:'idcheck.jsp',
+    			content:'user/main/user/idcheck.jsp',
     			player:'iframe',
     			width:240,
     			height:150,
     			title:'아이디중복체크'
     		});
     	}
-    
-    	   
-	  //email 제이쿼리 - email까지 다 입력해야 버튼 활성
-	
-		    
-	   //email 활성화
-		   $(function(){
+     
+    	
+    	$(function(){
 		  
 			   
 			   $('#email_select').change(function(){
@@ -45,86 +42,40 @@ Shadowbox.init({
 				    } else {
 				     $("#email2").val($('#email_select').val()); //선택값 입력
 				     $("#email2").prop("readonly",true); //비활성화
-	
+
+
+					  $('#resImg').attr("src","user/main/img/joinok.png");
+					  $('#resImg').css("cursor","pointer");
+					
 				    }
 						
 			   });
-			  
+			   
+			   
+
 			   $('#resImg').click(function(){
 					
-					var id=$('#id').val();
-					if(id.trim()=="")
-					{
-						$('#id').focus();
-						return;
-					}
-					
-					var pwd=$('#pwd').val();
-					if(pwd.trim()=="")
-					{
-						$('#pwd').focus();
-						return;
-					}
-					
-					var pwdCk=$('#pwdCk').val();
-					if(pwdCk.trim()=="")
-					{
-						$('#pwdCk').focus();
-						return;
-					}
-					
-					var name=$('#name').val();
-					if(name.trim()=="")
-					{
-						$('#name').focus();
-						return;
-					}
-					
-					var id=$('#tel2').val();
-					if(tel2.trim()=="")
-					{
-						$('#tel2').focus();
-						return;
-					}
-					var id=$('#tel3').val();
-					if(tel3.trim()=="")
-					{
-						return;
-					}
-					
-					var email1=$('#email1').val();
-					if(email1.trim()=="")
-					{
-						return;
-					}
-					var email2=$('#email2').val();
-					if(email2.trim()=="")
-					{
-						return;
-					}
-					
-					$('#join_frm').submit();
-					ShadowClose();
-		 
-					
+
+				   if ($("#id").val() == "") {
+		                
+					   $("#id").focus();
+		                
+		            }else
+		            	{
+
+						   alert("플라밍Go에 오신걸 환영합니다")	
+		            	}
+				   
+		
 			   });
-			   
-			  
-			   
-					
-					
-	  //창닫기
-	  function ShadowClose() {
-    		    parent.Shadowbox.close();
-    		} 
-    	 
+    	});
+
     </script>
 <style>
     body, code {
         font-size: 12px;
         font-family: 'Open Sans','Noto Sans KR',sans-serif;
- 		margin: 10px;
-        padding: 10px;
+ 		
         }
         
     th, td {
@@ -145,19 +96,24 @@ Shadowbox.init({
 
 </head>
 <body>
+
 <center>
-    <h3><img src="joinus.png" border=0></h3>
+<div class="space">
+
+
+</div>
     <div class="joinWrite">
+    <h3><img src="user/main/img/joinus.png" border=0></h3>
     <form id="join_frm" action="join_ok.do" method="post">
        <!--  <table border=0 width=500
-               cellpadding="0" cellspacing="0"> -->
-      
+               cellpadding="0" cellspacing="0"> -->      
+      <div class="form-group">
                     <table border=0 width=400 align=center>
 			         
 			         <tr height=35>
 			             <td width=15% align=right>ID</td>
-			             <td width=85% align=left>
-			              <input type=text name=id size=12 id="id" readonly>
+			             <td width=85% align=left id="id" required>
+			              <input type=text name=id size=12 readonly required>
 			              <input type="button" value="중복체크" onclick="idcheck()">
 			             </td>
 			           </tr>
@@ -185,19 +141,19 @@ Shadowbox.init({
 				           
                         <tr height=35>
                              <td width=15% align=right>성별</td>
-                            <td width=85% align=left>
+                            <td width=85% align=left  id="sex" required>
                
-                                <input type=radio name=sex value=남자 checked>남자
-                                <input type=radio name=sex value=여자>여자
+                                <input type=radio id="man" name=sex value=남자 checked>남자
+                                <input type=radio id="woman" name=sex value=여자>여자
                            
                             </td>
                         </tr>
                         
                         
                         <tr height=35>
-            			 <td width=15% align=right id="birth">생년월일</td>
+            			 <td width=15% align=right id="birth">생년월일 </td>
                             <td width=85% align=left>
-                                <input type=date name=birth size=20>
+                                <input type=date name=birth size=20 required>
                             </td>
                         </tr>
                         
@@ -209,14 +165,14 @@ Shadowbox.init({
 				                <option>011</option>
 				                <option>017</option>
 				              </select>
-				              <input type=text name=tel2 size=7 id="tel2">-
-				              <input type=text name=tel3 size=7 id="tel3">
+				              <input type=text name=tel2 size=7 id="tel2"  required/>-
+				              <input type=text name=tel3 size=7 id="tel3"  required>
 				             </td>
          			  </tr>
 
                         <tr height=35>
-                             <td width=15% align=right>이메일</td>
-                             <td> <input type="text" id="email1" size="10" /> @ <input type="text" id="email2" size="10"/>
+                             <td width=15% align=right >이메일</td>
+                             <td> <input type="text" id="email1" size="10" required / > @ <input type="text" id="email2" size="10" required/>
   								<select id="email_select">
    								<option value="" selected="selected">::선택하기::</option>
                                 <option value="naver.com">naver.com</option>
@@ -234,17 +190,14 @@ Shadowbox.init({
                         </tr>
                         <tr height=30></tr>
 									<tr height=35>
-						             <td colspan="2" align=center>
-
-					
-
-						             <img src="join.png" border=0 id="resImg">
-						             <img src="cancle.png" border=0 id="cancleBtn" onclick="ShadowClose()">
-						              <!-- <input type="button" value="취소" onclick='ShadowClose()'> -->
-						               </td>
+						             <td align=center colspan="2">
+									<input type="image" src="user/main/img/join.png" id="resImg" border=0>
+						            <input type="image" src="user/main/img/cancle.png" border=0 id="cancleBtn" onclick="javascript:history.back()">
+						              
+						             </td>
            							</tr>
-     
        </table>
+       </div>
     </form>
     </div>
   </center>

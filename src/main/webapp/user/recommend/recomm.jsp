@@ -69,7 +69,7 @@ $(function(){
    <div
       style="padding-top: 100px; width: 100%; height: 780px; background: url('http://www.mrwallpaper.com/wallpapers/Waterfall-Landscape-1920x1080.jpg'); no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
       <h2 style="text-align: center;" class="light_heavy_30_shadowed">
-         꼼꼼한 플라밍GO 회원들이 선택한 가성비 높은 숙소들을 살펴보세요!
+        	플라밍GO에서 추천하는 숙소와 맛집을 살펴보세요!
       </h2>
       <div style="padding-left: 500px;">
       	<form method="post" action="find_recomm.do" id="findForm">
