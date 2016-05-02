@@ -30,6 +30,12 @@ public class MemberDAO {
 		SqlSession session=ssf.openSession();//Ä¿³Ø¼Ç °¡Á®¿È
 		System.out.println("id:"+id+"pwd :"+pwd);
 		int count=session.selectOne("memberIdCount",id);
+		
+		/*System.out.println("test");
+		String name ="´Ï½º";
+		int stay=session.selectOne("findStay",name);
+		System.out.println("findStay  sn : "+stay);*/
+		
 		System.out.println("count :"+count);
 		if(count==0)
 		{
@@ -40,7 +46,6 @@ public class MemberDAO {
 			System.out.println("memberLogin");
 			MemberDTO d=session.selectOne("memberGetPwd",id);
 			//MemberDTO d=session.select
-			System.out.println("zz");
 			System.out.println("Get:"+d.getPwd());
 			if(pwd.equals(d.getPwd()))
 			{
@@ -65,9 +70,12 @@ public class MemberDAO {
 
 	public static void memberJoin(MemberDTO vo)
 	{
+			System.out.println("memberJoin-"+vo.getTel());
 		  SqlSession session=ssf.openSession(true);
-		  session.update("memberJoin",vo);
+		  session.insert("memberJoin",vo);
+		  System.out.println("memberJoin2-"+vo.getName());
 		  session.close();
+
 	}
 	
 }
