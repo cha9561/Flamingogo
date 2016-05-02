@@ -77,7 +77,6 @@ public class TourController {
     	String sy=st.nextToken();
     	String sm=st.nextToken();
     	String sd=st.nextToken();
-    	
     	if(strYear==null)
     		strYear=sy;
     	if(strMonth==null)
@@ -133,6 +132,7 @@ public class TourController {
 	public String reserve_ok(HttpServletRequest req) throws Exception
 	{
 		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
     	String category=req.getParameter("category");
     	String pname=req.getParameter("pname");
     	String date=req.getParameter("date");
@@ -142,9 +142,25 @@ public class TourController {
     	HttpSession session=req.getSession();
     	String id=(String)session.getAttribute("id");
     	
-    	System.out.println(category+"-"+pname+"-"+date+"-"
+    	System.out.println(pno+"-"+category+"-"+pname+"-"+date+"-"
     			+inwon+"-"+price+"-"+id);
+    	
+    	BuyVO vo=new BuyVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	vo.setPname(pname);
+    	vo.setAmount(Integer.parseInt(inwon));
+    	vo.setRdate(date);
+    	vo.setPrice(Integer.parseInt(price));
+    	
+    	TourDAO.buyInsert(vo);
     	
 		return "user/tour/reserve_ok.jsp";
 	}
+	/*@RequestMapping("mypage.do")
+	public String mypage(HttpServletRequest req)
+	{
+		
+		return "user/tour/myTour.jsp";
+	}*/
 }

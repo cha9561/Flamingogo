@@ -7,6 +7,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import com.tour.dao.TourVO;
 
 public class TourDAO {
@@ -76,5 +77,30 @@ public class TourDAO {
 		
 		return list;
 	}
-
+	public static void buyInsert(BuyVO vo)
+    {
+		try{
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("buyInsert",vo);
+    	session.close();
+		}catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+    } 
+	// ¿¹¾à
+    public static List<BuyVO> buyUserAllData(String id)
+    {
+    	SqlSession session=ssf.openSession();
+    	List<BuyVO> list=session.selectList("buyUserAllData",id);
+    	session.close();
+    	return list;
+    }
+    public static List<BuyVO> buyAdminAllData()
+    {
+    	SqlSession session=ssf.openSession();
+    	List<BuyVO> list=session.selectList("buyAdminAllData");
+    	session.close();
+    	return list;
+    }
 }
