@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -127,5 +128,23 @@ public class TourController {
 	public String tour_info(HttpServletRequest req)
 	{
 		return "user/tour/tour_inwon.jsp";
+	}
+	@RequestMapping("reserve_ok.do")
+	public String reserve_ok(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+    	String category=req.getParameter("category");
+    	String pname=req.getParameter("pname");
+    	String date=req.getParameter("date");
+    	String inwon=req.getParameter("inwon");
+    	String price=req.getParameter("price");
+    	
+    	HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	System.out.println(category+"-"+pname+"-"+date+"-"
+    			+inwon+"-"+price+"-"+id);
+    	
+		return "user/tour/reserve_ok.jsp";
 	}
 }
