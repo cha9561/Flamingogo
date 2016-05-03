@@ -58,7 +58,7 @@ function tourCallback()
     	
     	
     	<div class="row" style="margin-top:15px">
-    		<form method="post" action="tour_date.do" id="frm1">
+    		<!-- <form method="post" action="tour_date.do" id="frm1"> -->
     		<div class="col-md-5">
     			<table>
     			 <tr>
@@ -93,7 +93,7 @@ function tourCallback()
 					<input type="hidden" name="pname" id="pname" value="${vo.pname}">
 					<input type="hidden" name="date" id="date_jsp">
 					<input type="hidden" name="inwon" id="inwon_jsp">
-					<input type="hidden" name="inwon" id="price_jsp">
+					<input type="hidden" name="price" id="price_jsp">
 					<!-- <button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button> -->
 					<img src="user/tour/img/res_d.png" border=0 id="resImg">
 				</form>

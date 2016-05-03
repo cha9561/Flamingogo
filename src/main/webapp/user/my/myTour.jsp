@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -77,6 +79,7 @@
                  ID : Lorem<br>
                  성별 : MAN<br>
                  나이 : Aenan convallis.<br>
+               
             </div>
             <div class="mdl-card__actions mdl-card--border">
               <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -87,7 +90,7 @@
            </div>
            
               <div class="col-md-8">
-         <div class="row" style="margin-top:50px; margin-bottom:10px">
+         <!-- <div class="row" style="margin-top:50px; margin-bottom:10px">
               <div class="col-xs-6 col-sm-4"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
               <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
               <div class="col-xs-6 col-sm-4"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
@@ -97,8 +100,45 @@
               <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
               <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
               <div class="col-xs-6 col-sm-4"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
-         </div>
-           
+         </div> -->
+           <table width="700px">
+               <c:forEach var="vo" items="${list }">
+        <tr>
+         <th>구매번호</th>
+         <th>상품번호</th>
+         <th>상품명</th>
+         <th>예약인원</th>
+         <th>예약날짜</th>
+         <th>결제날짜</th>
+         <th>가격</th>
+         <th>예약상태</th>
+        </tr>
+        <tr class="dataTr" id="m${vo.pno }">
+           <td class="tdcenter">${vo.buyno }</td>
+	       <td class="tdcenter">${vo.pno }</td>
+	       <td class="tdcenter">${vo.pname }</td>
+	       <td class="tdcenter">${vo.amount }</td>
+	       <td class="tdcenter">${vo.rdate }</td>
+	       <td class="tdcenter"><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
+	       <td class="tdcenter" >${vo.price }</td>
+	       <td class="tdcenter">${vo.status==0?"예약대기":"예약완료" }</td>
+	     </tr>
+	     <%-- <tr id="c${vo.no }" style="display:none">
+	       <td colspan="7">
+	         <div style="margin-left:200px;width:300px;height:170px;background: lightblue;border-radius:0px 10px 20px 40px">
+	           <center>예약내역</center>
+	                           예약번호:${vo.no }<br>
+	                           영화명:${vo.title }<br>
+	                           극장명:${vo.theater }<br>
+	                           예약시간:${vo.day }(${vo.time })<br>
+	                           예약인원:${vo.inwon }<br>
+	                           예약금액:${vo.price }<br>
+	                           예약현황:<font color=red>${vo.res_check==0?"예약대기":"예약완료"}</font>
+	         </div>
+	       </td>
+	     </tr> --%>
+      </c:forEach>
+      </table>
            </div>
            </div>
            

@@ -11,14 +11,22 @@ import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.tour.dao.BuyVO;
+import com.tour.dao.TourDAO;
 
 @Controller("mec")
 public class MemberController {
 	@RequestMapping("myPage.do")
 	public String myPage(HttpServletRequest req)
 	{
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	List<BuyVO> list=TourDAO.buyUserAllData(id);
 		System.out.println("mypage");
-		req.setAttribute("jsp", "../my/myPage.jsp");
+		System.out.println("buyData:"+list);
+		
+		req.setAttribute("list", list);
+		req.setAttribute("jsp", "../my/myTour.jsp");
 		return "user/main/main.jsp";
 	}
 	
@@ -101,18 +109,18 @@ public class MemberController {
 		System.out.println("joinok->gomypage");
 		
 		req.setAttribute("id", id);
-		req.setAttribute("jsp", "user/main/user/join_ok.jsp");
+		req.setAttribute("jsp", "user/join_ok.jsp");
 		return "user/main/main.jsp";
 	}
 	
     @RequestMapping("mypage.do")
     public String mypage(HttpServletRequest req)
     {
-    	HttpSession session=req.getSession();
-    	req.setAttribute("jsp","user/main/myDefaultpage.jsp");
+    	//HttpSession session=req.getSession();
+    	req.setAttribute("jsp","../my/myDefaultpage.jsp");
     	
     	
-    	return "user/main.jsp";
+    	return "user/main/main.jsp";
     }
     
 	@RequestMapping("join.do")

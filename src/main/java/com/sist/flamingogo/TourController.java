@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -76,7 +77,6 @@ public class TourController {
     	String sy=st.nextToken();
     	String sm=st.nextToken();
     	String sd=st.nextToken();
-    	
     	if(strYear==null)
     		strYear=sy;
     	if(strMonth==null)
@@ -128,4 +128,39 @@ public class TourController {
 	{
 		return "user/tour/tour_inwon.jsp";
 	}
+	@RequestMapping("reserve_ok.do")
+	public String reserve_ok(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+    	String category=req.getParameter("category");
+    	String pname=req.getParameter("pname");
+    	String date=req.getParameter("date");
+    	String inwon=req.getParameter("inwon");
+    	String price=req.getParameter("price");
+    	
+    	HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	System.out.println(pno+"-"+category+"-"+pname+"-"+date+"-"
+    			+inwon+"-"+price+"-"+id);
+    	
+    	BuyVO vo=new BuyVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	vo.setPname(pname);
+    	vo.setAmount(Integer.parseInt(inwon));
+    	vo.setRdate(date);
+    	vo.setPrice(Integer.parseInt(price));
+    	
+    	TourDAO.buyInsert(vo);
+    	
+		return "user/tour/reserve_ok.jsp";
+	}
+	/*@RequestMapping("mypage.do")
+	public String mypage(HttpServletRequest req)
+	{
+		
+		return "user/tour/myTour.jsp";
+	}*/
 }

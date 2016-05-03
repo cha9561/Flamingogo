@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -81,12 +82,14 @@ $(function(){
 			<font color=#a0a0a0>3~4존 20유로, 5존 40유로 추기비용발생</font>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <c:if test="${sessionScope.id!=null and sessionScope.admin!=1}">
 			<form method="post" action="reserve.do" id="frm1">
 				<input type="hidden" name="pno" id="pno" value="${vo.pno}">
 				<input type="hidden" name="pname" id="pname" value="${vo.pname}">
 				<input type="hidden" name="category" id="category" value="${vo.category}">
 				<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button>
 			</form>
+			</c:if>
 
 				
 			</p>
