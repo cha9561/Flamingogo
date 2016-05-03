@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css"
 	href="../../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
-    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
+ <!--    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css"> -->
 
 <script type="text/javascript">
 Shadowbox.init({
@@ -102,7 +102,7 @@ Shadowbox.init({
 
 
 </div>
-    <div class="joinWrite">
+     <div class="container" style="margin-top:50px">
     <h3><img src="user/main/img/joinus.png" border=0></h3>
     <form id="join_frm" action="join_ok.do" method="post">
        <!--  <table border=0 width=500
