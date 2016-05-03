@@ -6,9 +6,24 @@
 		SELECT COUNT(*) FROM userinform
 		WHERE id=#{id}
 		</select>
+
 	<select id="memberGetPwd" resultType="Member" parameterType="String">
 		SELECT pwd,name,admin_no FROM userinform
 		WHERE id=#{id}
 	</select> 
 	
+	<insert id="memberJoin" parameterType="Member">
+	  	<selectKey keyProperty="id_no" resultType="int" order="BEFORE">
+	  		SELECT NVL(MAX(id_no)+1,1) as id_no FROM userinform
+	  	</selectKey>
+  <!-- INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
+  VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0) -->
+  
+  INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
+  VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0)			     
+	</insert>
+	<!-- <select id="findStay" resultType="int" parameterType="String">
+	SELECT COUNT(*) FROM rcity
+	WHERE name=#{name}
+	</select> -->
 </mapper>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,13 +24,14 @@
 <!--mdl css-->
 <link rel="stylesheet"
 	href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+
+<!-- shadowbox -->
 <link rel="stylesheet" type="text/css"
 	href="user/shadow/css/shadowbox.css">
 <script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
 
-
 <script type="text/javascript">
-	Shadowbox.init({
+/* 	Shadowbox.init({
 		players:["iframe"]
 	});
 	function join()
@@ -39,11 +39,11 @@
 		Shadowbox.open({
 			content:'user/main/user/join.jsp',
 			player:'iframe',
-			width:1000,
-			height:800,
+			width:600,
+			height:500,
 			title:''
 		});
-	}
+	}*/
          $(function(){
         	 $('#logBtn').click(function(){
         		 var id=$('#id').val();
@@ -79,7 +79,7 @@
 					<li><a href="mypage.do"><div id="mypage" class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div>MyPage</a></li>
 					</c:if>
 					<c:if test="${sessionScope.admin==1 }">
-						<li><a href="contact.html">예약현황보기</a></li>
+						<li><a href="myPage.do">예약현황보기</a></li>
 					</c:if>
 
 				</c:if>
@@ -88,7 +88,12 @@
 				<li><a href="recomm.do"><i class="fa fa-thumbs-o-up"></i>플라밍Go's<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recomm</a></li>
 				<li><a href="tour.do"><i class="fa fa-plane"></i>Tour</a></li>
 				<li><a href="squrePage.do"><i class="fa  fa-smile-o"></i>Open space</a></li>	
-				
+				<c:if test="${sessionScope.id==null }">
+				<li><a href="join.do"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="joinBtn" onclick="join()">
+                <i class="fa fa-chevron-circle-right"></i> 회원가입
+                </button></a></li>
+				</c:if>
+				</div>
 			</ul>
 
 
@@ -113,7 +118,6 @@
                 &nbsp;<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="logBtn">
                 <i class="fa fa-chevron-circle-right"></i> 로그인
                 </button>
-				
                   </form>
                  </c:if>	
                  <c:if test="${sessionScope.id!=null }">

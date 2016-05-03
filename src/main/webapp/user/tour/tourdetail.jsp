@@ -27,6 +27,13 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+<script type="text/javascript">
+$(function(){
+	$('#btn1').click(function(){
+		$('#frm1').submit();
+	});
+});
+</script>
 </head>
 <body>
 	<!-- Page Content -->
@@ -35,9 +42,17 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header">몽생미셸 스페셜 야경 투어! (소규모/스냅)
-                    <!--<small>Item Subheading</small>  -->
-                </h3>
+             <table>
+              <tr>
+               <td width=80%>
+                <h3 class="page-header">${vo.pname}</h3>
+               </td>
+               <td width=20% align=center>
+             	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="javascript:history.back()">
+             	뒤로가기</button>
+               </td>
+              </tr>
+             </table>
             </div>
         </div>
         <!-- /.row -->
@@ -46,50 +61,34 @@
         <div class="row">
 
             <div class="col-md-7">
-                <img class="img-responsive" src="user/tour/img/p1.jpg" width="90%" alt="">
+                <img class="img-responsive" src="${vo.pic }" width="90%" alt="">
             </div>
 
             <div class="col-md-5">
-                <h4>"프랑스 북부의 노르망디 지방의 아름다운 바닷가 마을로 떠나는 하루 여행!!"</h4>
+                <h4>"${vo.psubname }"</h4>
                 <span class="label label-success">투어코스</span>
-                <p>파리출발 -> 에트르타 -> 옹플레흐 -> 몽생미셀(낮/야경) -> 파리도착(숙소까지안전하게 무료픽업)</p>
+                <p>${vo.course }</p>
                 <p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>시작시간 & 소요시간 : </p>
-               
-                <ul>
-                    <li>
-                    1월2일~4월30일
-					07:50 ~ 00:30
-					</li>
-                    <li>
-                    5월2일~7월30일
-					08:50 ~ 01:30
-					</li>
-                    <li>
-                    7월11일~8월30일(야간개장참여)
-					10:00 ~ 02:00
-                    </li>
-                    <li>
-                    9월1일~12월30일
-					07:50 ~ 23:50
-                    </li>
-                </ul>
-                * 월~토요일 3명이상 무조건 출발! 
-				* 스냅사진 70여장 무료 촬영!
-				* 프랑스인이 진행하는 수도원설명
-				* 몽생미셀 수도원입장료@로컬가이드비용 일반총10유로/ 18세미만 무료 
-				(*여름야간개장: 9유로)
+                <p>${vo.time }</p>
+                <p>${vo.info }</p>
 				
             <hr/>
             
-          	<strike>정가 23.5만원</strike>
+          	<strike>${vo.price }</strike>
 			<p><font color=red>선착순 파격가</font><br>
-			<font color=red>슈퍼특가: 16.9만원 + 샌딩 2만원(2존까지)</font><br>
+			<font color=red>${vo.price }</font><br>
 			<font color=#a0a0a0>할인가: 21만원+샌딩 2만원(2존까지) </font><br>
 			<font color=#a0a0a0>3~4존 20유로, 5존 40유로 추기비용발생</font>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="reserve.jsp">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">예약하기</button></a>
+			<form method="post" action="reserve.do" id="frm1">
+				<input type="hidden" name="pno" id="pno" value="${vo.pno}">
+				<input type="hidden" name="pname" id="pname" value="${vo.pname}">
+				<input type="hidden" name="category" id="category" value="${vo.category}">
+				<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button>
+			</form>
+
+				
 			</p>
 			</div>
         </div>
@@ -153,57 +152,7 @@
      </tr>
      </table>
      <hr/>
-     <%-- <c:forEach var="rvo" items="${list }">
-       <tr>
-         <td width="75%" height="30">
-          <c:if test="${rvo.group_tab>0 }">
-           <c:forEach var="i" begin="1" end="${rvo.group_tab }">
-            &nbsp;&nbsp;
-           </c:forEach>
-           <img src="user/board/image/icon_reply.gif">
-          </c:if>
-          ${rvo.msg }<br>
-          <c:if test="${rvo.group_tab>0 }">
-           <c:forEach var="i" begin="1" end="${rvo.group_tab }">
-            &nbsp;&nbsp;
-           </c:forEach>
-          </c:if>
-          <font color=blue>${rvo.name }</font>
-          (${rvo.dbday })
-         </td>
-         <td width="25%" class="tdcenter">
-           <img src="user/board/image/btn_reply.gif" id="w${rvo.no }" class="reply_write">
-           <c:if test="${sessionScope.id==rvo.id }">
-             <img src="user/board/image/btn_modify.gif" id="m${rvo.no }" class="reply_modify">
-             <a href="reply_delete.do?no=${rvo.no }&bno=${vo.no}&page=${page}">
-             <img src="user/board/image/btn_delete.gif"></a>
-           </c:if>
-         </td>
-       </tr>
-     <tr id="ww${rvo.no }" style="display:none">
-      <td colspan="2">
-        <form method="post" action="reply_re_insert.do" id="rfrm${rvo.no }">
-         <input type="hidden" name="bno" value="${vo.no }">
-         <input type="hidden" name="page" value="${page}">
-         <input type="hidden" name="no" value="${rvo.no }">
-         <textarea rows="2" cols="70" name="reply_data" style="float: left" id="d${rvo.no }"></textarea>
-         <input type=button value="댓글달기" style="height:60px" id="rBtn${rvo.no }" class="riBtn">
-        </form>
-      </td>
-     </tr>
-     <tr id="mm${rvo.no }" style="display:none">
-      <td colspan="2">
-       <form method="post" action="reply_update.do" id="frm${rvo.no }">
-         <input type="hidden" name="bno" value="${vo.no }">
-         <input type="hidden" name="page" value="${page}">
-         <input type="hidden" name="no" value="${rvo.no }">
-        <textarea rows="2" cols="70" name="reply_data" style="float: left" id="rd${rvo.no }">${rvo.msg }</textarea>
-        <input type=button value="댓글수정" style="height:60px" id="btn${rvo.no }" class="ruBtn">
-       </form>
-      </td>
-     </tr>
-     </c:forEach> --%>
-    
+     
 	
   </div>
   
