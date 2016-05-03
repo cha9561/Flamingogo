@@ -11,10 +11,11 @@
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
-function addCity(cityname,cityserial,lat,lng,a,b)
+function addCity(cityname,lat,lng)
 {
-	//window.parent.addLatLng(cityname,cityserial,lat,lng,a,b);
 	window.parent.addLatLng(lat,lng);
+	window.parent.imageFun(cityname);
+	//alert("image->"+image);
 }
 function addSpot(spotname,spotserial,lat,lng,imgurl,a,b)
 {
@@ -65,7 +66,7 @@ a img{
 </table>
 </td>
 
-<td width="40px"><a href="javascript:addCity('프라하','131011001','50.0876023334355','14.4240188598633','3','2|12|68|16|3');" title="이 도시를 내 루트에 추가"><img src="http://www.stubbyplanner.com/img_v8/Btn_AddCity.png"></a></td>
+<td width="40px"><a href="javascript:addCity('프라하','50.0876023334355','14.4240188598633');" title="이 도시를 내 루트에 추가"><img src="http://www.stubbyplanner.com/img_v8/Btn_AddCity.png"></a></td>
 </tr>
 </table>
 

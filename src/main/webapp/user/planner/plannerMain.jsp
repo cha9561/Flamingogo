@@ -65,7 +65,7 @@ function help_1()
 	//var autocomplete;
 	//var MarkersArray = [];
 	var poly;
-	
+	var imageArr;
 	/* var CoordinatesArr = [{lat: 37.772, lng: -122.214},
 	                      {lat: 21.291, lng: -157.821},
 	                      {lat: -18.142, lng: 178.431},
@@ -132,9 +132,10 @@ function help_1()
 			      icon: lineSymbol,
 			      offset: '100%'
 			    }]
-		    
 		  });
 		poly.setMap(map);
+		
+		
 		
 		  /* google.maps.event.addListener(map, 'click', function(event) {
 			var image = "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
@@ -158,7 +159,6 @@ function help_1()
 	}
 	function addLatLng(lat,lng) {
 		  var path = poly.getPath();
-
 		  // Because path is an MVCArray, we can simply append a new coordinate
 		  // and it will automatically appear.
 		  //path.push(event.latLng);
@@ -171,6 +171,24 @@ function help_1()
 		    map: map
 		  });
 		}
+	
+	  function imageFun(image)
+	{
+		//alert("image2->"+image);
+		if(imageArr == null)
+			imageArr=image;
+		else
+		 	imageArr = imageArr+"/"+image;
+		 $('#place').text(imageArr);
+		 alert("image2->"+imageArr);
+		 
+	} 
+	 
+	/* function title(cityname)
+	{
+		var title = poly.getText(cityname);
+		
+	}  */
 	// 드롭 마커 보기
 	    function viewMarker() {
 		if(startLat)
@@ -192,7 +210,7 @@ function help_1()
 								map: map,
 								draggable: false,
 								icon: markerList[i].icon,
-								html: markerList[i].addr ,
+								html: markerList[i].addr,
 								cityname: markerList[i].cont
 							});
 							markers.push(marker);
@@ -476,7 +494,7 @@ function help_1()
 				  
 				</div> -->
 				<div class="gwd-div-16m9" style="border-style: solid;"></div>
-				<div class="gwd-div-1e92" id="calander" style="">
+				<div class="gwd-div-1e92" id="calander">
 					<input type="month"/>
 				</div>
 				<!-- <div class="gwd-div-1ka9" style="border-style: solid;"></div>
@@ -497,8 +515,8 @@ function help_1()
 				<gwd-map id="google_map" class="gwd-map"> </gwd-map>
 				
 				<div class="gwd-div-2h60" style=""></div>
-				<div id="place">
-				<!-- <div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
+				<!-- <div id="place">
+				<div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
 				
 				<div class="gwd-div-1wk8" style="border-style: solid;" id="place2"></div>
 				
@@ -508,8 +526,27 @@ function help_1()
 				
 				<div class="gwd-div-1d7o" id="planing1" style=""></div>
 				<div class="gwd-div-1r07" id="planing2" style=""></div>
-				<div class="gwd-div-h7fg" id="planing3" style=""></div> -->
+				<div class="gwd-div-h7fg" id="planing3" style=""></div>
+				<div>
+				 <image src="">
 				</div>
+				<div></div>
+				</div> -->
+				
+				<form action="plannerRecomm.do" method="post">
+				<table>
+				  <tr>
+				    <td id="place" type="hidden"></td>
+				  </tr>
+				  <tr>
+				    <td id="date" type="hidden"></td>
+				  </tr>
+				  <tr>
+				    <td id="table" type="hidden"></td>
+				  </tr>
+				</table>
+				</form>
+				
 				<button id="bt1" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="help_1()">사용법</button>
 				<a href="calander.do">
 				<button id="bt2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">일정표</button></a>
@@ -521,13 +558,9 @@ function help_1()
 					<input class="mdl-textfield__input" type="text" id="sample3">
 					<label class="mdl-textfield__label" for="sample3">Text...</label>
 				</div>
-				<form action="NewFile.do" method="post">
 				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="plnSave" >
-				<input type=hidden name="no" value="CoordinatesArr[i]">
-				<input type=hidden name="no" value="cityname">
 				플래너 저장
 				</button>
-				</form>
 				
 			</div>
 		</div>
