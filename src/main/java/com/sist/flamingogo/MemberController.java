@@ -109,7 +109,7 @@ public class MemberController {
 		System.out.println("joinok->gomypage");
 		
 		req.setAttribute("id", id);
-		req.setAttribute("jsp", "user/main/user/join_ok.jsp");
+		req.setAttribute("jsp", "user/join_ok.jsp");
 		return "user/main/main.jsp";
 	}
 	
