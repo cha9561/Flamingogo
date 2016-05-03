@@ -6,6 +6,7 @@
 		SELECT COUNT(*) FROM userinform
 		WHERE id=#{id}
 		</select>
+
 	<select id="memberGetPwd" resultType="Member" parameterType="String">
 		SELECT pwd,name,admin_no FROM userinform
 		WHERE id=#{id}
