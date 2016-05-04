@@ -156,6 +156,7 @@ public class TourController {
     	vo.setPrice(Integer.parseInt(price));
     	
     	TourDAO.buyInsert(vo);
+    	TourDAO.adminInsert(vo);
     	
 		return "user/tour/reserve_ok.jsp";
 	}

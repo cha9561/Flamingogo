@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -28,25 +28,26 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-   .list-item {
-     width: 250px;
-   }
-   .demo-card-square.mdl-card {
-     width: 250px;
-     height: 400px;
-   }
-   .demo-card-square > .mdl-card__title {
-     color: #fff;
-     background:
-       bottom right 15% no-repeat #46B6AC;
-   }
-   .demo-card-square > .mdl-card__img {
-   }
-   </style>
+    
+	<style>
+	.list-item {
+	  width: 250px;
+	}
+	.demo-card-square.mdl-card {
+	  width: 250px;
+	  height: 400px;
+	}
+	.demo-card-square > .mdl-card__title {
+	  color: #fff;
+	  background:
+	    bottom right 15% no-repeat #46B6AC;
+	}
+	.demo-card-square > .mdl-card__img {
+	}
+	</style>
 </head>
 <body>
-   <!-- product imformation -->
+	<!-- product imformation -->
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	  <div class="mdl-tabs__tab-bar">
 	    <a href="#about-panel" class="mdl-tabs__tab is-active">나의플래너</a>
@@ -57,7 +58,7 @@
 	  <div class="mdl-tabs__panel is-active" id="about-panel" style="margin-top:10px"> 
 	     
 	     <!-- Page Content -->
-         <div class="content container" style="margin-top:50px;" >
+          <div class="content container" style="margin-top:50px;" >
          
          <div class="row">
       
@@ -69,7 +70,7 @@
 		               <img src=user/my/img/profile.jpg width=250 height="220">
 		            </div>
 		            <div class="mdl-card__supporting-text">
-		                ID : ${id}<br>
+		                admin : ${id}<br>
 				                  성별 : MAN<br>
 				                  나이 : Aenan convallis.<br>
 		            </div>
@@ -101,37 +102,32 @@
       </div>
 	  
 	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
-	  <div class="content container" style="margin-top:50px;" >  	
-    	<table width="800px">
-    	 <c:if test="${list==null}">
-    	 	<%-- <c:out value="예약 내역이 존재하지 않습니다."></c:out> --%>
-    	 	<p>예약 내역이 존재하지 않습니다.</p>
-    	 </c:if>
-         <c:forEach var="vo" items="${list }">
-         <tr>
-	         <!-- <th>구매번호</th>
-	         <th>상품번호</th> -->
-	         <th>상품명</th>
-	         <th>예약인원</th>
-	         <th>예약날짜</th>
-	         <th>결제날짜</th>
-	         <th>가격</th>
-	         <th>예약상태</th>
-         </tr>
-         <tr class="dataTr" id="m${vo.pno }">
-	       <%-- <td class="tdcenter">${vo.buyno }</td>
+	  <div class="content container" style="margin-top:50px;" > 
+	    	<table width="800px">
+               <c:forEach var="vo" items="${list }">
+        <tr>
+         <!-- <th>구매번호</th>
+         <th>상품번호</th> -->
+         <th>상품명</th>
+         <th>예약인원</th>
+         <th>예약날짜</th>
+         <th>결제날짜</th>
+         <th>가격</th>
+         <th>예약상태</th>
+        </tr>
+        <tr class="dataTr" id="m${vo.pno }">
+           <%-- <td class="tdcenter">${vo.buyno }</td>
 	       <td class="tdcenter">${vo.pno }</td> --%>
 	       <td class="tdcenter">${vo.pname }</td>
 	       <td class="tdcenter">${vo.amount }</td>
 	       <td class="tdcenter">${vo.rdate }</td>
 	       <td class="tdcenter"><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
 	       <td class="tdcenter" >${vo.price }</td>
-	       <td class="tdcenter">${vo.status==0?"예약대기":"예약완료" }</td>
+	       <td class="tdcenter"><a href="admin_ok.do?buyno=${vo.buyno }">${vo.status==0?"예약대기":"예약승인" }</a></td>
 	     </tr>
-     	 </c:forEach>
-     	 
+      </c:forEach>
       </table>
-	  </div>
+      </div>
 	  </div>
 	  
 	<div class="mdl-tabs__panel" id="albums-panel" style="margin-top:10px">
@@ -143,8 +139,8 @@
 	  </div>
 	  
 	</div>
-	
-    <!-- jQuery -->
+
+	 <!-- jQuery -->
     <script src="user/main/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

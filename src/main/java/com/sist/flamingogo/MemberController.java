@@ -25,10 +25,34 @@ public class MemberController {
 		System.out.println("mypage");
 		System.out.println("buyData:"+list);
 		
+		req.setAttribute("id", id);
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../my/myTour.jsp");
 		return "user/main/main.jsp";
 	}
+	@RequestMapping("admin.do")
+	public String admin(HttpServletRequest req)
+	{
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	List<BuyVO> list=TourDAO.buyAdminAllData();
+		System.out.println("admin");
+		System.out.println("adminData:"+list);
+		
+		req.setAttribute("id", id);
+		req.setAttribute("list", list);
+		req.setAttribute("jsp", "../my/admin.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("admin_ok.do")
+    public String admin_ok(HttpServletRequest req)
+    {
+    	String buyno=req.getParameter("buyno");
+    	TourDAO.userReserveOk(Integer.parseInt(buyno));
+    	TourDAO.adminReserveOk(Integer.parseInt(buyno));
+    	
+    	return "user/my/admin_ok.jsp";
+    }
 	
 	@RequestMapping("login.do")
 	public String memberLogin(HttpServletRequest req)

@@ -76,10 +76,10 @@
 				<div>
 				<c:if test="${sessionScope.id!=null }">
 					 <c:if test="${sessionScope.admin==0 }">
-					<li><a href="mypage.do"><div id="mypage" class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div>MyPage</a></li>
+					<li><a href="myPage.do"><div id="mypage" class="material-icons mdl-badge mdl-badge--overlap" data-badge="♥">account_box</div>MyPage</a></li>
 					</c:if>
 					<c:if test="${sessionScope.admin==1 }">
-						<li><a href="myPage.do">예약현황보기</a></li>
+						<li><a href="admin.do">예약현황보기</a></li>
 					</c:if>
 
 				</c:if>

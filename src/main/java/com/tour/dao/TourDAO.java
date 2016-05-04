@@ -97,6 +97,17 @@ public class TourDAO {
 		{
 			System.out.println(ex.getMessage());
 		}
+    }
+	public static void adminInsert(BuyVO vo)
+    {
+		try{
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("adminInsert",vo);
+    	session.close();
+		}catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
     } 
 	// 예약
     public static List<BuyVO> buyUserAllData(String id)
@@ -112,5 +123,29 @@ public class TourDAO {
     	List<BuyVO> list=session.selectList("buyAdminAllData");
     	session.close();
     	return list;
+    }
+    //예약상태변경
+    public static void userReserveOk(int buyno)
+    {
+    	try{
+    		SqlSession session=ssf.openSession(true);
+        	session.update("userReserveOk",buyno);
+        	session.close();
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	
+    }
+    public static void adminReserveOk(int buyno)
+    {
+    	try{
+    	SqlSession session=ssf.openSession(true);
+    	session.update("adminReserveOk",buyno);
+    	session.close();
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
     }
 }
