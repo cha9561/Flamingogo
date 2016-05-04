@@ -75,9 +75,9 @@ $(function(){
 				
             <hr/>
             
-          	<strike>${vo.price }</strike>
+          	<strike>${vo.pinfo }</strike>
 			<p><font color=red>선착순 파격가</font><br>
-			<font color=red>${vo.price }</font><br>
+			<font color=red>${vo.pinfo }</font><br>
 			<font color=#a0a0a0>할인가: 21만원+샌딩 2만원(2존까지) </font><br>
 			<font color=#a0a0a0>3~4존 20유로, 5존 40유로 추기비용발생</font>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -86,6 +86,7 @@ $(function(){
 			<form method="post" action="reserve.do" id="frm1">
 				<input type="hidden" name="pno" id="pno" value="${vo.pno}">
 				<input type="hidden" name="pname" id="pname" value="${vo.pname}">
+				<input type="hidden" name="price" id="price" value="${vo.price}">
 				<input type="hidden" name="category" id="category" value="${vo.category}">
 				<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button>
 			</form>

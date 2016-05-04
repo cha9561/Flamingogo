@@ -53,6 +53,16 @@ public class TourDAO {
 	//tourList
 	public static List<TourVO> tourList()
 	{
+		try{
+			SqlSession session=ssf.openSession();
+			List<TourVO> list=session.selectList("tourList");
+			session.close();
+			
+			return list;
+		}catch(Exception ex)
+		{
+			System.out.println(ex.getMessage());
+		}
 		SqlSession session=ssf.openSession();
 		List<TourVO> list=session.selectList("tourList");
 		session.close();
