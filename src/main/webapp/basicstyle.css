@@ -53,13 +53,17 @@ nav a:nth-child(4) {	position:absolute; top:5px;	right:10px;}
 article>div { position:relative; width:100%; height:100%; overflow:hidden; cursor:pointer; }
 
 /* 배경이미지 삽입*/
-article .bg1 { background-image:url(user/main/img/pic1.jpg);}
-article .bg2 { background-image:url(user/main/img/pic2.jpg);}
-article .bg3 { background-image:url(user/main/img/pic3.jpg);}
-article .bg4 { background-image:url(user/main/img/pic4.jpg);}
-article .bg5 { background-image:url(user/main/img/pic5.jpg);}
-article .bg6 { background-image:url(user/main/img/pic6.jpg);}
-article .bg7 { background-image:url(user/main/img/pic7.jpg);}
+article .bg1 { background-image:url(bg/4.jpg);}
+article .bg2 { background-image:url(bg/13.jpg);}
+article .bg3 { background-image:url(bg/3.jpg);}
+article .bg4 { background-image:url(bg/11.jpg);}
+article .bg5 { background-image:url(bg/9.jpg);}
+article .bg6 { background-image:url(bg/6.jpg);}
+article .bg7 { background-image:url(bg/7.jpg);}
+article .bg8 { background-image:url(bg/10.jpg);}
+article .bg9 { background-image:url(bg/15.jpg);}
+article .bg10 { background-image:url(bg/16.jpg);}
+
 
 /* 이미지박스 */
 article .bg { background-size:cover; background-position:center center; }

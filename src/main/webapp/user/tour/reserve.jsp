@@ -52,7 +52,7 @@ function tourCallback()
     	
     	<div class="row" style="margin-top:15px">
     		<div class="col-md-12">
-    			<p>¿¹¾à</p>
+    			  <h3><img src="user/tour/img/reserve.png" border=0></h3>
     			<hr>
     		</div>
     	
