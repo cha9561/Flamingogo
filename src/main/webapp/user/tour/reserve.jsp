@@ -62,12 +62,16 @@ function tourCallback()
     		<div class="col-md-5">
     			<table>
     			 <tr>
-    			  <td id="pn">${vo.pname}</td>
+    			  <td id="pn" colspan="2">${vo.pname}</td>
     			 </tr>
     			 <tr>
-    			  <td id="date" height=250>예약날짜</td>
+    			  <td id="date" height=250 colspan="2">예약날짜</td>
     			 </tr>
     			 <tr>
+    			  <td colspan="2">예약금(1인당)</td>
+    			 </tr>
+    			 <tr>
+    			  <td id=price>${vo.price }</td>
     			  <td id="inwon"> </td>
     			 </tr>
     			</table>
