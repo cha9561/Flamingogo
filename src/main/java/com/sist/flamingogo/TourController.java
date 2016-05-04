@@ -55,11 +55,13 @@ public class TourController {
 		req.setCharacterEncoding("EUC-KR");
 		String pno=req.getParameter("pno");
 		String pname=req.getParameter("pname");
+		String price=req.getParameter("price");
 		String category=req.getParameter("category");
 		
 		TourVO vo=new TourVO();
 		vo.setPno(Integer.parseInt(pno));
 		vo.setPname(pname);
+		vo.setPrice(Integer.parseInt(price));
 		vo.setCategory(category);
 		
 		req.setAttribute("vo", vo);

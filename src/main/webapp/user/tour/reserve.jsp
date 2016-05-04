@@ -32,7 +32,7 @@
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
 $(function(){
-	sendMessage("POST","tour_date.do", null, tourCallback);
+	sendMessage("POST","tour_date.do", null, tourCallback); 
 });
 function tourCallback()
 {
@@ -84,7 +84,7 @@ function tourCallback()
     			  <td id="span_inwon">예약인원:</td>
     			 </tr>
     			 <tr>
-    			  <td id="span_price">총금액:</td>
+    			  <td id="span_price"> </td> <!-- ${vo.price} -->
     			 </tr>
     			</table>
     			<form method="post" action="reserve_ok.do" id="res_frm">
