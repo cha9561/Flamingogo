@@ -71,7 +71,9 @@ function tourCallback()
     			  <td colspan="2">예약금(1인당)</td>
     			 </tr>
     			 <tr>
-    			  <td id=price>${vo.price }</td>
+    			  <td>
+    			  ${vo.price }원
+    			  <input type="hidden" value="${vo.price}" id="price" style="hidden"></td>
     			  <td id="inwon"> </td>
     			 </tr>
     			</table>
@@ -88,7 +90,7 @@ function tourCallback()
     			  <td id="span_inwon">예약인원:</td>
     			 </tr>
     			 <tr>
-    			  <td id="span_price"> </td> <!-- ${vo.price} -->
+    			  <td id="span_price">총금액: </td> <!-- ${vo.price} -->
     			 </tr>
     			</table>
     			<form method="post" action="reserve_ok.do" id="res_frm">

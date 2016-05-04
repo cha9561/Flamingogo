@@ -104,8 +104,8 @@
            <table width="700px">
                <c:forEach var="vo" items="${list }">
         <tr>
-         <th>구매번호</th>
-         <th>상품번호</th>
+         <!-- <th>구매번호</th>
+         <th>상품번호</th> -->
          <th>상품명</th>
          <th>예약인원</th>
          <th>예약날짜</th>
@@ -114,8 +114,8 @@
          <th>예약상태</th>
         </tr>
         <tr class="dataTr" id="m${vo.pno }">
-           <td class="tdcenter">${vo.buyno }</td>
-	       <td class="tdcenter">${vo.pno }</td>
+           <%-- <td class="tdcenter">${vo.buyno }</td>
+	       <td class="tdcenter">${vo.pno }</td> --%>
 	       <td class="tdcenter">${vo.pname }</td>
 	       <td class="tdcenter">${vo.amount }</td>
 	       <td class="tdcenter">${vo.rdate }</td>

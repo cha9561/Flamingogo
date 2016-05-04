@@ -12,10 +12,13 @@
 $(function(){
 	$('#grade').change(function(){
 		var inwon=$('#grade').val();
+		var price=$('#price').val();
 		$('#span_inwon').text("인원:"+inwon+"명");
-		$('#span_price').text("금액:"+(inwon*9000)+"원");
+		$('#span_price').text("총금액:"+(inwon*price)+"원");
+		
 		$('#inwon_jsp').val(inwon);
-		$('#price_jsp').val(inwon*9000);
+		$('#price_jsp').val(inwon*price);
+		
 		
 		$('#resImg').attr("src","user/tour/img/res.png");
 		$('#resImg').css("cursor","pointer");
