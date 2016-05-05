@@ -107,7 +107,7 @@
     	 	<%-- <c:out value="예약 내역이 존재하지 않습니다."></c:out> --%>
     	 	<p>예약 내역이 존재하지 않습니다.</p>
     	 </c:if>
-         <c:forEach var="vo" items="${list }">
+         
          <tr>
 	         <!-- <th>구매번호</th>
 	         <th>상품번호</th> -->
@@ -118,6 +118,7 @@
 	         <th>가격</th>
 	         <th>예약상태</th>
          </tr>
+         <c:forEach var="vo" items="${list }">
          <tr class="dataTr" id="m${vo.pno }">
 	       <%-- <td class="tdcenter">${vo.buyno }</td>
 	       <td class="tdcenter">${vo.pno }</td> --%>

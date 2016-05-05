@@ -27,14 +27,41 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="ajax.js"></script>    
 <script type="text/javascript">
 $(function(){
+	sendMessage("POST","add.do?pno=${vo.pno}", null, addCallback); 
+	
 	$('#btn1').click(function(){
 		$('#frm1').submit();
 	});
+	
+	/* $('#btn2').click(function(){
+		$('#add_frm').submit();
+	}); */
+	
 });
+function addCallback()
+{
+	if(httpRequest.readyState==4)
+	{
+		if(httpRequest.status==200)
+		{
+			//alert(httpRequest.responseText);
+			$('#add').html(httpRequest.responseText);
+		}
+	}
+}
 </script>
+<style>
+a{
+  text-decoration: none;
+}
+a:HOVER {
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
 	<!-- Page Content -->
@@ -83,16 +110,29 @@ $(function(){
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <c:if test="${sessionScope.id!=null and sessionScope.admin!=1}">
-			<form method="post" action="reserve.do" id="frm1">
-				<input type="hidden" name="pno" id="pno" value="${vo.pno}">
-				<input type="hidden" name="pname" id="pname" value="${vo.pname}">
-				<input type="hidden" name="price" id="price" value="${vo.price}">
-				<input type="hidden" name="category" id="category" value="${vo.category}">
-				<button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button>
-			</form>
-			</c:if>
-
-				
+            <table>
+            <tr>
+            <td id="add">
+	            <form method="post" action="add_ok.do" id="add_frm">
+					<input type="hidden" name="pno" id="pno" value="${vo.pno}">
+					<input type="hidden" name="pname" id="pname" value="${vo.pname}">
+					<input type="hidden" name="category" id="category" value="${vo.category}">
+					<!-- <button class="mdl-button mdl-js-button mdl-button--accent" id="btn2">찜하기</button> -->
+				</form>
+            </td>
+            <td>
+				<form method="post" action="reserve.do" id="frm1">
+					<input type="hidden" name="pno" id="pno" value="${vo.pno}">
+					<input type="hidden" name="pname" id="pname" value="${vo.pname}">
+					<input type="hidden" name="price" id="price" value="${vo.price}">
+					<input type="hidden" name="category" id="category" value="${vo.category}">
+					<button class="mdl-button mdl-js-button mdl-button--accent" id="btn1">예약하기</button>
+				</form>
+			</td>
+			</tr>
+			</table>
+			</c:if>	
+			
 			</p>
 			</div>
         </div>

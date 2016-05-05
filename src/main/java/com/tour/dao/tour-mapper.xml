@@ -54,4 +54,26 @@
      status=1
      WHERE buyno=#{buyno}
     </update>
+   <!-- 찜 상태조회 -->
+    <select id="addCheck" parameterType="Add" resultType="int">
+     SELECT count(*) FROM addspot
+	 WHERE id=#{id} AND pno=#{pno}
+    </select> 
+   <!-- 찜 추가 -->
+    <insert id="addOk" parameterType="Add">
+     <selectKey keyProperty="addno" resultType="int" order="BEFORE">
+       SELECT NVL(MAX(addno)+1,1) as addno FROM addspot
+     </selectKey>
+       INSERT INTO addspot(addno,id,pno,apname,category)
+       VALUES(#{addno},#{id},#{pno},#{apname},#{category})
+    </insert>
 </mapper>
+
+
+
+
+
+
+
+
+

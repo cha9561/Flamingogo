@@ -148,4 +148,40 @@ public class TourDAO {
     		System.out.println(ex.getMessage());
     	}
     }
+    //Âò »óÅÂÁ¶È¸
+    public static int addCheck(AddSpotVO vo)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession();
+    		int count=session.selectOne("addCheck",vo);
+    		session.close();
+    		
+    		return count;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	
+    	SqlSession session=ssf.openSession();
+		int count=session.selectOne("addCheck",vo);
+		session.close();
+		
+		return count;
+    }
+    //Âò Ãß°¡
+    public static void addOk(AddSpotVO vo)
+    {
+    	try
+    	{
+    		System.out.println("addDAO");
+    		SqlSession session=ssf.openSession(true);
+        	session.insert("addOk",vo);
+        	session.close();
+        	System.out.println("addDAO_ok");
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    }
 }

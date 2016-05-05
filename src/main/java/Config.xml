@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.recommend.dao.RecoVO" alias="Reco"/>
 	<typeAlias type="com.tour.dao.BuyVO" alias="Buy"/>
 	<typeAlias type="com.tour.dao.AdminVO" alias="Admin"/>
+	<typeAlias type="com.tour.dao.AddSpotVO" alias="Add"/>
 </typeAliases>
 <environments default="development">
 <environment id="development">
