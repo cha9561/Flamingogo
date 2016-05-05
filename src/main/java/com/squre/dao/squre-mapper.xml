@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.squre.dao.squre-mapper">
+	<insert id="squreInsert" parameterType="Squre">
+		INSERT INTO rboard(content_no,name,content,subject,pwd)
+		VALUES((SELECT NVL(MAX(content_no)+1,1) FROM rboard),
+			#{name},11,#{subject},#{pwd})
+	</insert>
+	<select id="squreAllData" resultType="Squre">
+		SELECT content_no,name,subject
+		FROM rboard ORDER BY content_no DESC
+	</select>
+	<delete id="squreDelete" parameterType="int">
+    DELETE FROM rboard
+    WHERE content_no=#{no}
+  </delete>
+</mapper>
