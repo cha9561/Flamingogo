@@ -30,12 +30,13 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
+/*
 $(function(){
 	$('#btn2').click(function(){
 			$('#add_frm').submit();
 	});
 });
-/* function addCallback()
+ function addCallback()
 {
 	if(httpRequest.readyState==4)
 	{
@@ -62,15 +63,16 @@ a:HOVER {
 </style>	
 </head>
 <body>
+	
 	<c:if test="${count==0 }">
-		<button class="mdl-button mdl-js-button mdl-button--accent" id="btn2">ÂòÇÏ±â</button>
-		</c:if>
-		<c:if test="${count>0 }">
-		<a href="#" class="mdl-badge" data-badge="¢½" id="jjim2">ÂòÇÏ±â</a>
+		<a href="add_ok.do?pno=${pno }" class="mdl-badge mdl-badge--no-background" data-badge="¢½" id="jjim1">ÂòÇÏ±â</a>
+	</c:if>
+	<c:if test="${count>0 }">
+		<a href="add_cancle.do?pno=${pno }" class="mdl-badge" data-badge="¢½" id="jjim2">ÂòÇÏ±â</a>
 	</c:if>
 	
 	<%-- <c:if test="${count==0 }">
-		<a href="#" class="mdl-badge mdl-badge--no-background" data-badge="¢½" id="jjim1">ÂòÇÏ±â</a>
+		<button class="mdl-button mdl-js-button mdl-button--accent" id="btn2">ÂòÇÏ±â</button>
 		</c:if>
 		<c:if test="${count>0 }">
 		<a href="#" class="mdl-badge" data-badge="¢½" id="jjim2">ÂòÇÏ±â</a>
@@ -82,7 +84,6 @@ a:HOVER {
 	<c:if test="${count==2 }">
 	<img src="user/tour/img/add_ok.png" id="jjim2">
 	</c:if>  --%>
-	
 	
 </body>
 </html>

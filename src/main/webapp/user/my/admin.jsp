@@ -103,7 +103,7 @@
 	  
 	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
 	  <div class="content container" style="margin-top:50px;" > 
-	    	<table width="800px">
+	    	<table width="800px" align="center">
                
         <tr>
          <!-- <th>구매번호</th>

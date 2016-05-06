@@ -167,23 +167,21 @@ public class TourController {
 		String pno=req.getParameter("pno");
 		HttpSession session=req.getSession();
     	String id=(String)session.getAttribute("id");
-    	String apname=req.getParameter("pname");
-    	String category=req.getParameter("category");
     	
+    	System.out.println("pno:"+pno
+    					+"id:"+id);
     	
     	AddSpotVO vo=new AddSpotVO();
     	vo.setId(id);
     	vo.setPno(Integer.parseInt(pno));
-    	vo.setApname(apname);
-    	vo.setCategory(category);
     	
     	int count=TourDAO.addCheck(vo);
     	
-    	System.out.println("addID:"+id);
-    	System.out.println("pno:"+pno);
+    	
     	System.out.println("count:"+count);
     	
     	req.setAttribute("count", count);
+    	req.setAttribute("pno", pno);
 		return "user/tour/add.jsp";
 	}
 	@RequestMapping("add_ok.do")
@@ -194,8 +192,15 @@ public class TourController {
 		String pno=req.getParameter("pno");
 		HttpSession session=req.getSession();
     	String id=(String)session.getAttribute("id");
-    	String apname=req.getParameter("pname");
-    	String category=req.getParameter("category");
+    	
+    	TourVO tvo=TourDAO.tourContent(Integer.parseInt(pno));
+
+		String apname=tvo.getPname();
+		String category=tvo.getCategory();
+		
+    	System.out.println("pno:"+pno
+				+"pname:"+apname
+				+"category:"+category);
     	
     	AddSpotVO vo=new AddSpotVO();
     	vo.setId(id);
@@ -207,5 +212,22 @@ public class TourController {
     	
     	req.setAttribute("pno", pno);
     	return "user/tour/add_ok.jsp";
+	}
+	@RequestMapping("add_cancle.do")
+	public String add_cancle(HttpServletRequest req)
+	{
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	
+    	TourDAO.add_cancle(vo);
+		
+    	req.setAttribute("pno", pno);
+    	
+		return "user/tour/add_ok.jsp";
 	}
 }

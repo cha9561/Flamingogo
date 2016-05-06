@@ -11,6 +11,7 @@ import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.tour.dao.AddSpotVO;
 import com.tour.dao.BuyVO;
 import com.tour.dao.TourDAO;
 
@@ -25,6 +26,11 @@ public class MemberController {
 		System.out.println("mypage");
 		System.out.println("buyData:"+list);
 		
+		int myCount=TourDAO.addCount(id);
+		List<AddSpotVO> list2=TourDAO.myAdd(id);
+		
+		req.setAttribute("list2", list2);
+		req.setAttribute("myCount", myCount);
 		req.setAttribute("id", id);
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../my/myTour.jsp");
