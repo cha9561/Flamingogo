@@ -67,6 +67,21 @@
        INSERT INTO addspot(addno,id,pno,apname,category)
        VALUES(#{addno},#{id},#{pno},#{apname},#{category})
     </insert>
+    <!-- 찜 취소 -->
+    <delete id="add_cancle" parameterType="Add">
+     DELETE FROM addspot
+     WHERE id=#{id} AND pno=#{pno}
+    </delete>
+    <!-- 마이페이지 찜 카운트 -->
+    <select id="addCount" parameterType="String" resultType="int">
+     SELECT count(*) FROM addspot
+     WHERE id=#{id}
+    </select>
+    <!-- 마이페이지 찜 리스트 -->
+    <select id="myAdd" parameterType="String" resultType="Add">
+     SELECT * FROM addspot
+     WHERE id=#{id}
+    </select>
 </mapper>
 
 
