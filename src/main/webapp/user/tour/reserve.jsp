@@ -70,7 +70,7 @@ function tourCallback()
 	    			 </tr>
     			 </table>
     		</div>
-    		<div class="col-md-3">
+    		<div class="col-md-7">
     			<div class="panel panel-default">
 				  <div class="panel-heading">예약인원 선택</div>
 				</div>
@@ -85,9 +85,11 @@ function tourCallback()
 	    			 <td id="inwon"> </td>
 	    			</tr>
     			</table>
-    		</div>
-    		
-    		<div class="col-md-4">
+    			
+    			<div class="panel panel-default" style="margin-top:15px">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">예약 정보</div>
+				</div>
     			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 			      <tbody>
 			        <tr>
@@ -119,7 +121,12 @@ function tourCallback()
 				<img src="user/tour/img/res_d.png" border=0 style="margin-left:100px; margin-top:10px" id="resImg">
 				
     		</div>
-    	</div>
+    		
+    		</div>
+    		
+    		<!-- <div class="col-md-4">
+    			
+    		</div> -->
     	
     	</div>
     </div>
