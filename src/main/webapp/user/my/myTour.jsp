@@ -57,7 +57,7 @@
 	  <div class="mdl-tabs__panel is-active" id="about-panel" style="margin-top:10px"> 
 	     
 	     <!-- Page Content -->
-         <div class="content container" style="margin-top:50px;" align="center">
+         <div class="content container" style="margin-top:50px; margin-bottom:10px;" align="center">
          
          <div class="row">
       
@@ -100,7 +100,7 @@
            
       </div>
 	  
-	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
+	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px; margin-bottom:20px;">
 	  <div class="content container" style="margin-top:50px;"> 
     	<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" align="center">
 		  <thead>
@@ -120,14 +120,12 @@
 		    </c:if>
 		  <tbody>
 		    <c:forEach var="vo" items="${list }">
-		         <tr class="dataTr" id="m${vo.pno }">
-			       <%-- <td class="tdcenter">${vo.buyno }</td>
-			       <td class="tdcenter">${vo.pno }</td> --%>
+		         <tr>
 			       <td class="mdl-data-table__cell--non-numeric"><a href="detail.do?pno=${vo.pno }">${vo.pname}</a></td>
-			       <td >${vo.amount }</td>
-			       <td >${vo.rdate }</td>
-			       <td ><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
-			       <td >${vo.price }</td>
+			       <td>${vo.amount }</td>
+			       <td>${vo.rdate }</td>
+			       <td><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
+			       <td>${vo.price }</td>
 			       <td class="mdl-data-table__cell--non-numeric">${vo.status==0?"예약대기":"예약완료" }</td>
 			     </tr>
 		     	 </c:forEach>
@@ -136,7 +134,7 @@
   </div>
   </div>
 	  
-	<div class="mdl-tabs__panel" id="albums-panel" style="margin-top:10px">
+	<div class="mdl-tabs__panel" id="albums-panel" style="margin-top:10px; margin-bottom:20px;">
 	<div class="content container" style="margin-top:50px;" >  	
 		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" align="center">
 		  <thead>
