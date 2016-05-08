@@ -51,12 +51,12 @@
 <script src="js/jquery.fittext.js"></script>
 <script src="js/wow.min.js"></script>
 <script type="text/javascript" src="../../js/ajax.js"></script>
-<!-- Custom Theme JavaScript -->
+<!-- Custom Theme JavaScript --><!-- 
 <link rel="stylesheet" type="text/css"
-	href="user/shadow/css/shadowbox.css">
+	href="user/shadow/css/shadowbox.css"> -->
 <link href="user/planner/style.css" rel="stylesheet" type="text/css">
 <link href="user/planner/maptest.css" rel="stylesheet" type="text/css">
-	
+<link rel="stylesheet" href="basicstyle.css" />	
 <script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
 	Shadowbox.init({

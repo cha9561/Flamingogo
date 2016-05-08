@@ -50,4 +50,5 @@ public class MyController {
 		return "user/main/main.jsp";
 	}
 	
+	
 }

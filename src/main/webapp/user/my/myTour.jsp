@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-   <title>투어상품 상세보기</title>
+   <title>나의 예약list 확인</title>
 
    <!-- Bootstrap Core CSS -->
     <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
@@ -29,12 +29,31 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
+    
+    @media (min-width: 1200px){
+	.container{
+    width: 90%;
+    margin-right:100px;
+	}
+	}
+	
+@media (min-width: 992px){
+.container {
+    width: 800px;
+    margin-left: 30px;
+}
+}
+
+
+
    .list-item {
      width: 250px;
    }
    .demo-card-square.mdl-card {
      width: 250px;
      height: 400px;
+     margin-top:110px;
+     margin-left:50px;
    }
    .demo-card-square > .mdl-card__title {
      color: #fff;
@@ -46,6 +65,29 @@
    </style>
 </head>
 <body>
+<div class="row">
+<div class="col-md-3">
+                  
+		          <!-- Square card -->
+		          <div class="demo-card-square mdl-card mdl-shadow--2dp">
+		            <div class="mdl-card__img mdl-card--expand">
+		               <img src=user/my/img/profile.jpg width=250 height="220">
+		            </div>
+		            <div class="mdl-card__supporting-text">
+		                &nbsp;&nbsp;&nbsp;ID : ${id}<br>
+		                            이름 : ${name}<br>
+				                  성별 : ${sex}<br>
+				                  나이 : ${birth}세<br>
+		            </div>
+		            <div class="mdl-card__actions mdl-card--border">
+		              <a href="myinfo_update.do?id=${id }&page=${page}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+		                  	 내정보 수정하기
+		              </a>
+		            </div>
+		          </div>
+		          </div>
+
+<div class="col-md-9">
    <!-- product imformation -->
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	  <div class="mdl-tabs__tab-bar">
@@ -57,31 +99,8 @@
 	  <div class="mdl-tabs__panel is-active" id="about-panel" style="margin-top:10px"> 
 	     
 	     <!-- Page Content -->
-         <div class="content container" style="margin-top:50px; margin-bottom:10px;" align="center">
-         
-         <div class="row">
-      
-                  <div class="col-md-3">
-                  
-		          <!-- Square card -->
-		          <div class="demo-card-square mdl-card mdl-shadow--2dp">
-		            <div class="mdl-card__img mdl-card--expand">
-		               <img src=user/my/img/profile.jpg width=250 height="220">
-		            </div>
-		            <div class="mdl-card__supporting-text">
-		                ID : ${id}<br>
-				                  성별 : MAN<br>
-				                  나이 : Aenan convallis.<br>
-		            </div>
-		            <div class="mdl-card__actions mdl-card--border">
-		              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-		                  	 내정보 수정하기
-		              </a>
-		            </div>
-		          </div>
-		          </div>
-           
-         		<div class="col-md-8">
+         <div class="container" style="margin-top:10px; width=90%" >
+      		
 	         	<div class="row" style="margin-top:50px; margin-bottom:10px">
 	              <div class="col-xs-6 col-sm-4"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
 	              <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%"  src="http://placehold.it/350x300" alt=""></div>
@@ -92,15 +111,13 @@
 	             <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
 	             <div class="col-xs-6 col-sm-4" style="margin-bottom:10px"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
 	             <div class="col-xs-6 col-sm-4"><img width="99%" src="http://placehold.it/350x300" alt=""></div>
-         </div>
-         </div>
+         		</div>
          </div>
            
-        </div>
            
       </div>
 	  
-	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px; margin-bottom:20px;">
+	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
 	  <div class="content container" style="margin-top:50px;"> 
     	<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" align="center">
 		  <thead>
@@ -120,12 +137,14 @@
 		    </c:if>
 		  <tbody>
 		    <c:forEach var="vo" items="${list }">
-		         <tr>
+		         <tr class="dataTr" id="m${vo.pno }">
+			       <%-- <td class="tdcenter">${vo.buyno }</td>
+			       <td class="tdcenter">${vo.pno }</td> --%>
 			       <td class="mdl-data-table__cell--non-numeric"><a href="detail.do?pno=${vo.pno }">${vo.pname}</a></td>
-			       <td>${vo.amount }</td>
-			       <td>${vo.rdate }</td>
-			       <td><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
-			       <td>${vo.price }</td>
+			       <td >${vo.amount }</td>
+			       <td >${vo.rdate }</td>
+			       <td ><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
+			       <td >${vo.price }</td>
 			       <td class="mdl-data-table__cell--non-numeric">${vo.status==0?"예약대기":"예약완료" }</td>
 			     </tr>
 		     	 </c:forEach>
@@ -134,7 +153,7 @@
   </div>
   </div>
 	  
-	<div class="mdl-tabs__panel" id="albums-panel" style="margin-top:10px; margin-bottom:20px;">
+	<div class="mdl-tabs__panel" id="albums-panel" style="margin-top:10px">
 	<div class="content container" style="margin-top:50px;" >  	
 		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" align="center">
 		  <thead>
@@ -158,13 +177,13 @@
 	</div>
 	
 	 <div class="mdl-tabs__panel" id="board-panel" style="margin-top:10px">
-		
-		
-		
-	 </div>
-	  
+
+		나의글
+	  </div>
+	 </div> 
+
 	</div>
-	
+	</div>
     <!-- jQuery -->
     <script src="user/main/js/jquery.js"></script>
 

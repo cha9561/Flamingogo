@@ -71,7 +71,7 @@
     
     
     	<header>
-			<a href="#"><h1>logo</h1></a>
+			<a href="main.do"><h1>logo</h1></a>
 			<ul id="gnb">
 				<div>
 				<c:if test="${sessionScope.id!=null }">
@@ -84,13 +84,13 @@
 
 				</c:if>
 
-				<li><a href="plannerMain.do"><i class="fa  fa-map-marker"></i>Planner</a></li>
-				<li><a href="recomm.do"><i class="fa fa-thumbs-o-up"></i>플라밍Go's<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recomm</a></li>
-				<li><a href="tour.do"><i class="fa fa-plane"></i>Tour</a></li>
-				<li><a href="squrePage.do"><i class="fa  fa-smile-o"></i>Open space</a></li>	
+				<li><a href="plannerMain.do"><!-- <i class="fa  fa-map-marker"> --><img src="bg/Package tracking 2.png" width="30px" height="30px"> Planner</a></li>
+				<li><a href="recomm.do"><img src="bg/Certification.png" width="30px" height="30px"> 플라밍Go's<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recomm</a></li>
+				<li><a href="tour.do"><img src="bg/Shopping cart.png" width="30px" height="30px"> Tour</a></li>
+				<li><a href="squrePage.do"><img src="bg/Package tracking 1.png" width="28px" height="28px"> Openspace</a></li>	
 				<c:if test="${sessionScope.id==null }">
 				<li><a href="join.do"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="joinBtn" onclick="join()">
-                <i class="fa fa-chevron-circle-right"></i> 회원가입
+                <i class="fa fa-chevron-circle-right"> </i>회원가입
                 </button></a></li>
 				</c:if>
 				</div>
@@ -137,100 +137,6 @@
 	<jsp:include page="${jsp }"></jsp:include>
 	
 	</section>
-	<!-- <section>
-		<article>			
-			<div class="bg bg1">		
-				<span>Maldives</span>
-			</div>			
-		</article>
-		
-		<article>		
-			<div class="txt">
-				<i class="fa fa-arrow-right"></i>
-				<p>
-					<strong>A Whole New World</strong><br />
-					<em>I can show you the world. Shining Shimmering Splended.<br />
-					Tell me when you decide let me be in your heart.</em>
-				</p>
-			</div>	
-		</article>
-		
-		<article>			
-			<div class="txt">	
-				<i class="fa fa-spin fa-refresh"></i>
-				<p><strong>Reservation</strong></p>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="bg bg2">
-				<span>Suite</span>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="bg bg3">
-				<span>Surf</span>
-			</div>	
-		</article>
-		
-		<article>	
-			<div class="txt">	
-				<i class="fa fa-arrow-right"></i>
-				<p>
-					<strong>A Dazzling Place</strong><br />
-					<em>I can show you the world. Shining Shimmering Splended.<br />
-					Tell me when you decide .</em>
-				</p>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="bg bg4">
-				<span>Sauna</span>
-			</div>
-		</article>
-		
-		<article>	
-			<div class="txt">	
-				<i class="fa fa-arrow-right"></i>
-				<strong>Hot spot</strong><br />
-				<em>a best place to have a vacation <br />
-				Tell me when you</em>
-			</div>	
-		</article>
-		
-		<article>		
-			<div class="bg bg5">
-				<span>Diner</span>
-			</div>
-		</article>
-		
-		<article>	
-			<div class="bg bg6">
-				<span>Spa</span>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="txt">	
-				<i class="fa fa-arrow-right"></i>
-				<p>
-					<strong>Open Space</strong><br />
-					<em>I Can show you the world</em>
-				</p>
-			</div>	
-		</article>
-		
-		<article>	
-			<div class="bg bg7">
-				<span>Tour</span>
-			</div>		
-
-		</article> 
-		
-	</section>
-			
--->
+	
     </body>
 </html>

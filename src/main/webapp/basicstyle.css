@@ -63,12 +63,13 @@ article .bg7 { background-image:url(bg/7.jpg);}
 article .bg8 { background-image:url(bg/10.jpg);}
 article .bg9 { background-image:url(bg/15.jpg);}
 article .bg10 { background-image:url(bg/16.jpg);}
+article .bg11 { background-image:url(bg/1.jpg);}
 
 
 /* 이미지박스 */
 article .bg { background-size:cover; background-position:center center; }
-article .bg span { font-size:60px; color:#fff;	position:absolute; bottom:0px; right:20px; transform:scale(10); opacity:0;	transition:all 0.6s;}
-article .bg1 span { font-size:170px; bottom:-76px;	right:-6px; opacity:1; transform:scale(1); transition:all 0.5s;}
+article .bg span { font-size:30px; color:#fff;	position:absolute; bottom:28px; right:20px; transform:scale(10); opacity:0;	transition:all 0.6s;}
+article .bg1 span { font-size:170px; bottom:90px;	right:-6px; opacity:1; transform:scale(1); transition:all 0.5s;}
 
 /*이미지박스 호버효과*/
 article:hover .bg span { opacity:1; transform:scale(1);}

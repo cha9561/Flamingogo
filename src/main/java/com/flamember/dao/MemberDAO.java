@@ -1,7 +1,7 @@
 package com.flamember.dao;
 
 import java.io.Reader;
-
+import java.util.*;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -78,4 +78,21 @@ public class MemberDAO {
 
 	}
 	
+	public static MemberDTO memberInfo(String id)
+	{
+		System.out.println("memberInfo");
+		SqlSession session=ssf.openSession();
+		MemberDTO vo = session.selectOne("memberInfo",id);
+		System.out.println(vo.getBirth().substring(0,4)+"나이테스트");
+		session.close();
+		return vo;
+	}
+	
+	 public static MemberDTO myInfodata(String id)
+	    {
+	    	SqlSession session=ssf.openSession();
+	    	MemberDTO vo=session.selectOne("myInfodata", id);
+	    	session.close();
+	    	return vo;
+	    }
 }
