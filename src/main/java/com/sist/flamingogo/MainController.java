@@ -12,6 +12,7 @@ public class MainController {
 	public String mainView(HttpServletRequest req)
 	{
 		System.out.println("main");
+		req.setAttribute("jsp", "mainDefault.jsp");
 		return "user/main/main.jsp";
 	}	
 }

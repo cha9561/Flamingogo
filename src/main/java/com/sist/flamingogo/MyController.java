@@ -10,13 +10,13 @@ public class MyController {
 
 
 
-	@RequestMapping("mypage.do")
+	/*@RequestMapping("mypage.do")
 	public String mypageDefault(HttpServletRequest req)
 	{
 		System.out.println("mypage");
 		req.setAttribute("jsp", "../my/myPlanner.jsp");
 		return "user/main/main.jsp";
-	}
+	}*/
 	
 	@RequestMapping("myPlanner.do")
 	public String gomyplanner(HttpServletRequest req)
@@ -49,5 +49,6 @@ public class MyController {
 		req.setAttribute("jsp", "../my/myBoard.jsp");
 		return "user/main/main.jsp";
 	}
+	
 	
 }

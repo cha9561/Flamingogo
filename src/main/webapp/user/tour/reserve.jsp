@@ -32,7 +32,7 @@
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
 $(function(){
-	sendMessage("POST","tour_date.do", null, tourCallback);
+	sendMessage("POST","tour_date.do", null, tourCallback); 
 });
 function tourCallback()
 {
@@ -52,22 +52,28 @@ function tourCallback()
     	
     	<div class="row" style="margin-top:15px">
     		<div class="col-md-12">
-    			<p>예약</p>
+    			  <h3><img src="user/tour/img/reserve.png" border=0></h3>
     			<hr>
     		</div>
     	
     	
     	<div class="row" style="margin-top:15px">
-    		<form method="post" action="tour_date.do" id="frm1">
+    		<!-- <form method="post" action="tour_date.do" id="frm1"> -->
     		<div class="col-md-5">
     			<table>
     			 <tr>
-    			  <td id="pn">${vo.pname}</td>
+    			  <td id="pn" colspan="2">${vo.pname}</td>
     			 </tr>
     			 <tr>
-    			  <td id="date" height=250>예약날짜</td>
+    			  <td id="date" height=250 colspan="2">예약날짜</td>
     			 </tr>
     			 <tr>
+    			  <td colspan="2">예약금(1인당)</td>
+    			 </tr>
+    			 <tr>
+    			  <td>
+    			  ${vo.price }원
+    			  <input type="hidden" value="${vo.price}" id="price" style="hidden"></td>
     			  <td id="inwon"> </td>
     			 </tr>
     			</table>
@@ -84,7 +90,7 @@ function tourCallback()
     			  <td id="span_inwon">예약인원:</td>
     			 </tr>
     			 <tr>
-    			  <td id="span_price">총금액:</td>
+    			  <td id="span_price">총금액: </td> <!-- ${vo.price} -->
     			 </tr>
     			</table>
     			<form method="post" action="reserve_ok.do" id="res_frm">
@@ -93,7 +99,7 @@ function tourCallback()
 					<input type="hidden" name="pname" id="pname" value="${vo.pname}">
 					<input type="hidden" name="date" id="date_jsp">
 					<input type="hidden" name="inwon" id="inwon_jsp">
-					<input type="hidden" name="inwon" id="price_jsp">
+					<input type="hidden" name="price" id="price_jsp">
 					<!-- <button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button> -->
 					<img src="user/tour/img/res_d.png" border=0 id="resImg">
 				</form>

@@ -50,13 +50,13 @@
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/jquery.fittext.js"></script>
 <script src="js/wow.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="../../js/ajax.js"></script>
+<!-- Custom Theme JavaScript --><!-- 
 <link rel="stylesheet" type="text/css"
-	href="user/shadow/css/shadowbox.css">
+	href="user/shadow/css/shadowbox.css"> -->
 <link href="user/planner/style.css" rel="stylesheet" type="text/css">
 <link href="user/planner/maptest.css" rel="stylesheet" type="text/css">
-	
+<link rel="stylesheet" href="basicstyle.css" />	
 <script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
 	Shadowbox.init({
@@ -118,6 +118,7 @@
 			endLat = map.getBounds().getNorthEast().lat();
 			endLng = map.getBounds().getNorthEast().lng();
 			viewMarker();
+
 		});
 
 		/* google.maps.event.addListener(map, 'click', function(event) {
@@ -137,6 +138,7 @@
 		//array에 담은 위도,경도 데이타를 가지고 동선 그리기
 		flightPath();
 		});    */
+
 	}
 
 	// 드롭 마커 보기
@@ -195,6 +197,7 @@
 	});
 
 	//해당 위치에 주소를 가져오고, 마크를 클릭시 infowindow에 주소를 표시한다.
+
 	/*  function attachMessage(marker, latlng) {
 	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({
@@ -213,55 +216,22 @@
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.open(map, marker);
 				});
-			}
+
+		});
+
+	}
+	function setMapByCoord(x, y){
+	    var loc = new google.maps.LatLng(x, y);
+
+	    globalMap.setCenter(loc);
+	}
+
+	
+
 		}
 	});
 	}     */
 
-	//동선그리기
-	function flightPath() {
-		for (i in travelPathArray) {
-			travelPathArray[i].setMap(null);
-		}
-		var lineSymbol = {
-			path : google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-		};
-		var flightPath = new google.maps.Polyline({
-			path : Coordinates,
-			strokeColor : "black",
-			strokeOpacity : 0.5,
-			strokeWeight : 3,
-			icons : [ {
-				icon : lineSymbol,
-				offset : '100%'
-			} ]
-		});
-		flightPath.setMap(map);
-		travelPathArray.push(flightPath);
-	}
-
-	function tilesLoaded() {
-		google.maps.event.clearListeners(map, 'tilesloaded');
-		google.maps.event.addListener(map, 'zoom_changed', search);
-		google.maps.event.addListener(map, 'dragend', search);
-		search();
-	}
-
-	function showSelectedPlace() {
-		clearResults();
-		clearMarkers();
-		var place = autocomplete.getPlace();
-		alert(place.geometry.location);
-		map.panTo(place.geometry.location);
-		markers[0] = new google.maps.Marker({
-			position : place.geometry.location,
-			map : map
-		});
-		iw = new google.maps.InfoWindow({
-			content : getIWContent(place)
-		});
-		iw.open(map, markers[0]);
-	}
 
 	/* function search() {
 	var type;
@@ -289,10 +259,35 @@
 				google.maps.event.addListener(markers[i], 'click', getDetails(results[i], i));
 				setTimeout(dropMarker(i), i * 100);
 				addResult(results[i], i);
-			}
+
+		autocomplete.setBounds(map.getBounds());
+		var search = {
+			bounds: map.getBounds()
+		};
+		if (type != 'establishment') {
+			search.types = [type];
 		}
+		places.search(search, function (results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				clearResults();
+				clearMarkers();
+				for (var i = 0; i < results.length; i++) {
+					markers[i] = new google.maps.Marker({
+						position: results[i].geometry.location,
+						animation: google.maps.Animation.DROP
+					});
+					google.maps.event.addListener(markers[i], 'click', getDetails(results[i], i));
+					setTimeout(dropMarker(i), i * 100);
+					addResult(results[i], i);
+				}
+			}
+		});
+
+	}  
+
 	});
 	}    */
+
 
 	/* function clearMarkers() {
 		for (var i = 0; i < markers.length; i++) {
@@ -406,7 +401,7 @@
 
 				<!-- <div class="gwd-div-2h60" style=""></div> -->
 
-				<div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
+				<!-- <div class="gwd-div-ikgy" style="border-style: solid;" id="place1"></div>
 
 				<div class="gwd-div-1wk8" style="border-style: solid;" id="place2"></div>
 
@@ -416,7 +411,7 @@
 
 				<div class="gwd-div-1d7o" id="planing1" style=""></div>
 				<div class="gwd-div-1r07" id="planing2" style=""></div>
-				<div class="gwd-div-h7fg" id="planing3" style=""></div>
+				<div class="gwd-div-h7fg" id="planing3" style=""></div> -->
 				<button id="bt1"
 					class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
 					onclick="help_1()">사용법</button>

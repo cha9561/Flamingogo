@@ -7,20 +7,70 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.tour.dao.AddSpotVO;
+import com.tour.dao.BuyVO;
+import com.tour.dao.TourDAO;
 
 @Controller("mec")
 public class MemberController {
 	@RequestMapping("myPage.do")
 	public String myPage(HttpServletRequest req)
 	{
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	List<BuyVO> list=TourDAO.buyUserAllData(id);
 		System.out.println("mypage");
-		req.setAttribute("jsp", "../my/myPage.jsp");
+		System.out.println("buyData:"+list);
+		
+
+		MemberDTO vo=MemberDAO.memberInfo(id);
+		int birth=2016-Integer.parseInt(vo.getBirth().substring(0,4))+1;
+		
+
+		int myCount=TourDAO.addCount(id);
+		List<AddSpotVO> list2=TourDAO.myAdd(id);
+		
+		req.setAttribute("list2", list2);
+		req.setAttribute("myCount", myCount);
+
+		req.setAttribute("id", id);
+		req.setAttribute("name", vo.getName());
+		req.setAttribute("sex", vo.getSex());
+		req.setAttribute("birth",birth);
+		req.setAttribute("list", list);
+		req.setAttribute("jsp", "../my/myTour.jsp");
 		return "user/main/main.jsp";
 	}
+	@RequestMapping("admin.do")
+	public String admin(HttpServletRequest req)
+	{
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	List<BuyVO> list=TourDAO.buyAdminAllData();
+		System.out.println("admin");
+		System.out.println("adminData:"+list);
+		
+		req.setAttribute("id", id);
+		req.setAttribute("list", list);
+		req.setAttribute("jsp", "../my/admin.jsp");
+		return "user/main/main.jsp";
+	}
+	@RequestMapping("admin_ok.do")
+    public String admin_ok(HttpServletRequest req)
+    {
+    	String buyno=req.getParameter("buyno");
+    	TourDAO.userReserveOk(Integer.parseInt(buyno));
+    	TourDAO.adminReserveOk(Integer.parseInt(buyno));
+    	
+    	return "user/my/admin_ok.jsp";
+    }
 	
 	@RequestMapping("login.do")
 	public String memberLogin(HttpServletRequest req)
@@ -101,18 +151,18 @@ public class MemberController {
 		System.out.println("joinok->gomypage");
 		
 		req.setAttribute("id", id);
-		req.setAttribute("jsp", "user/main/user/join_ok.jsp");
+		req.setAttribute("jsp", "user/join_ok.jsp");
 		return "user/main/main.jsp";
 	}
 	
     @RequestMapping("mypage.do")
     public String mypage(HttpServletRequest req)
     {
-    	HttpSession session=req.getSession();
-    	req.setAttribute("jsp","user/main/myDefaultpage.jsp");
+    	//HttpSession session=req.getSession();
+    	req.setAttribute("jsp","../my/myDefaultpage.jsp");
     	
     	
-    	return "user/main.jsp";
+    	return "user/main/main.jsp";
     }
     
 	@RequestMapping("join.do")
@@ -122,6 +172,18 @@ public class MemberController {
 		req.setAttribute("jsp", "user/join.jsp");
 		return "user/main/main.jsp";
 	}
+	
+	@RequestMapping("myinfo_update.do")
+	public String myinfo_update(HttpServletRequest req)
+    {
+		String id=req.getParameter("id");
+		String page=req.getParameter("page");
+		MemberDTO vo=MemberDAO.myInfodata(id);
+    	req.setAttribute("page",page);
+    	req.setAttribute("id",id);
+    	req.setAttribute("jsp","../my/myinfo.jsp");
+    	return "user/main/main.jsp";
+    }
     
 	
 }

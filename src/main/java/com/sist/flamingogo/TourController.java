@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -54,11 +55,13 @@ public class TourController {
 		req.setCharacterEncoding("EUC-KR");
 		String pno=req.getParameter("pno");
 		String pname=req.getParameter("pname");
+		String price=req.getParameter("price");
 		String category=req.getParameter("category");
 		
 		TourVO vo=new TourVO();
 		vo.setPno(Integer.parseInt(pno));
 		vo.setPname(pname);
+		vo.setPrice(Integer.parseInt(price));
 		vo.setCategory(category);
 		
 		req.setAttribute("vo", vo);
@@ -76,7 +79,6 @@ public class TourController {
     	String sy=st.nextToken();
     	String sm=st.nextToken();
     	String sd=st.nextToken();
-    	
     	if(strYear==null)
     		strYear=sy;
     	if(strMonth==null)
@@ -127,5 +129,105 @@ public class TourController {
 	public String tour_info(HttpServletRequest req)
 	{
 		return "user/tour/tour_inwon.jsp";
+	}
+	@RequestMapping("reserve_ok.do")
+	public String reserve_ok(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+    	String category=req.getParameter("category");
+    	String pname=req.getParameter("pname");
+    	String date=req.getParameter("date");
+    	String inwon=req.getParameter("inwon");
+    	String price=req.getParameter("price");
+    	
+    	HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	System.out.println(pno+"-"+category+"-"+pname+"-"+date+"-"
+    			+inwon+"-"+price+"-"+id);
+    	
+    	BuyVO vo=new BuyVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	vo.setPname(pname);
+    	vo.setAmount(Integer.parseInt(inwon));
+    	vo.setRdate(date);
+    	vo.setPrice(Integer.parseInt(price));
+    	
+    	TourDAO.buyInsert(vo);
+    	TourDAO.adminInsert(vo);
+    	
+		return "user/tour/reserve_ok.jsp";
+	}
+	@RequestMapping("add.do")
+	public String add(HttpServletRequest req) throws Exception
+	{
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	System.out.println("pno:"+pno
+    					+"id:"+id);
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	
+    	int count=TourDAO.addCheck(vo);
+    	
+    	
+    	System.out.println("count:"+count);
+    	
+    	req.setAttribute("count", count);
+    	req.setAttribute("pno", pno);
+		return "user/tour/add.jsp";
+	}
+	@RequestMapping("add_ok.do")
+	public String add_ok(HttpServletRequest req) throws Exception
+	{
+		System.out.println("add_ok컨트롤러");
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	TourVO tvo=TourDAO.tourContent(Integer.parseInt(pno));
+
+		String apname=tvo.getPname();
+		String category=tvo.getCategory();
+		
+    	System.out.println("pno:"+pno
+				+"pname:"+apname
+				+"category:"+category);
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	vo.setApname(apname);
+    	vo.setCategory(category);
+    	
+    	TourDAO.addOk(vo);
+    	
+    	req.setAttribute("pno", pno);
+    	return "user/tour/add_ok.jsp";
+	}
+	@RequestMapping("add_cancle.do")
+	public String add_cancle(HttpServletRequest req)
+	{
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	
+    	TourDAO.add_cancle(vo);
+		
+    	req.setAttribute("pno", pno);
+    	
+		return "user/tour/add_ok.jsp";
 	}
 }

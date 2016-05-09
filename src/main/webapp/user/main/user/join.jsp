@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css"
 	href="../../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
-    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css">
+ <!--    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css"> -->
 
 <script type="text/javascript">
 Shadowbox.init({
@@ -55,6 +55,7 @@ Shadowbox.init({
 
 			   $('#resImg').click(function(){
 					
+
 				   if ($("#id").val() == "") {
 		                
 					   $("#id").focus();
@@ -69,17 +70,17 @@ Shadowbox.init({
 			   });
     	});
 
-	  
     </script>
 <style>
     body, code {
-        font-size: 12px;
+        font-size: 18px;
         font-family: 'Open Sans','Noto Sans KR',sans-serif;
  		
         }
         
     th, td {
-        border: 0;}
+        border: 0;
+        text-align:left;}
 
     .btnArea{
         margin: 20px 0 30px;
@@ -102,7 +103,7 @@ Shadowbox.init({
 
 
 </div>
-    <div class="joinWrite">
+     <div class="container" style="margin-top:100px">
     <h3><img src="user/main/img/joinus.png" border=0></h3>
     <form id="join_frm" action="join_ok.do" method="post">
        <!--  <table border=0 width=500
@@ -111,7 +112,7 @@ Shadowbox.init({
                     <table border=0 width=400 align=center>
 			         
 			         <tr height=35>
-			             <td width=15% align=right>ID</td>
+			             <td width=15% align=right>ID&nbsp;&nbsp;</td>
 			             <td width=85% align=left id="id" required>
 			              <input type=text name=id size=12 readonly required>
 			              <input type="button" value="중복체크" onclick="idcheck()">
@@ -119,28 +120,28 @@ Shadowbox.init({
 			           </tr>
 			           
                          <tr height=35>
-				             <td width=15% align=right>Password</td>
+				             <td width=15% align=right>Password&nbsp;&nbsp;</td>
 				             <td width=85% align=left>
                                 <input type=password name=pwd size=12 required id="pwd">
                             </td>
                         </tr>
                         
  						<tr height=35>
-                         <td width=15% align=right>비밀번호 확인</td>
+                         <td width=15% align=right>비밀번호 확인&nbsp;&nbsp;</td>
                             <td width=75% align=left>
                                 <input type=password name=pwd size=12 required id="pwdCk">
                             </td>
                         </tr>
 
                         <tr height=35>
-				             <td width=15% align=right>이름</td>
+				             <td width=15% align=right>이름&nbsp;&nbsp;</td>
 				             <td width=85% align=left>
 				              <input type=text name=name size=12 required id="name">
 				             </td>
 				           </tr>
 				           
                         <tr height=35>
-                             <td width=15% align=right>성별</td>
+                             <td width=15% align=right>성별&nbsp;&nbsp;</td>
                             <td width=85% align=left  id="sex" required>
                
                                 <input type=radio id="man" name=sex value=남자 checked>남자
@@ -151,14 +152,14 @@ Shadowbox.init({
                         
                         
                         <tr height=35>
-            			 <td width=15% align=right id="birth">생년월일 </td>
+            			 <td width=15% align=right id="birth">생년월일&nbsp;&nbsp;</td>
                             <td width=85% align=left>
                                 <input type=date name=birth size=20 required>
                             </td>
                         </tr>
                         
                        <tr height=35>
-				             <td width=15% align=right id="tel">전화번호</td>
+				             <td width=15% align=right id="tel">전화번호&nbsp;&nbsp;</td>
 				             <td width=85% align=left>
 				              <select name=tel1>
 				                <option>010</option>
@@ -171,7 +172,7 @@ Shadowbox.init({
          			  </tr>
 
                         <tr height=35>
-                             <td width=15% align=right >이메일</td>
+                             <td width=15% align=right >이메일&nbsp;&nbsp;</td>
                              <td> <input type="text" id="email1" size="10" required / > @ <input type="text" id="email2" size="10" required/>
   								<select id="email_select">
    								<option value="" selected="selected">::선택하기::</option>
