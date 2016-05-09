@@ -21,6 +21,14 @@ public class SqureDAO {
     		System.out.println(ex.getMessage());
     	}
     }
+    public static void reInsert(ReviewVO rvo)
+    {
+    	System.out.println("squreInsert");
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("reInsert", rvo);
+    	System.out.println("Success reInsert");
+    	session.close();
+    }
     public static void squreInsert(SqureVO vo)
     {
     	System.out.println("squreInsert");
@@ -47,5 +55,14 @@ public class SqureDAO {
     	System.out.println("Success squreAllData");
     	session.close();
     	return list;
+    }
+    public static List<ReviewVO> reviewAllData()
+    {
+    	System.out.println("reviewAllData");
+    	SqlSession session=ssf.openSession();
+    	List<ReviewVO> rlist=session.selectList("reviewAllData");
+    	System.out.println("Success reviewAllData");
+    	session.close();
+    	return rlist;
     }
 }

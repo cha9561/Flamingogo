@@ -38,6 +38,11 @@
       SELECT * FROM buy
       WHERE id=#{id}
     </select>
+   <!-- 마이페이지 구매 카운트 -->
+   <select id="buyCount" parameterType="String" resultType="int">
+     SELECT count(*) FROM buy
+     WHERE id=#{id}
+    </select>
    <!--admin(출력)-->
     <select id="buyAdminAllData" resultType="Admin">
       SELECT * FROM admin

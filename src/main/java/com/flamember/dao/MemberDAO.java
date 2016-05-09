@@ -49,7 +49,7 @@ public class MemberDAO {
 			System.out.println("Get:"+d.getPwd());
 			if(pwd.equals(d.getPwd()))
 			{
-				result=d.getName()+"|"+d.getAdmin_no();
+				result=d.getName()+"|"+d.getAdmin_no()+"|"+d.getSex();
 			}else{
 				result="NOPWD";
 			}

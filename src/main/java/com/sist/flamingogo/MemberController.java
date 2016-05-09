@@ -39,10 +39,11 @@ public class MemberController {
 		MemberDTO vo=MemberDAO.memberInfo(id);
 		int birth=2016-Integer.parseInt(vo.getBirth().substring(0,4))+1;
 		
-
+		int buyCount=TourDAO.buyCount(id);
 		int myCount=TourDAO.addCount(id);
 		List<AddSpotVO> list2=TourDAO.myAdd(id);
 		
+		req.setAttribute("buyCount", buyCount);
 		req.setAttribute("list2", list2);
 		req.setAttribute("myCount", myCount);
 
@@ -88,16 +89,19 @@ public class MemberController {
 		String res=MemberDAO.memberLogin(id, pwd);
 		String name="";
 		String admin="";
+		String sex="";
 		System.out.println("res"+res);
 		if(!(res.equals("NOID")||res.equals("NOPWD")))
 		{
 			StringTokenizer st=new StringTokenizer(res, "|");
 			name=st.nextToken();
 			admin=st.nextToken();
+			sex=st.nextToken();
 			HttpSession session=req.getSession();
 			session.setAttribute("id",id);
 			session.setAttribute("name",name);
 			session.setAttribute("admin", admin);
+			session.setAttribute("sex", sex);
 		}
 		
 		req.setAttribute("res", res);
