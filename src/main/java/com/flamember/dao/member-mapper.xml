@@ -8,7 +8,7 @@
 		</select>
 
 	<select id="memberGetPwd" resultType="Member" parameterType="String">
-		SELECT pwd,name,admin_no FROM userinform
+		SELECT pwd,name,admin_no,sex FROM userinform
 		WHERE id=#{id}
 	</select> 
 	

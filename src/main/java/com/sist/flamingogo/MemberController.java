@@ -82,16 +82,19 @@ public class MemberController {
 		String res=MemberDAO.memberLogin(id, pwd);
 		String name="";
 		String admin="";
+		String sex="";
 		System.out.println("res"+res);
 		if(!(res.equals("NOID")||res.equals("NOPWD")))
 		{
 			StringTokenizer st=new StringTokenizer(res, "|");
 			name=st.nextToken();
 			admin=st.nextToken();
+			sex=st.nextToken();
 			HttpSession session=req.getSession();
 			session.setAttribute("id",id);
 			session.setAttribute("name",name);
 			session.setAttribute("admin", admin);
+			session.setAttribute("sex", sex);
 		}
 		
 		req.setAttribute("res", res);
