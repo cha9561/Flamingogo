@@ -197,7 +197,7 @@ public class MemberController {
 		req.setCharacterEncoding("EUC-KR"); 
 				
 		//path에 가져온 파일저장해야함.
-		String path="C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Flamingogo\user\my\img";
+		String path="C://springDev//springStudy//.metadata//.plugins//org.eclipse.wst.server.core//tmp0//wtpwebapps//Flamingogo//user//my//img";
 		String enctype="EUC-KR";
 		int size=1024*1024*100;
 		MultipartRequest mr=
@@ -218,7 +218,7 @@ public class MemberController {
 	    }
 	    else
 	    {
-	    	File f=new File("c:\\springDev\\springStudy\\Flamingogo\\src\\main\\webapp\\user\\my\\img\\"+PROFILE_PICTURE);
+	    	File f=new File("C:\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Flamingogo\\user\\my\\img\\"+PROFILE_PICTURE);
 	    	vo.setProfile_picture(PROFILE_PICTURE);
 	    }
 		
