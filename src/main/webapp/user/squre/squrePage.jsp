@@ -10,7 +10,14 @@
 <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="user/squre/css/screen.css" media="screen">
+
+<!-- jQuery library (served from Google) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="/js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="/lib/jquery.bxslider.css" rel="stylesheet"/>
 <style>
 #wrt
 {
@@ -19,6 +26,15 @@
 </style>
 <script type="text/javascript">
 $(function(){
+	/* $(document).ready(function(){
+		$('bxslider').bxSlider({
+			mode:'horizontal', //default : 'horizontal', options: 'horizontal', 'vertical', 'fade'
+			speed:1000, //default:500 이미지변환 속도
+			auto: true, //default:false 자동 시작
+			captions: true, // 이미지의 title 속성이 노출된다.
+			autoControls: true, //default:false 정지,시작 콘트롤 노출, css 수정이 필요
+		});
+	});	 */
 	var myId = "<%=(String) session.getAttribute("id")%>"
 	var ssex= "<%=(String) session.getAttribute("sex")%>"
 	var sex
@@ -28,7 +44,6 @@ $(function(){
 		sex=2;
 	$('#myId').val(myId);
 	$('#sex').val(sex);
-	
 	$('#writeBtn').click(function(){
 		var content=$('#content').val();
 		if (content.trim() == "") 
@@ -54,50 +69,55 @@ $(function(){
 		}
 		$('#reIns'+no).submit();
 	});
-	/* $('.ruBtn').click(function(){
-		var id=$(this).attr('id');
-		var no=id.substring(3);
-		
-		var data=$('#rd'+no).val();
-		if(data.trim()=="")
-		{
-			$('#rd'+no).focus();
-			return;
-		}
-		$('#frm'+no).submit();
-	});
-	
-	$('.reBtn').click(function(){
-		var id=$(this).attr('id');
-		var no=id.substring(3);
-		alert("no : "+no)
-		$('#rootNo'+no).val(no);
-		alert("zzz")
-		var data=$('#re'+no).val();
-		if (data.trim() == "") {
-			$('.reContent').focus();
-			alert("댓글을 입력하세요!");
-			return;
-		}
-		$('#reIns').submit();
-	});  */
 });
 </script>
 </head>
 <body>
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">전체</a></li>
-  <li role="presentation"><a href="#">질문</a></li>
-  <li role="presentation"><a href="#">정보공유</a></li>
-  <li role="presentation"><a href="#">동행찾기</a></li>
-  <li role="presentation"><a href="#">자유</a></li>
+	<c:choose>
+		<c:when test="${subject == 'QNA'}">
+			  <li role="presentation"><a href="squrePage.do">전체</a></li>
+			  <li role="presentation" class="active"><a href="squrePage.do?subject=QNA">질문</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=INF">정보공유</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FND">동행찾기</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FRE">자유</a></li>
+		</c:when>
+		<c:when test="${subject == 'INF'}">
+			  <li role="presentation"><a href="squrePage.do">전체</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=QNA">질문</a></li>
+			  <li role="presentation" class="active"><a href="squrePage.do?subject=INF">정보공유</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FND">동행찾기</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FRE">자유</a></li>
+		</c:when>
+		<c:when test="${subject == 'FND'}">
+			  <li role="presentation"><a href="squrePage.do">전체</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=QNA">질문</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=INF">정보공유</a></li>
+			  <li role="presentation" class="active"><a href="squrePage.do?subject=FND">동행찾기</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FRE">자유</a></li>
+		</c:when>
+		<c:when test="${subject == 'FRE'}">
+			  <li role="presentation"><a href="squrePage.do">전체</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=QNA">질문</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=INF">정보공유</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FND">동행찾기</a></li>
+			  <li role="presentation" class="active"><a href="squrePage.do?subject=FRE">자유</a></li>
+		</c:when>
+		<c:otherwise>
+			  <li role="presentation" class="active"><a href="squrePage.do">전체</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=QNA">질문</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=INF">정보공유</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FND">동행찾기</a></li>
+			  <li role="presentation"><a href="squrePage.do?subject=FRE">자유</a></li>	
+		</c:otherwise>
+	</c:choose>
 </ul>
 <div class="row">
   <div class="col-md-6">
   	<form method="post" action="squreInsert.do" id="squreIns">
   	<table class="table">
       	<tr>
-      		<td width=100%>글쓰기
+      		<td width=100%>
       		<input id="myId" name=myId type="hidden">
       		<input id="sex" name=sex type="hidden">
       		<textarea class="form-control" rows="4" name=content id="content"></textarea>
@@ -178,8 +198,13 @@ $(function(){
 	     <br><br>
      </c:forEach>
   </div>
-  <div class="col-md-4">.col-md-4</div>
-</div>
+  <div class="col-md-4" id="slider">
+	  <ul class="bxslider">              
+	    <li><img alt="" src="user/squre/img/cha.jpg"></li>
+	    <li><img alt="" src="user/squre/img/test.jpg"></li>
+	  </ul>
+  </div>
+ </div>
 <div class="row">
   <div class="col-md-6">.col-md-6</div>
   <div class="col-md-4">.col-md-4</div>

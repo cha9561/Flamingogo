@@ -27,4 +27,9 @@
 	    DELETE FROM reSqure
 	    WHERE no=#{no}
   	</delete>
+  	<select id="squreSelectData" resultType="Squre" parameterType="String">
+  		SELECT no,userId,sex,subject,content,hit,regdate
+		FROM squreMain ORDER BY no DESC
+		WHERE subject=#{subject}
+  	</select>
 </mapper>

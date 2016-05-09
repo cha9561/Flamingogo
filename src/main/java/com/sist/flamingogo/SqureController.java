@@ -16,8 +16,21 @@ public class SqureController {
 	public String squrePage(HttpServletRequest req)
 	{
 		System.out.println("squrePage");
-		//SqureDAO.squreDelete();
-		List<SqureVO> list=SqureDAO.squreAllData();
+		
+		String subject=req.getParameter("subject");
+		System.out.println("subject: "+subject);
+		List<SqureVO> list;
+		
+		if(subject==null)
+		{
+			list=SqureDAO.squreAllData();
+		}
+		else
+		{
+			list=SqureDAO.squreSelectData(subject);
+		}
+		
+		List<ReviewVO> rlist=SqureDAO.reviewAllData();
 		/*for(SqureVO test:list)
 		{
 			System.out.println("no : "+test.getNo());
@@ -28,7 +41,7 @@ public class SqureController {
 			System.out.println("hit : "+test.getHit());
 			System.out.println("regdate : "+test.getRegdate());
 		}*/
-		List<ReviewVO> rlist=SqureDAO.reviewAllData();
+		
 		/*for(ReviewVO rtest:rlist)
 		{
 			System.out.println("%%%%%%%%%%%%% Review %%%%%%%%%%%");
@@ -40,7 +53,7 @@ public class SqureController {
 			System.out.println("regdate: "+rtest.getRegdate());
 			System.out.println("hit: "+rtest.getHit());
 		}*/
-		
+		req.setAttribute("subject", subject);
 		req.setAttribute("jsp", "../squre/squrePage.jsp");
 		req.setAttribute("list", list);
 		req.setAttribute("rlist", rlist);

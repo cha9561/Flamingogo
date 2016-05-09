@@ -56,6 +56,16 @@ public class SqureDAO {
     	session.close();
     	return list;
     }
+    public static List<SqureVO> squreSelectData(String subject)
+    {
+    	System.out.println("squreSelectData sub: "+subject);
+    	SqlSession session=ssf.openSession();
+    	
+    	List<SqureVO> list=session.selectList("squreSelectData",subject);
+    	System.out.println("Success squreSelectData");
+    	session.close();
+    	return list;
+    }
     public static List<ReviewVO> reviewAllData()
     {
     	System.out.println("reviewAllData");
