@@ -35,35 +35,103 @@
     
 		<div class="row">
 		  	<div class="col-md-12">
-			    <img src="user/tour/img/11101_B.PNG" alt="">
-			    	<hr/>
-				    <div class="row" style="margin-top:15px">
+			    <!-- <img src="user/tour/img/11101_B.PNG" alt="">
+			    	<hr/> -->
+			    <div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading"><B>${category } Åõ¾î</B></div>
+				</div>
+				    <div class="row" style="margin-top:30px">
 				      <div class="col-md-12">
 				      <c:forEach var="vo" items="${list }">
-				      <c:if test="${vo.pno<=3 }">
-					    <div class="col-xs-6 col-sm-4">
-					    <a href="detail.do?pno=${vo.pno }">
-					    <img src="${vo.pic}" width="95%"></a>
-					    </div>
-					  	</c:if>
+				       <c:choose>
+							<c:when test="${vo.pno<=3}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno>=11 && vo.pno<=13}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno>=21 && vo.pno<=23}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno>=31 && vo.pno<=33}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno>=41 && vo.pno<=43}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno>=51 && vo.pno<=53}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+					   </c:choose>
 					  </c:forEach>
 					  </div>
 				    </div>
 				    
-				    <div class="row" style="margin-top:15px">
+				    <div class="row" style="margin-top:20px">
 				      <div class="col-md-12">
 				      <c:forEach var="vo" items="${list }">
-				      <c:if test="${(vo.pno<=6 && vo.pno>3)}">
-					    <div class="col-xs-6 col-sm-4">
-					    <a href="detail.do?pno=${vo.pno }">
-					    <img src="${vo.pic}" width="95%"></a>
-					    </div>
-					  	</c:if>
+				      <c:choose>
+							<c:when test="${vo.pno<=6 && vo.pno>=4}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno<=16 && vo.pno>=14}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno<=26 && vo.pno>=24}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno<=36 && vo.pno>=34}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno<=46 && vo.pno>=44}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+							<c:when test="${vo.pno<=56 && vo.pno>=54}">
+								<div class="col-xs-6 col-sm-4">
+								<a href="detail.do?pno=${vo.pno }">
+								<img src="${vo.pic}" width="95%"></a>
+								</div>
+							</c:when>
+					   </c:choose>
 					  </c:forEach>
 					  </div>
 				    </div>
 				    
-				    <div class="row" style="margin-top:15px">
+				    <div class="row" style="margin-top:20px">
 				      <div class="col-md-12">
 				      <c:forEach var="vo" items="${list }">
 				      <c:if test="${(vo.pno<=9 && vo.pno>6)}">

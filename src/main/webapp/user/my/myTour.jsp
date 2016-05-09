@@ -67,7 +67,6 @@
 <body>
 <div class="row">
 <div class="col-md-3">
-                  
 		          <!-- Square card -->
 		          <div class="demo-card-square mdl-card mdl-shadow--2dp">
 		            <div class="mdl-card__img mdl-card--expand">
@@ -93,7 +92,7 @@
 	  <div class="mdl-tabs__tab-bar">
 	    <a href="#about-panel" class="mdl-tabs__tab is-active">나의플래너</a>
 	    <a href="#members-panel" class="mdl-tabs__tab">구매관리</a>
-	    <a href="#albums-panel" class="mdl-tabs__tab">위시리스트</a>
+	    <a href="#albums-panel" class="mdl-tabs__tab">찜 리스트</a>
 	    <a href="#board-panel" class="mdl-tabs__tab">나의글</a>
 	  </div>
 	  <div class="mdl-tabs__panel is-active" id="about-panel" style="margin-top:10px"> 
@@ -130,14 +129,14 @@
 		      <th class="mdl-data-table__cell--non-numeric">예약상태</th>	
 		    </tr>
 		  </thead>
-			<c:if test="${myCount==0}">
+			<c:if test="${buyCount==0}">
 		         <tr>
-		    	 	<td class="mdl-data-table__cell--non-numeric">예약 내역이 존재하지 않습니다.</td>
+		    	 	<td colspan="6" class="mdl-data-table__cell--non-numeric">투어상품 구매내역이 존재하지 않습니다.</td>
 		    	 </tr>
-		    </c:if>
+		    </c:if>	
 		  <tbody>
 		    <c:forEach var="vo" items="${list }">
-		         <tr class="dataTr" id="m${vo.pno }">
+		         <tr>
 			       <%-- <td class="tdcenter">${vo.buyno }</td>
 			       <td class="tdcenter">${vo.pno }</td> --%>
 			       <td class="mdl-data-table__cell--non-numeric"><a href="detail.do?pno=${vo.pno }">${vo.pname}</a></td>
@@ -163,12 +162,17 @@
 		      <th class="mdl-data-table__cell--non-numeric">여행 나라명</th>
 		    </tr>
 		  </thead>
+			<c:if test="${myCount==0}">
+		         <tr>
+		    	 	<td colspan="2" class="mdl-data-table__cell--non-numeric">투어상품 찜 내역이 존재하지 않습니다.</td>
+		    	 </tr>
+		    </c:if>		  
 		  <tbody>
 		    <c:forEach var="vo" items="${list2 }">
 		    <tr>
 		      <!-- <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td> -->
-		      <td><a href="detail.do?pno=${vo.pno }">${vo.apname}</a></td>
-		      <td>${vo.category }</td>
+		      <td class="mdl-data-table__cell--non-numeric"><a href="detail.do?pno=${vo.pno }">${vo.apname}</a></td>
+		      <td class="mdl-data-table__cell--non-numeric">${vo.category }</td>
 		    </tr>
 		    </c:forEach>
 			</tbody>

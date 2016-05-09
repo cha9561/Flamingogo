@@ -48,11 +48,11 @@ function tourCallback()
 </script>
 <body>
 	<!-- Page Content -->
-    <div class="container" style="margin-top:50px">
+    <div class="container" style="margin-bottom:20px">
     	
-    	<div class="row" style="margin-top:15px">
+    	<div class="row" style="margin-top:0px">
     		<div class="col-md-12">
-    			  <h3><img src="user/tour/img/reserve.png" border=0></h3>
+    			  <h4><img src="user/tour/img/reserve.png" border=0></h4>
     			<hr>
     		</div>
     	
@@ -60,49 +60,64 @@ function tourCallback()
     	<div class="row" style="margin-top:15px">
     		<!-- <form method="post" action="tour_date.do" id="frm1"> -->
     		<div class="col-md-5">
-    			<table>
-    			 <tr>
-    			  <td id="pn" colspan="2">${vo.pname}</td>
-    			 </tr>
-    			 <tr>
-    			  <td id="date" height=250 colspan="2">예약날짜</td>
-    			 </tr>
-    			 <tr>
-    			  <td colspan="2">예약금(1인당)</td>
-    			 </tr>
-    			 <tr>
-    			  <td>
-    			  ${vo.price }원
-    			  <input type="hidden" value="${vo.price}" id="price" style="hidden"></td>
-    			  <td id="inwon"> </td>
-    			 </tr>
-    			</table>
+    			<div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">예약날짜 선택</div>
+				</div>
+    			<table  class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+	    			 <tr>
+	    			  <td id="date" height=230 colspan="2">예약날짜</td>
+	    			 </tr>
+    			 </table>
     		</div>
     		<div class="col-md-3">
-    			<table>
-    			 <tr>
-    			  <td id="pn">상품명:${vo.pname}</td>
-    			 </tr>
-    			 <tr>
-    			  <td id="span_date">예약날짜:</td>
-    			 </tr>
-    			 <tr>
-    			  <td id="span_inwon">예약인원:</td>
-    			 </tr>
-    			 <tr>
-    			  <td id="span_price">총금액: </td> <!-- ${vo.price} -->
-    			 </tr>
+    			<div class="panel panel-default">
+				  <div class="panel-heading">예약인원 선택</div>
+				</div>
+    			 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+	    			<tr>
+	    			 <td class="mdl-data-table__cell--non-numeric">예약금(1인당)</td>
+	    			 <td>
+	    			 ${vo.price }원<input type="hidden" value="${vo.price}" id="price" style="hidden"></td>
+	    			</tr>
+	    			<tr>
+	    			 <td>인원</td>
+	    			 <td id="inwon"> </td>
+	    			</tr>
     			</table>
-    			<form method="post" action="reserve_ok.do" id="res_frm">
+    		</div>
+    		
+    		<div class="col-md-4">
+    			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			      <tbody>
+			        <tr>
+			          <th class="mdl-data-table__cell--non-numeric">상품명</th>
+			          <td class="mdl-data-table__cell--non-numeric">${vo.pname}</td>
+			        </tr>
+			        <tr>
+			          <th class="mdl-data-table__cell--non-numeric">예약날짜</th>
+			          <td id="span_date"></td>
+			        </tr>
+			        <tr>
+			          <th class="mdl-data-table__cell--non-numeric">예약인원</th>
+			          <td id="span_inwon"></td>
+			        </tr>
+					<tr>
+			          <th class="mdl-data-table__cell--non-numeric">총금액</th>
+			          <td id="span_price"></td>
+			        </tr>
+			      </tbody>
+			    </table>
+			    
+			    <form method="post" action="reserve_ok.do" id="res_frm">
 					<input type="hidden" name="pno" id="pno" value="${vo.pno}">
 					<input type="hidden" name="category" id="category" value="${vo.category}">
 					<input type="hidden" name="pname" id="pname" value="${vo.pname}">
 					<input type="hidden" name="date" id="date_jsp">
 					<input type="hidden" name="inwon" id="inwon_jsp">
-					<input type="hidden" name="price" id="price_jsp">
-					<!-- <button class="mdl-button mdl-js-button mdl-button--raised" id="btn1">예약하기</button> -->
-					<img src="user/tour/img/res_d.png" border=0 id="resImg">
-				</form>
+					<input type="hidden" name="price" id="price_jsp"></form>
+				<img src="user/tour/img/res_d.png" border=0 style="margin-left:100px; margin-top:10px" id="resImg">
+				
     		</div>
     	</div>
     	
