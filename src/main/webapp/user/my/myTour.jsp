@@ -67,7 +67,6 @@
 <body>
 <div class="row">
 <div class="col-md-3">
-                  
 		          <!-- Square card -->
 		          <div class="demo-card-square mdl-card mdl-shadow--2dp">
 		            <div class="mdl-card__img mdl-card--expand">

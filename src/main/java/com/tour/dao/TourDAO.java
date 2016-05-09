@@ -112,6 +112,16 @@ public class TourDAO {
 	// ¿¹¾à
     public static List<BuyVO> buyUserAllData(String id)
     {
+    	try
+    	{
+    	SqlSession session=ssf.openSession();
+    	List<BuyVO> list=session.selectList("buyUserAllData",id);
+    	session.close();
+    	return list;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
     	SqlSession session=ssf.openSession();
     	List<BuyVO> list=session.selectList("buyUserAllData",id);
     	session.close();
