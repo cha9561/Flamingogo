@@ -148,4 +148,93 @@ public class TourDAO {
     		System.out.println(ex.getMessage());
     	}
     }
+    //찜 상태조회
+    public static int addCheck(AddSpotVO vo)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession();
+    		int count=session.selectOne("addCheck",vo);
+    		session.close();
+    		
+    		return count;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	
+    	SqlSession session=ssf.openSession();
+		int count=session.selectOne("addCheck",vo);
+		session.close();
+		
+		return count;
+    }
+    //찜 추가
+    public static void addOk(AddSpotVO vo)
+    {
+    	try
+    	{
+    		System.out.println("addDAO");
+    		SqlSession session=ssf.openSession(true);
+        	session.insert("addOk",vo);
+        	session.close();
+        	System.out.println("addDAO_ok");
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    }
+    //찜 취소
+    public static void add_cancle(AddSpotVO vo)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession(true);
+	    	session.delete("add_cancle",vo);
+	    	session.close();
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    }
+    //마이페이지 찜 카운트 조회
+    public static int addCount(String id)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession();
+    		int myCount=session.selectOne("addCount",id);
+    		session.close();
+    		
+    		return myCount;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	
+    	SqlSession session=ssf.openSession();
+		int myCount=session.selectOne("addCount",id);
+		session.close();
+		
+		return myCount;
+    }
+    //마이페이지 찜 리스트 조회
+    public static List<AddSpotVO> myAdd(String id)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession();
+        	List<AddSpotVO> list=session.selectList("myAdd",id);
+        	session.close();
+        	return list;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	SqlSession session=ssf.openSession();
+    	List<AddSpotVO> list=session.selectList("myAdd",id);
+    	session.close();
+    	
+    	return list;
+    }
 }

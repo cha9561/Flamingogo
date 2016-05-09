@@ -37,7 +37,7 @@ function idcheckCallback()
 			}
 			else
 			{
-				var res="<font color=yellow>"+$('#id').val()+"는(은) "
+				var res="<font color=Red>"+$('#id').val()+"는(은) "
 				       +"이미 사용중인 ID입니다";
 				$('#result').append(res);
 			}

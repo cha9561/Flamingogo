@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>내정보 수정</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 
@@ -14,60 +15,26 @@
  <!--    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css"> -->
 
 <script type="text/javascript">
+
 Shadowbox.init({
 	players:["iframe"]
 });
-    	function idcheck()
+    	function upload()
     	{
     		Shadowbox.open({
-    			content:'user/main/user/idcheck.jsp',
+    			content:'user/my/profile.jsp',
     			player:'iframe',
     			width:240,
     			height:150,
-    			title:'아이디중복체크'
+    			title:'프로필 등록하기'
     		});
     	}
-     
-    	
+
+
     	$(function(){
-		  
-			   
-			   $('#email_select').change(function(){
-				    if($('#email_select').val() == "1"){
-				     $("#email2").val(""); //값 초기화
-				     $("#email2").prop("readonly",false); //활성화
-				    } else if($('#email_select').val() == ""){
-				     $("#email2").val(""); //값 초기화
-				     $("#email2").prop("readonly",true); //textBox 비활성화
-				    } else {
-				     $("#email2").val($('#email_select').val()); //선택값 입력
-				     $("#email2").prop("readonly",true); //비활성화
-
-
-					  $('#resImg').attr("src","user/main/img/joinok.png");
-					  $('#resImg').css("cursor","pointer");
-					
-				    }
-						
-			   });
-			   
+	
 			   
 
-			   $('#resImg').click(function(){
-					
-
-				   if ($("#id").val() == "") {
-		                
-					   $("#id").focus();
-		                
-		            }else
-		            	{
-
-						   alert("플라밍Go에 오신걸 환영합니다")	
-		            	}
-				   
-		
-			   });
     	});
 
     </script>
@@ -78,10 +45,7 @@ Shadowbox.init({
  		
         }
         
-    th, td {
-        border: 0;
-        text-align:left;}
-
+   
     .btnArea{
         margin: 20px 0 30px;
         text-align: center;
@@ -99,50 +63,49 @@ Shadowbox.init({
 <body>
 
 <center>
-<div class="space">
-
-
-</div>
      <div class="container" style="margin-top:100px">
     <h3><img src="user/main/img/joinus.png" border=0></h3>
-    <form id="join_frm" action="join_ok.do" method="post">
-       <!--  <table border=0 width=500
-               cellpadding="0" cellspacing="0"> -->      
+    <!-- 회원정보수정 img로 바꿀것 -->
+    
+    <form id="join_frm" action="update_ok.do" method="post">
       <div class="form-group">
-                    <table border=0 width=400 align=center>
-			         
+                    <table border=0 width=800 align=center>
+			         <tr>
+           			<td width ="250" height="300" rowspan="9" align=center>
+           			<input type="image" src="user/my/img/profile.jpg" width="170px" height="190px" id="profile" border=0><br>
+           			<input type="image" src="user/main/img/join.png" id="upload" width="170px" border=0 onclick="upload()"></td>
+           			<!-- 프로필 등록하기 이미지 넣기 -->
+           			
+           			</tr>
 			         <tr height=35>
-			             <td width=15% align=right>ID&nbsp;&nbsp;</td>
-			             <td width=85% align=left id="id" required>
-			              <input type=text name=id size=12 readonly required>
-			              <input type="button" value="중복체크" onclick="idcheck()">
-			             </td>
+			             <td width=20% align=right>ID&nbsp;&nbsp;</td>
+			             <td width=80% align=left id="id">${id}</td>
 			           </tr>
 			           
                          <tr height=35>
-				             <td width=15% align=right>Password&nbsp;&nbsp;</td>
-				             <td width=85% align=left>
+				             <td width=20% align=right>Password&nbsp;&nbsp;</td>
+				             <td width=80% align=left>
                                 <input type=password name=pwd size=12 required id="pwd">
                             </td>
                         </tr>
                         
  						<tr height=35>
-                         <td width=15% align=right>비밀번호 확인&nbsp;&nbsp;</td>
-                            <td width=75% align=left>
+                         <td width=20% align=right>비밀번호 확인&nbsp;&nbsp;</td>
+                            <td width=80% align=left>
                                 <input type=password name=pwd size=12 required id="pwdCk">
                             </td>
                         </tr>
 
                         <tr height=35>
-				             <td width=15% align=right>이름&nbsp;&nbsp;</td>
-				             <td width=85% align=left>
-				              <input type=text name=name size=12 required id="name">
+				             <td width=20% align=right>이름&nbsp;&nbsp;</td>
+				             <td width=80% align=left>
+				              <input type=text name=name size=12 required id="name" value="${name }">
 				             </td>
 				           </tr>
 				           
                         <tr height=35>
-                             <td width=15% align=right>성별&nbsp;&nbsp;</td>
-                            <td width=85% align=left  id="sex" required>
+                             <td width=20% align=right>성별&nbsp;&nbsp;</td>
+                            <td width=80% align=left  id="sex" required>
                
                                 <input type=radio id="man" name=sex value=남자 checked>남자
                                 <input type=radio id="woman" name=sex value=여자>여자
@@ -191,12 +154,14 @@ Shadowbox.init({
                         </tr>
                         <tr height=30></tr>
 									<tr height=35>
-						             <td align=center colspan="2">
+						             <td align=center colspan="3">
+						             <!-- ok 버튼으로 이미지 바꾸기 -->
 									<input type="image" src="user/main/img/join.png" id="resImg" border=0>
 						            <input type="image" src="user/main/img/cancle.png" border=0 id="cancleBtn" onclick="javascript:history.back()">
 						              
 						             </td>
-           							</tr>
+           				</tr>
+           				</tr>
        </table>
        </div>
     </form>

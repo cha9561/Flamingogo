@@ -103,11 +103,12 @@
 	  
 	  <div class="mdl-tabs__panel" id="members-panel" style="margin-top:10px">
 	  <div class="content container" style="margin-top:50px;" > 
-	    	<table width="800px">
-               <c:forEach var="vo" items="${list }">
+	    	<table width="800px" align="center">
+               
         <tr>
          <!-- <th>구매번호</th>
          <th>상품번호</th> -->
+         <th>구매자ID</th>
          <th>상품명</th>
          <th>예약인원</th>
          <th>예약날짜</th>
@@ -115,12 +116,14 @@
          <th>가격</th>
          <th>예약상태</th>
         </tr>
+        <c:forEach var="vo" items="${list }">
         <tr class="dataTr" id="m${vo.pno }">
            <%-- <td class="tdcenter">${vo.buyno }</td>
 	       <td class="tdcenter">${vo.pno }</td> --%>
+	       <td class="tdcenter">${vo.id }</td>
 	       <td class="tdcenter">${vo.pname }</td>
 	       <td class="tdcenter">${vo.amount }</td>
-	       <td class="tdcenter">${vo.rdate }</td>
+	       <td class="tdcenter"><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
 	       <td class="tdcenter"><fmt:formatDate value="${vo.orderdate }" pattern="yyyy-M-d"/></td>
 	       <td class="tdcenter" >${vo.price }</td>
 	       <td class="tdcenter"><a href="admin_ok.do?buyno=${vo.buyno }">${vo.status==0?"예약대기":"예약승인" }</a></td>

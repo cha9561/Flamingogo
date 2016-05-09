@@ -29,85 +29,79 @@
 	<div>
 		<article>			
 			<div class="bg bg1">		
-				<a href="#"><span>My planner</span></a>
+			
 			</div>			
 		</article>
 		
 		<article>		
 		<div class="bg bg2">	
-				<i class="fa fa-arrow-right"></i>
-				<a href="myPlanner.do"><p>
-				
-				</p></a>
+		<span>Mont saint michel</span>		
 			</div>	
 		</article>
 		
 		<article>			
 			<div class="bg bg3">	
-				<i class="fa fa-spin fa-refresh"></i>
-				<a href="myTour.do"><p><strong>My Reservation</strong></p>
-					<em>나의 구매이력 수정/확인하기</em></a>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="bg bg4">
-				<a href="#"><span>??</span></a>
-			</div>	
-		</article>
-		
-		<article>
-			<div class="bg bg5">
-				<a href="#"><span>회원정보수정</span></a>
-			</div>	
-		</article>
-		
-		<article>	
-			<div class="txt">	
-				<i class="fa fa-arrow-right"></i>
-			<a href="myBoard.do"><strong>My Open square</strong><br/>
-				<em>나의 글 확인하기</em></a>
-				</p>
+			<span>Paris</span>
 			</div>	
 		</article>
 		
 		<article>
 			<div class="bg bg6">
-				<a href="#"><span>나의관심사통계</span></a>
+				<a href="#"><span>Cappadocia</span></a>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="bg bg5">
+				<a href="#"><span><i class="fa fa-plane" aria-hidden="true"></i></span></a>
+			</div>	
+		</article>
+		
+		<article>	
+			<div class="txt">	
+				<a href="join.do"><i class="fa fa-arrow-right"></i></a>
+			<p><strong>Welcome to FlamingGo</strong><br/>
+				
+				<span>플라밍Go 와 함께 즐거운 추억을 만들어 보세요</span>
+				</p>
+			</div>	
+		</article>
+		
+		<article>
+			<div class="bg bg4">
+				<span>일상의 쉼표 , <i class="fa fa-spin fa-refresh"></i></span>
 			</div>
 		</article>
 				<article>	
-			<div class="txt">	
-				<i class="fa fa-arrow-right"></i>
-				<a href="myWish.do"><strong>My Wish List</strong><br/>
-				<em>나의 hot place 확인하기</em></a>
+			<div class="bg bg11">	
+				<span>London</span>
 			</div>	
 		</article>
 		<article>	
 			<div class="bg bg7">
-				<span>Spa</span>
+				<span>Amsterdam</span>
 			</div>	
 		</article>
 			<article>	
 			<div class="bg bg8">
-				<span>Spa</span>
+				<span>Burano</span>
 			</div>	
 		</article>
 			<article>	
 			<div class="bg bg9">
-				<span>Spa</span>
+				<span>Salzkammergut</span>
 			</div>	
 		</article>
 			<article>	
 			<div class="bg bg10">
-				<span>Spa</span>
+				<span><i class="fa-spin fa fa-star" aria-hidden="true"></i></span>
 			</div>	
 		</article>
-			<article>	
+<!-- 			<article>	
 			<div class="bg bg11">
 				<span>Spa</span>
 			</div>	
-		</article>
+		</article> -->
 	</div>
 	</div>
 </body>

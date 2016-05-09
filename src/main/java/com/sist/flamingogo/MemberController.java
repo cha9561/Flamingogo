@@ -7,10 +7,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+
 import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.tour.dao.AddSpotVO;
 import com.tour.dao.BuyVO;
 import com.tour.dao.TourDAO;
 
@@ -21,11 +24,26 @@ public class MemberController {
 	{
 		HttpSession session=req.getSession();
     	String id=(String)session.getAttribute("id");
+    	
     	List<BuyVO> list=TourDAO.buyUserAllData(id);
 		System.out.println("mypage");
 		System.out.println("buyData:"+list);
 		
+
+		MemberDTO vo=MemberDAO.memberInfo(id);
+		int birth=2016-Integer.parseInt(vo.getBirth().substring(0,4))+1;
+		
+
+		int myCount=TourDAO.addCount(id);
+		List<AddSpotVO> list2=TourDAO.myAdd(id);
+		
+		req.setAttribute("list2", list2);
+		req.setAttribute("myCount", myCount);
+
 		req.setAttribute("id", id);
+		req.setAttribute("name", vo.getName());
+		req.setAttribute("sex", vo.getSex());
+		req.setAttribute("birth",birth);
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../my/myTour.jsp");
 		return "user/main/main.jsp";
@@ -154,6 +172,18 @@ public class MemberController {
 		req.setAttribute("jsp", "user/join.jsp");
 		return "user/main/main.jsp";
 	}
+	
+	@RequestMapping("myinfo_update.do")
+	public String myinfo_update(HttpServletRequest req)
+    {
+		String id=req.getParameter("id");
+		String page=req.getParameter("page");
+		MemberDTO vo=MemberDAO.myInfodata(id);
+    	req.setAttribute("page",page);
+    	req.setAttribute("id",id);
+    	req.setAttribute("jsp","../my/myinfo.jsp");
+    	return "user/main/main.jsp";
+    }
     
 	
 }
