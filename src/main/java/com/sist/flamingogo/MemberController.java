@@ -33,10 +33,11 @@ public class MemberController {
 		MemberDTO vo=MemberDAO.memberInfo(id);
 		int birth=2016-Integer.parseInt(vo.getBirth().substring(0,4))+1;
 		
-
+		int buyCount=TourDAO.buyCount(id);
 		int myCount=TourDAO.addCount(id);
 		List<AddSpotVO> list2=TourDAO.myAdd(id);
 		
+		req.setAttribute("buyCount", buyCount);
 		req.setAttribute("list2", list2);
 		req.setAttribute("myCount", myCount);
 

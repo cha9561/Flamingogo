@@ -124,6 +124,27 @@ public class TourDAO {
     	session.close();
     	return list;
     }
+    // 마이페이지 예약 카운트
+    public static int buyCount(String id)
+    {
+    	try
+    	{
+    		SqlSession session=ssf.openSession();
+    		int buyCount=session.selectOne("buyCount",id);
+    		session.close();
+    		
+    		return buyCount;
+    	}catch(Exception ex)
+    	{
+    		System.out.println(ex.getMessage());
+    	}
+    	
+    	SqlSession session=ssf.openSession();
+		int buyCount=session.selectOne("buyCount",id);
+		session.close();
+		
+		return buyCount;
+    }
     //예약상태변경
     public static void userReserveOk(int buyno)
     {
