@@ -2,16 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.squre.dao.squre-mapper">
 	<insert id="squreInsert" parameterType="Squre">
-		INSERT INTO rboard(content_no,name,content,subject,pwd)
-		VALUES((SELECT NVL(MAX(content_no)+1,1) FROM rboard),
-			#{name},11,#{subject},#{pwd})
+		INSERT INTO squreMain(no,userId,content,subject,sex)
+		VALUES((SELECT NVL(MAX(no)+1,1) FROM squreMain),
+			#{userId},#{content},#{subject},#{sex})
 	</insert>
 	<select id="squreAllData" resultType="Squre">
-		SELECT content_no,name,subject
-		FROM rboard ORDER BY content_no DESC
+		SELECT no,userId,sex,subject,content,hit,regdate
+		FROM squreMain ORDER BY no DESC
 	</select>
-	<delete id="squreDelete" parameterType="int">
+	<select id="reviewAllData" resultType="Review">
+		SELECT id,rootNo,no,sex,content,regdate,hit
+		FROM reSqure ORDER BY no DESC
+	</select>
+	<insert id="reInsert" parameterType="Review">
+		INSERT INTO reSqure(no,id,rootNo,sex,content)
+		VALUES((SELECT NVL(MAX(no)+1,1) FROM reSqure),
+		#{id},#{rootNo},#{sex},#{content})
+	</insert>
+	<!-- <delete id="squreDelete" parameterType="int">
     DELETE FROM rboard
     WHERE content_no=#{no}
-  </delete>
+  </delete> -->
 </mapper>
