@@ -54,7 +54,6 @@ $(function(){
 		}
 		$('#reIns'+no).submit();
 	});
-	
 	/* $('.ruBtn').click(function(){
 		var id=$(this).attr('id');
 		var no=id.substring(3);
@@ -137,7 +136,10 @@ $(function(){
 	        	<td colspan=4 class="tdleft" valign="top" height=100>
 	          		<pre>${vo.content }</pre>
 	          		<c:if test="${vo.userId == sessionScope.id}">
-	        			<button class="btn btn-default" type="submit" style="font-color:red">삭제하기</button>
+	          			<a href="squreDel.do?no=${vo.no }">
+	          				<input class="btn btn-default reBtn" id="sDelBtn" type=button value=삭제하기>
+	          			</a>
+	        			<!-- <button class="btn btn-default" type="submit" id="sDelBtn" style="font-color:red">삭제하기</button> -->
 	        		</c:if>
 	        		<c:if test="${vo.userId != sessionScope.id}">
 	          			<button class="btn btn-default" type="submit" style="font-color:red">추천하기</button>
@@ -153,7 +155,7 @@ $(function(){
 	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<input type=button id="reRecoBtn" value=추천>
 	          					</c:if>
 	          					<c:if test="${rvo.id == sessionScope.id}">
-	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<input type=button id="reDelBtn" value=삭제>
+	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<a href="reviewDel.do?no=${rvo.no }"><input type=button id="reDelBtn" value=삭제></a>
 	          					</c:if>
 	          				</c:if>
 	          				<c:if test="${rvo.sex == 2}">

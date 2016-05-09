@@ -97,4 +97,23 @@ public class SqureController {
 		
 		return "user/squre/squre_insert_ok.jsp";
 	}
+	@RequestMapping("squreDel.do")
+	public String squreDel(HttpServletRequest req)
+	{
+		System.out.println("squreDel");
+		String no=req.getParameter("no");
+		System.out.println("no: "+no);
+		SqureDAO.squreDelData(Integer.parseInt(no));
+		return "user/squre/squre_insert_ok.jsp";
+	}
+	
+	@RequestMapping("reviewDel.do")
+	public String reviewDel(HttpServletRequest req)
+	{
+		System.out.println("reviewDel");
+		String no=req.getParameter("no");
+		System.out.println("no: "+no);
+		SqureDAO.reviewDelData(Integer.parseInt(no));
+		return "user/squre/squre_insert_ok.jsp";
+	}
 }

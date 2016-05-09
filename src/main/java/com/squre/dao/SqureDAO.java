@@ -65,4 +65,20 @@ public class SqureDAO {
     	session.close();
     	return rlist;
     }
+    public static void squreDelData(int no)
+    {
+    	System.out.println("squreDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("squreDelData", no);
+    	System.out.println("squreDelData Success");
+    	session.close();
+    }
+    public static void reviewDelData(int no)
+    {
+    	System.out.println("reviewDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("reviewDelData", no);
+    	System.out.println("reviewDelData Success");
+    	session.close();
+    }
 }
