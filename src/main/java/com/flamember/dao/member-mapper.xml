@@ -33,8 +33,11 @@
 	</select>
 	
 	<select id="myInfodata" resultType="Member" parameterType="String">
-	SELECT sex,name,tel,email,birth FROM userinform
+	SELECT sex,name,tel,email,birth,PROFILE_PICTURE FROM userinform
 	WHERE id=#{id}
 	</select>
 	
+	<insert id="uploadprofile" parameterType="Member">
+	INSERT INTO userinform PROFILE_PICTURE VALUES #{filename} WHERE id=#{id}
+	</insert>
 </mapper>
