@@ -7,10 +7,6 @@
 	<select id="tourCategory" resultType="String">
 	 SELECT category FROM product
 	</select>
-<!-- 
-	<select id="tourCount" resultType="int">
-		SELECT COUNT(*) FROM product
- -->
 	<sql id="info">
 	  SELECT pno,pic FROM product
 	</sql>
@@ -21,7 +17,7 @@
 		<include refid="info"/>
 		WHERE category=#{category}
 	</select>
-	<!-- 추가(예약)-->
+	<!-- 추가(예약) user-->
    <insert id="buyInsert" parameterType="Buy">
     <selectKey keyProperty="buyno" resultType="int" order="BEFORE">
       SELECT NVL(MAX(buyno)+1,1) as buyno FROM buy
@@ -29,14 +25,70 @@
     INSERT INTO buy(buyno,id,pno,pname,amount,rdate,price) 
     VALUES(#{buyno},#{id},#{pno},#{pname},#{amount},#{rdate},#{price})
    </insert>
+   <!-- 추가(예약) admin-->
+   <insert id="adminInsert" parameterType="Admin">
+    <selectKey keyProperty="buyno" resultType="int" order="BEFORE">
+      SELECT NVL(MAX(buyno)+1,1) as buyno FROM admin
+    </selectKey>
+    INSERT INTO admin(buyno,id,pno,pname,amount,rdate,price) 
+    VALUES(#{buyno},#{id},#{pno},#{pname},#{amount},#{rdate},#{price})
+   </insert>
    <!--mypage(출력)-->
     <select id="buyUserAllData" resultType="Buy" parameterType="String">
       SELECT * FROM buy
       WHERE id=#{id}
     </select>
-    <!--admin(출력)-->
-     <select id="buyAdminAllData" resultType="Buy">
-       SELECT * FROM buy
-       WHERE res_check=0
-     </select>
+   <!--admin(출력)-->
+    <select id="buyAdminAllData" resultType="Admin">
+      SELECT * FROM admin
+    </select>
+   <!-- user 예약상태변경 -->
+    <update id="userReserveOk" parameterType="int">
+     UPDATE buy SET
+     status=1
+     WHERE buyno=#{buyno}
+    </update>
+   <!-- user 예약상태변경 -->
+    <update id="adminReserveOk" parameterType="int">
+     UPDATE admin SET
+     status=1
+     WHERE buyno=#{buyno}
+    </update>
+   <!-- 찜 상태조회 -->
+    <select id="addCheck" parameterType="Add" resultType="int">
+     SELECT count(*) FROM addspot
+	 WHERE id=#{id} AND pno=#{pno}
+    </select> 
+   <!-- 찜 추가 -->
+    <insert id="addOk" parameterType="Add">
+     <selectKey keyProperty="addno" resultType="int" order="BEFORE">
+       SELECT NVL(MAX(addno)+1,1) as addno FROM addspot
+     </selectKey>
+       INSERT INTO addspot(addno,id,pno,apname,category)
+       VALUES(#{addno},#{id},#{pno},#{apname},#{category})
+    </insert>
+    <!-- 찜 취소 -->
+    <delete id="add_cancle" parameterType="Add">
+     DELETE FROM addspot
+     WHERE id=#{id} AND pno=#{pno}
+    </delete>
+    <!-- 마이페이지 찜 카운트 -->
+    <select id="addCount" parameterType="String" resultType="int">
+     SELECT count(*) FROM addspot
+     WHERE id=#{id}
+    </select>
+    <!-- 마이페이지 찜 리스트 -->
+    <select id="myAdd" parameterType="String" resultType="Add">
+     SELECT * FROM addspot
+     WHERE id=#{id}
+    </select>
 </mapper>
+
+
+
+
+
+
+
+
+

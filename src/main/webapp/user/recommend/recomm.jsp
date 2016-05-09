@@ -12,19 +12,60 @@
 <meta charset="UTF-8">
 
 <!-- Web Fonts -->
-<!-- <link rel='stylesheet' type='text/css'
-   href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+<style type='text/css'">
+  .container
+   {
+   	width:100%; position:relative;
+   }
 
-CSS Global Compulsory
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/shop.style.css">
-<link rel="stylesheet" type="text/css"
-   href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-<link
-   href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-   rel="stylesheet"> -->
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+p.nanum{font-family: 'Nanum Gothic', sans-serif;
+font-size:13pt;
+font-style:bold};
 
-<link rel="stylesheet" href="basicstyle.css" />
+section { width:85%; position:relative; margin-right:15%; background:black;}
+.vide{
+width: 100%; height: 630px;" 
+margin-right:10px;
+}
+@media screen and (min-width:1280px) and (max-width:1599px) {  
+section { width:100%; margin-left:0px;}	
+.vide{width: 100%; margin-top:-100px; 
+}
+
+}
+@media screen and (min-width:1024px) and (max-width:1279px) {  
+	section { width:100%; margin-left:0px;}
+.vide{width: 100%; margin-top:-100px;
+}
+}
+@media screen and (min-width:780px) and (max-width:1023px) {  
+	section { width:100%; margin-left:0px;}
+	.vide{width: 100%;}
+		#find
+		{
+			margin-top:-200px;
+		}
+		.nanum{
+		font-color:white;}
+	}
+
+@media screen and (min-width:640px) and (max-width:779px) {  
+		#find
+		{
+			margin-top:-200px;
+		}
+}
+	
+@media screen and (min-width:480px) and (max-width:639px) { 
+		#find
+		{
+			margin-top:-200px;
+		}
+}	
+	
+</style>
+
 <script type="text/javascript" src="js/prefixfree.min.js"></script>
 <!--mdlfont -->
 <link rel="stylesheet"
@@ -33,6 +74,8 @@ CSS Global Compulsory
 <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 <script type="text/javascript" src="js/prefixfree.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="js/jquery.vide.min.js"></script>
+<!-- <script src="js/vide_test.js"></script> -->
 <script type="text/javascript">
 $(function(){
 	$('#findBtn').click(function(){
@@ -45,16 +88,7 @@ $(function(){
 		 }
 		$('#findForm').submit();
 	});
-	/* $('#findRestBtn').click(function(){
-		var find=$('#find').val();
-		alert(find);
-		if(find.trim()=="")
-		 {
-			 $('#find').focus();
-			 return;
-		 }
-		$('#findForm').submit();
-	}); */
+
 });
 </script>
 <!--mdl css-->
@@ -62,27 +96,30 @@ $(function(){
    href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
 <link rel="stylesheet" type="text/css"
    href="user/shadow/css/shadowbox.css">
+   
 <script type="text/javascript" src="user/shadow/js/shadowbox.js"></script>
 </head>
 <body>
+<div class="page-container-responsive">
+<!--  <div class="vide"
+  data-vide-bg="bg/flamingo" data-vide-options="loop: true, muted: true, position: 0% 0%">
       
-   <div
-      style="padding-top: 100px; width: 100%; height: 780px; background: url('http://www.mrwallpaper.com/wallpapers/Waterfall-Landscape-1920x1080.jpg'); no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+    </div>
+ -->     <div id="find">
+      
       <h2 style="text-align: center;" class="light_heavy_30_shadowed">
-        	플라밍GO에서 추천하는 숙소와 맛집을 살펴보세요!
+        	<p class="nanum">플라밍GO에서 추천하는 숙소와 맛집을 살펴보세요!</p>
       </h2>
-      <div style="padding-left: 500px;">
       	<form method="post" action="find_recomm.do" id="findForm">
+         
          <input type="text" id="find" name=find
             placeholder="어느 도시의 정보를 찾고 계신가요?"
-            style="width: 50%; height: 40px; font-size: 17pt">  
+            style="margin-left:23%; margin-bottom:25px; text-align:center; width: 50%; height: 35px; font-size: 17pt">  
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="findBtn">찾기</button>
 			<!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="findRestBtn">Restaurant</button> -->
 		</form>
       </div>
-   </div>
    
-   <br>
 
 <!--    <div class="col-md-2 col-sm-6">
       <h3 class="mega-menu-heading">프랑스/영국</h3>
@@ -417,6 +454,6 @@ $(function(){
       </ul>
 
    </div> -->
-
+</div>
 </body>
 </html>

@@ -156,13 +156,78 @@ public class TourController {
     	vo.setPrice(Integer.parseInt(price));
     	
     	TourDAO.buyInsert(vo);
+    	TourDAO.adminInsert(vo);
     	
 		return "user/tour/reserve_ok.jsp";
 	}
-	/*@RequestMapping("mypage.do")
-	public String mypage(HttpServletRequest req)
+	@RequestMapping("add.do")
+	public String add(HttpServletRequest req) throws Exception
 	{
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	System.out.println("pno:"+pno
+    					+"id:"+id);
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	
+    	int count=TourDAO.addCheck(vo);
+    	
+    	
+    	System.out.println("count:"+count);
+    	
+    	req.setAttribute("count", count);
+    	req.setAttribute("pno", pno);
+		return "user/tour/add.jsp";
+	}
+	@RequestMapping("add_ok.do")
+	public String add_ok(HttpServletRequest req) throws Exception
+	{
+		System.out.println("add_ok컨트롤러");
+		req.setCharacterEncoding("EUC-KR");
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	TourVO tvo=TourDAO.tourContent(Integer.parseInt(pno));
+
+		String apname=tvo.getPname();
+		String category=tvo.getCategory();
 		
-		return "user/tour/myTour.jsp";
-	}*/
+    	System.out.println("pno:"+pno
+				+"pname:"+apname
+				+"category:"+category);
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	vo.setApname(apname);
+    	vo.setCategory(category);
+    	
+    	TourDAO.addOk(vo);
+    	
+    	req.setAttribute("pno", pno);
+    	return "user/tour/add_ok.jsp";
+	}
+	@RequestMapping("add_cancle.do")
+	public String add_cancle(HttpServletRequest req)
+	{
+		String pno=req.getParameter("pno");
+		HttpSession session=req.getSession();
+    	String id=(String)session.getAttribute("id");
+    	
+    	AddSpotVO vo=new AddSpotVO();
+    	vo.setId(id);
+    	vo.setPno(Integer.parseInt(pno));
+    	
+    	TourDAO.add_cancle(vo);
+		
+    	req.setAttribute("pno", pno);
+    	
+		return "user/tour/add_ok.jsp";
+	}
 }

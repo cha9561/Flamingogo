@@ -26,4 +26,15 @@
 	SELECT COUNT(*) FROM rcity
 	WHERE name=#{name}
 	</select> -->
+	
+	<select id="memberInfo" resultType="Member" parameterType="String">
+	SELECT name,sex,birth FROM userinform
+	WHERE id=#{id}
+	</select>
+	
+	<select id="myInfodata" resultType="Member" parameterType="String">
+	SELECT sex,name,tel,email,birth FROM userinform
+	WHERE id=#{id}
+	</select>
+	
 </mapper>
