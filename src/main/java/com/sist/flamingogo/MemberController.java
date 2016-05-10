@@ -1,6 +1,8 @@
 package com.sist.flamingogo;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletRequest;
@@ -11,6 +13,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
+import com.plan.dao.PlanDAO;
+import com.plan.dao.PlanDTO;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.tour.dao.AddSpotVO;
@@ -45,6 +49,13 @@ public class MemberController {
 		req.setAttribute("sex", vo.getSex());
 		req.setAttribute("birth",birth);
 		req.setAttribute("list", list);
+		
+		 Map map=new HashMap();
+		 map.put("id", id);
+		 //map.put("no", no);
+		 List<PlanDTO> planList=PlanDAO.planAllData(map);
+		req.setAttribute("planList",planList );
+		
 		req.setAttribute("jsp", "../my/myTour.jsp");
 		return "user/main/main.jsp";
 	}
