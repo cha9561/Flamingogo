@@ -61,6 +61,7 @@ public class SqureDAO {
     	System.out.println("squreSelectData sub: "+subject);
     	SqlSession session=ssf.openSession();
     	
+    	//List<SqureVO> list=session.selectList("squreSelectData",subject);
     	List<SqureVO> list=session.selectList("squreSelectData",subject);
     	System.out.println("Success squreSelectData");
     	session.close();
@@ -78,7 +79,7 @@ public class SqureDAO {
     public static void squreDelData(int no)
     {
     	System.out.println("squreDelData no: "+no);
-    	SqlSession session=ssf.openSession();
+    	SqlSession session=ssf.openSession(true);
     	session.delete("squreDelData", no);
     	System.out.println("squreDelData Success");
     	session.close();
@@ -86,9 +87,24 @@ public class SqureDAO {
     public static void reviewDelData(int no)
     {
     	System.out.println("reviewDelData no: "+no);
-    	SqlSession session=ssf.openSession();
+    	SqlSession session=ssf.openSession(true);
     	session.delete("reviewDelData", no);
     	System.out.println("reviewDelData Success");
     	session.close();
     }
+    public static void squreRecomm(int no)
+    {
+    	System.out.println("squreRecomm no:"+no);
+    	SqlSession session=ssf.openSession(true);
+    	session.update("squreRecomm",no);
+    	session.close();
+    }
+    public static void squreReRecomm(int no)
+    {
+    	System.out.println("squreReRecomm no:"+no);
+    	SqlSession session=ssf.openSession(true);
+    	session.update("squreReRecomm",no);
+    	session.close();
+    }
+    
 }

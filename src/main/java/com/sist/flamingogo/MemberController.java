@@ -9,9 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.oreilly.servlet.MultipartRequest;
-
 import com.flamember.dao.MemberDAO;
 import com.flamember.dao.MemberDTO;
 import com.sist.controller.Controller;
@@ -19,9 +16,6 @@ import com.sist.controller.RequestMapping;
 import com.tour.dao.AddSpotVO;
 import com.tour.dao.BuyVO;
 import com.tour.dao.TourDAO;
-
-import java.io.File;
-import java.nio.file.*;
 
 @Controller("mec")
 public class MemberController {
@@ -195,47 +189,5 @@ public class MemberController {
     	return "user/main/main.jsp";
     }
     
-	@RequestMapping("profile_ok.do")
-	public String upload(HttpServletRequest req) throws Exception
-	{
-		req.setCharacterEncoding("EUC-KR"); 
-				
-		//path에 가져온 파일저장해야함.
-		String path="C://springDev//springStudy//.metadata//.plugins//org.eclipse.wst.server.core//tmp0//wtpwebapps//Flamingogo//user//my//img";
-		String enctype="EUC-KR";
-		int size=1024*1024*100;
-		MultipartRequest mr=
-		    		new MultipartRequest(req,path,size,enctype,
-		    				new DefaultFileRenamePolicy());
-		    
-		HttpSession session=req.getSession();
-    	String id=(String)session.getAttribute("id");
-		String PROFILE_PICTURE=mr.getFilesystemName("profile");
-		System.out.println(PROFILE_PICTURE);
-		
-		MemberDTO vo=new MemberDTO();
-		MemberDTO info=MemberDAO.myInfodata(id);
-		
-		if(PROFILE_PICTURE==null)
-	    {
-	    	vo.setProfile_picture(info.getProfile_picture());
-	    }
-	    else
-	    {
-	    	File f=new File("C:\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Flamingogo\\user\\my\\img\\"+PROFILE_PICTURE);
-	    	vo.setProfile_picture(PROFILE_PICTURE);
-	    }
-		
-		
-		
-		vo.setProfile_picture(PROFILE_PICTURE);
-		vo.setId(id);
-		MemberDAO.uploadprofile(vo);
-		
-		req.setAttribute("id", id);
-		req.setAttribute("jsp", "my/profile_ok.jsp");
-		return "user/main/main.jsp";
-	    
-	}
 	
 }

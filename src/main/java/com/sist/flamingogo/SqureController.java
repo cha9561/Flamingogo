@@ -40,9 +40,9 @@ public class SqureController {
 			System.out.println("content: "+test.getContent());
 			System.out.println("hit : "+test.getHit());
 			System.out.println("regdate : "+test.getRegdate());
-		}*/
+		}
 		
-		/*for(ReviewVO rtest:rlist)
+		for(ReviewVO rtest:rlist)
 		{
 			System.out.println("%%%%%%%%%%%%% Review %%%%%%%%%%%");
 			System.out.println("rid: "+rtest.getId());
@@ -127,6 +127,25 @@ public class SqureController {
 		String no=req.getParameter("no");
 		System.out.println("no: "+no);
 		SqureDAO.reviewDelData(Integer.parseInt(no));
+		return "user/squre/squre_insert_ok.jsp";
+	}
+	@RequestMapping("squreRecomm.do")
+	public String squreRecomm(HttpServletRequest req)
+	{
+		System.out.println("squreRecomm.do");
+		String no=req.getParameter("no");
+		System.out.println("no: "+no);
+		SqureDAO.squreRecomm(Integer.parseInt(no));
+		return "user/squre/squre_insert_ok.jsp";
+	}
+	
+	@RequestMapping("squreReRecomm.do")
+	public String squreReRecomm(HttpServletRequest req)
+	{
+		System.out.println("squreReRecomm.do");
+		String no=req.getParameter("no");
+		System.out.println("no: "+no);
+		SqureDAO.squreReRecomm(Integer.parseInt(no));
 		return "user/squre/squre_insert_ok.jsp";
 	}
 }

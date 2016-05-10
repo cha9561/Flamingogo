@@ -12,33 +12,65 @@
     <link rel="stylesheet" type="text/css"
 	href="../../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="../../shadow/js/shadowbox.js"></script>
- <!--    <link rel="stylesheet" type="text/css" href="user/shadow/css/shadowbox.css"> -->
+
+<!-- 달력 -->
+  <link rel="stylesheet" media="screen" href="styles/vlaCal-v2.1.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="styles/vlaCal-v2.1-adobe_cs3.css" type="text/css" />
+	<link rel="stylesheet" media="screen" href="styles/vlaCal-v2.1-apple_widget.css" type="text/css" />
+	
+	<script type="text/javascript" src="jslib/mootools-1.2-core-compressed.js"></script>
+	<script type="text/javascript" src="jslib/vlaCal-v2.1-compressed.js"></script>
+
 
 <script type="text/javascript">
 
-Shadowbox.init({
-	players:["iframe"]
-});
-    	function upload()
-    	{
-    		Shadowbox.open({
-    			content:'user/my/profile.jsp',
-    			player:'iframe',
-    			width:300,
-    			height:150,
-    			title:'프로필 등록하기'
-    		});
-    	}
+    	   function readURL(input) {
+    	      if (input.files && input.files[0]) {
+    	         var reader = new FileReader();
+    	         reader.onload = function(e) {
+    	            $('#uploadimg').attr('src', e.target.result);
 
-
-    	$(function(){
-	
-    		 $('#resImg').attr("src","user/my/img/updateok.png");
-			  $('#resImg').css("cursor","pointer");
-
-    	});
+    	         }
+    	         reader.readAsDataURL(input.files[0]);
+    	      }
+    	   }
 
     </script>
+    
+    <script type="text/javascript">
+    
+ 
+   $(function() {
+	  
+	   $('#email_select').change(function(){
+		    if($('#email_select').val() == "1"){
+		     $("#email2").val(""); //값 초기화
+		     $("#email2").prop("readonly",false); //활성화
+		    } else if($('#email_select').val() == ""){
+		     $("#email2").val(""); //값 초기화
+		     $("#email2").prop("readonly",true); //textBox 비활성화
+		    } else {
+		     $("#email2").val($('#email_select').val()); //선택값 입력
+		     $("#email2").prop("readonly",true); //비활성화
+
+
+		     $('#resImg').attr("src","user/my/img/updateok.png");
+			  $('#resImg').css("cursor","pointer");
+			
+		    }
+	   });
+	   
+      $('#resImg').click(function() {
+         //태그 값 저장
+       
+         if (confirm("수정하시겠습니까?") == true){    //확인
+            $('#update_frm').submit();
+         }else{   //취소
+             return;
+         }
+   		});
+   });
+</script>
 <style>
     body, code {
         font-size: 18px;
@@ -65,16 +97,27 @@ Shadowbox.init({
 
 <center>
      <div class="container" style="margin-top:100px">
-    <h3><img src="user/my/img/updateinfo.png" border=0></h3>
+    <h3 style="text-align:center"><img src="user/my/img/updateinfo.png" border=0></h3>
     
-    <form id="join_frm" action="update_ok.do" method="post">
+    <form id="update_frm" action="update_ok.do" method="post">
+       <tr height=35></tr>
+        <tr height=35></tr>
       <div class="form-group">
-                    <table border=0 width=800 align=center>
+                    <table border=0 width=1000px align=center>
 			         <tr>
-           			<td width ="250" height="300" rowspan="9" align=center>
-           			<input type="image" src="user/my/img/profile.jpg" width="170px" height="190px" id="profile" border=0><br>
-           			<input type="image" src="user/my/img/upload.png" id="upload" width="170px" border=0 onclick="upload()"></td>
-           			<!-- 프로필 등록하기 이미지 넣기 -->
+           			<td width ="300" height="300" rowspan="9" align=center >
+           			
+                           <img src="user/my/img/profile.png" alt=""
+                             width="250px" height="300px" id="uploadimg" style="border-radius:80%">
+                      
+           			<!-- <input type="image" src="user/my/img/profile.jpg" width="200px" height="190px" id="uploadimg" border=0><br>
+           			 -->
+           			 <br><br>
+           			<input type="file" onchange="readURL(this);"
+                        class="btn btn-default" name="upload" id="upload" value="파일선택"
+                        size=50 style="margin: auto;">
+           			
+           	
            			
            			</tr>
 			         <tr height=35>
@@ -117,6 +160,7 @@ Shadowbox.init({
                         <tr height=35>
             			 <td width=15% align=right id="birth">생년월일&nbsp;&nbsp;</td>
                             <td width=85% align=left>
+                               
                                 <input type=date name=birth size=20 required>
                             </td>
                         </tr>
@@ -152,7 +196,10 @@ Shadowbox.init({
                             </select>
                             </td>
                         </tr>
-                   
+                   <tr height=35></tr>
+                   <tr height=35></tr>
+                   <tr height=35></tr>
+                  
 									<tr height=35>
 						             <td align=center colspan="3">
 						        

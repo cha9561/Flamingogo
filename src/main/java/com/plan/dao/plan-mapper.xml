@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plan.dao.plan-mapper">
+	<insert id="planInsert" parameterType="plan">
+		INSERT INTO location(id,no,plan_id,city_name,image,startdate,latitude,longitude,latmax,lngmax)
+		VALUES(#{id},(SELECT NVL(MAX(no)+1,1) FROM location),#{plan_id},#{city_name},#{image},#{startdate},#{latitude},#{longitude},#{latmax},#{lngmax})
+	</insert>
+	
+	<select id="planAllData" resultType="plan" parameterType="String">
+		SELECT no,plan_id,city_name,image,startdate,latitude,longitude,latmax,lngmax
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+	</select>
+
+		<select id="planlatitudeData" resultType="String" parameterType="String">
+		SELECT latitude
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+	   </select>
+	   
+	   <select id="planlongitudeData" resultType="String" parameterType="String">
+		SELECT longitude
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+	   </select>
+	   
+	   	<select id="planlatmaxData" resultType="String" parameterType="String">
+		SELECT latmax
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+	   </select>
+	   
+	   	<select id="planlngmaxData" resultType="String" parameterType="String">
+		SELECT lngmax
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+	   </select>
+	
+
+</mapper>

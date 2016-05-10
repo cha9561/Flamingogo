@@ -10,7 +10,7 @@
 <link href="user/main/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-<link rel="stylesheet" type="text/css" href="user/squre/css/screen.css" media="screen">
+<!-- <link rel="stylesheet" type="text/css" href="user/squre/css/screen.css" media="screen"> -->
 
 <!-- jQuery library (served from Google) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -113,7 +113,7 @@ $(function(){
 	</c:choose>
 </ul>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-10">
   	<form method="post" action="squreInsert.do" id="squreIns">
   	<table class="table">
       	<tr>
@@ -162,9 +162,11 @@ $(function(){
 	        			<!-- <button class="btn btn-default" type="submit" id="sDelBtn" style="font-color:red">삭제하기</button> -->
 	        		</c:if>
 	        		<c:if test="${vo.userId != sessionScope.id}">
-	          			<button class="btn btn-default" type="submit" style="font-color:red">추천하기</button>
+	        			<a href="squreRecomm.do?no=${vo.no }">
+	        				<input class="btn btn-default recomBtn" id="recomBtn" type=button value=추천하기>
+	        			</a>
 	          		</c:if>
-	          		추천수 : ${vo.hit } 작성일 : ${vo.regdate }
+	          		추천수 : ${vo.hit } 작성일 : <fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"/>
 	          		<br>
 	          		<input id="reId${vo.no }" name=reId type="hidden">
 	     			<input id="reSex${vo.no }" name=reSex type="hidden">
@@ -172,18 +174,18 @@ $(function(){
 	     				<c:if test="${rvo.rootNo == vo.no}">
 	     					<c:if test="${rvo.sex == 1}">
 	     						<c:if test="${rvo.id != sessionScope.id}">
-	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<input type=button id="reRecoBtn" value=추천>
+	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :<fmt:formatDate value="${rvo.regdate }" pattern="yyyy-MM-dd"/>&nbsp;<a href="squreReRecomm.do?no=${rvo.no }"><input type=button id="reRecoBtn" value=추천></a>
 	          					</c:if>
 	          					<c:if test="${rvo.id == sessionScope.id}">
-	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<a href="reviewDel.do?no=${rvo.no }"><input type=button id="reDelBtn" value=삭제></a>
+	          						<img src="user/squre/img/man.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :<fmt:formatDate value="${rvo.regdate }" pattern="yyyy-MM-dd"/>&nbsp;<a href="reviewDel.do?no=${rvo.no }"><input type=button id="reDelBtn" value=삭제></a>
 	          					</c:if>
 	          				</c:if>
 	          				<c:if test="${rvo.sex == 2}">
 	          					<c:if test="${rvo.id != sessionScope.id}">
-	          						<img src="user/squre/img/wom.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<input type=button id="reRecoBtn" value=추천>
+	          						<img src="user/squre/img/wom.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :<fmt:formatDate value="${rvo.regdate }" pattern="yyyy-MM-dd"/>&nbsp;<a href="squreReRecomm.do?no=${rvo.no }"><input type=button id="reRecoBtn" value=추천></a>
 	          					</c:if>
 	          					<c:if test="${rvo.id == sessionScope.id}">
-	          						<img src="user/squre/img/wom.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :${rvo.regdate }&nbsp;<input type=button id="reDelBtn" value=삭제>
+	          						<img src="user/squre/img/wom.PNG" width="35" height="35">${rvo.id }&nbsp;추천수 :${rvo.hit }&nbsp;작성일 :<fmt:formatDate value="${rvo.regdate }" pattern="yyyy-MM-dd"/>&nbsp;<input type=button id="reDelBtn" value=삭제>
 	          					</c:if>
 	          				</c:if>
 	          				<pre>${rvo.content }</pre>
@@ -198,16 +200,16 @@ $(function(){
 	     <br><br>
      </c:forEach>
   </div>
-  <div class="col-md-4" id="slider">
+  <!-- <div class="col-md-4" id="slider">
 	  <ul class="bxslider">              
 	    <li><img alt="" src="user/squre/img/cha.jpg"></li>
 	    <li><img alt="" src="user/squre/img/test.jpg"></li>
 	  </ul>
-  </div>
+  </div> -->
  </div>
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-6">.col-md-6</div>
   <div class="col-md-4">.col-md-4</div>
-</div>
+</div> -->
 </body>
 </html>

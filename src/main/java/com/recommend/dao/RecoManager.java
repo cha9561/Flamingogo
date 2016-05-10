@@ -17,14 +17,20 @@ public class RecoManager {
    {
       List<StayVO> hlist=new ArrayList<StayVO>();
       RecoVO rvo=new RecoVO();
+      
       rvo=RecoDAO.findCityInform(city);
+      if(rvo == null)
+      {
+    	  return null;
+      }
       System.out.println("StayAllData serial:"+rvo.getStay());
       String stay_serial=rvo.getStay();
-      if(stay_serial==null)
+      
+      /*if(stay_serial==null)
       {
          hlist=null;
          return hlist;
-      }
+      }*/
       try
       {
     	  
@@ -35,6 +41,7 @@ public class RecoManager {
          Elements imageElem=doc.select("section.hotel-entry figure.media noscript img");
          //Elements msgElem=doc.select("section.entry div.hotel-desc");
          Elements reviewElem=doc.select("section.entry div.customer-quotes");
+         Elements urlElem=doc.select("section.entry h4 a");
          for(int i=0;i<titleElem.size();i++)
          {
             Element telem=titleElem.get(i);
@@ -43,6 +50,8 @@ public class RecoManager {
             Element ielem=imageElem.get(i);
             String img=ielem.attr("src");
            // System.out.println("aa"+img);
+            Element uelem=urlElem.get(i);
+            String url=uelem.attr("href");
             
             StayVO svo=new StayVO();
 
@@ -52,9 +61,10 @@ public class RecoManager {
             else
             	svo.setImg(img.substring(0, img.lastIndexOf('?')));
             
-            System.out.println(svo.getImg());
+            //System.out.println(svo.getImg());
             //svo.setMsg(melem.text());
             svo.setReview(relem.text());
+            svo.setUrl(url);
             hlist.add(svo);
             
          }
@@ -71,6 +81,10 @@ public class RecoManager {
          List<RestaurantVO> slist=new ArrayList<RestaurantVO>();
          RecoVO rvo=new RecoVO();
          rvo=RecoDAO.findCityInform(city);
+         if(rvo==null)
+         {
+        	 return null;
+         }
          System.out.println("StayAllData serial:"+rvo.getRest());
          String serial=rvo.getRest();
          if(serial==null)
@@ -84,6 +98,7 @@ public class RecoManager {
             Elements imageElem=doc.select("li.place-item div.pthumbImg img.cropImg");
             Elements briefElem=doc.select("li.place-item div.gridBox div.gridInfo span.plmsg");
             Elements sectorElem=doc.select("li.place-item div.gridBox div.gridInfo span.plcate");
+            Elements urlElem=doc.select("li.place-item div.gridBox div.gridInfo span a");
             
             for(int i=0;i<titleElem.size();i++)
             {
@@ -93,6 +108,8 @@ public class RecoManager {
                Element selem=sectorElem.get(i);
                Element ielem=imageElem.get(i);
                String img=ielem.attr("src");
+               Element uelem=urlElem.get(i);
+               String url=uelem.attr("href");
                
                RestaurantVO s=new RestaurantVO();
                s.setSector(selem.text());
@@ -105,6 +122,7 @@ public class RecoManager {
                //System.out.println("RestarantAllData5 "+img);
                s.setBrief(belem.text());
               // System.out.println("RestarantAllData4 "+belem.text());
+               s.setUrl(url);
                slist.add(s);
             }
          }
