@@ -12,15 +12,24 @@
 	</select>
 	<select id="reviewAllData" resultType="Review">
 		SELECT id,rootNo,no,sex,content,regdate,hit
-		FROM reSqure ORDER BY no DESC
+		FROM reSqure ORDER BY no ASC
 	</select>
 	<insert id="reInsert" parameterType="Review">
 		INSERT INTO reSqure(no,id,rootNo,sex,content)
 		VALUES((SELECT NVL(MAX(no)+1,1) FROM reSqure),
 		#{id},#{rootNo},#{sex},#{content})
 	</insert>
-	<!-- <delete id="squreDelete" parameterType="int">
-    DELETE FROM rboard
-    WHERE content_no=#{no}
-  </delete> -->
+	<delete id="squreDelData" parameterType="int">
+	    DELETE FROM squreMain
+	    WHERE no=#{no}
+  	</delete>
+  	<delete id="reviewDelData" parameterType="int">
+	    DELETE FROM reSqure
+	    WHERE no=#{no}
+  	</delete>
+  	<select id="squreSelectData" resultType="Squre" parameterType="String">
+  		SELECT no,userId,sex,subject,content,hit,regdate
+		FROM squreMain ORDER BY no DESC
+		WHERE subject=#{subject}
+  	</select>
 </mapper>
