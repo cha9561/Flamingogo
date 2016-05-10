@@ -17,14 +17,20 @@ public class RecoManager {
    {
       List<StayVO> hlist=new ArrayList<StayVO>();
       RecoVO rvo=new RecoVO();
+      
       rvo=RecoDAO.findCityInform(city);
+      if(rvo == null)
+      {
+    	  return null;
+      }
       System.out.println("StayAllData serial:"+rvo.getStay());
       String stay_serial=rvo.getStay();
-      if(stay_serial==null)
+      
+      /*if(stay_serial==null)
       {
          hlist=null;
          return hlist;
-      }
+      }*/
       try
       {
     	  
@@ -75,6 +81,10 @@ public class RecoManager {
          List<RestaurantVO> slist=new ArrayList<RestaurantVO>();
          RecoVO rvo=new RecoVO();
          rvo=RecoDAO.findCityInform(city);
+         if(rvo==null)
+         {
+        	 return null;
+         }
          System.out.println("StayAllData serial:"+rvo.getRest());
          String serial=rvo.getRest();
          if(serial==null)

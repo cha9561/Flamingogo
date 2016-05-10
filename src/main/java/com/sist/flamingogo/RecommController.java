@@ -35,6 +35,7 @@ public class RecommController {
 		RecoManager r=new RecoManager();
 		List<StayVO> hlist=r.StayAllData(find);
 		List<RestaurantVO> rlist=r.RestarantAllData(find);
+		
 		if(hlist == null && rlist==null)
 		{
 			System.out.println("hlist is null!!");
