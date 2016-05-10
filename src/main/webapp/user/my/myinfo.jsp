@@ -107,7 +107,7 @@
 			         <tr>
            			<td width ="300" height="300" rowspan="9" align=center >
            			
-                           <img src="user/my/img/profile.png" alt=""
+                           <img src="C:/springDev/springStudy/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Flamingogo/user/my/img/${vo.profile_picture}" alt=""
                              width="250px" height="300px" id="uploadimg" style="border-radius:80%">
                       
            			<!-- <input type="image" src="user/my/img/profile.jpg" width="200px" height="190px" id="uploadimg" border=0><br>
@@ -142,7 +142,7 @@
                         <tr height=35>
 				             <td width=20% align=right>이름&nbsp;&nbsp;</td>
 				             <td width=80% align=left>
-				              <input type=text name=name size=12 required id="name" value="${name }">
+				              <input type=text name=name size=12 required id="name" value="${vo.name }">
 				             </td>
 				           </tr>
 				           
@@ -161,7 +161,7 @@
             			 <td width=15% align=right id="birth">생년월일&nbsp;&nbsp;</td>
                             <td width=85% align=left>
                                
-                                <input type=date name=birth size=20 required>
+                                <input type=date name=birth size=20 required value="${vo.birth }" >
                             </td>
                         </tr>
                         
@@ -173,14 +173,14 @@
 				                <option>011</option>
 				                <option>017</option>
 				              </select>
-				              <input type=text name=tel2 size=7 id="tel2"  required/>-
-				              <input type=text name=tel3 size=7 id="tel3"  required>
+				              <input type=text name=tel2 size=7 id="tel2"  required value="${tel1 }">-
+				              <input type=text name=tel3 size=7 id="tel3"  required value="${tel2 }">
 				             </td>
          			  </tr>
 
                         <tr height=35>
                              <td width=15% align=right >이메일&nbsp;&nbsp;</td>
-                             <td> <input type="text" id="email1" size="10" required / > @ <input type="text" id="email2" size="10" required/>
+                             <td> <input type="text" id="email1" size="10" required value="${eid }"/> @ <input type="text" id="email2" size="10" required value="${eadress}"/>
   								<select id="email_select">
    								<option value="" selected="selected">::선택하기::</option>
                                 <option value="naver.com">naver.com</option>

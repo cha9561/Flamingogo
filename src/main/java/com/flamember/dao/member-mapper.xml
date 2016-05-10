@@ -19,8 +19,8 @@
   <!-- INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
   VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0) -->
   
-  INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount)
-  VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0)			     
+  INSERT INTO userinform(id,pwd,id_no,sex,name,tel,email,birth,regdate,logcount,PROFILE_PICTURE)
+  VALUES(#{id},#{pwd},#{id_no},#{sex},#{name},#{tel},#{email},#{birth},SYSDATE,0,'profile.PNG')			     
 	</insert>
 	<!-- <select id="findStay" resultType="int" parameterType="String">
 	SELECT COUNT(*) FROM rcity
