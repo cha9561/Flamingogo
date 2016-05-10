@@ -5,32 +5,30 @@ import java.util.Date;
 import oracle.sql.CLOB;
 
 public class SqureVO {
-	private int content_no;
-	private CLOB content;
-	private String name;
+	private int no;
+	private int sex;
+	private String userId;
 	private String subject;
-	private String pwd;
-	private Date regdate;
+	private String content;
 	private int hit;
-	private int hot_no;
-	private String user_id;
-	public CLOB getContent() {
-		return content;
+	private Date regdate;
+	public int getNo() {
+		return no;
 	}
-	public void setContent(CLOB content) {
-		this.content = content;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public int getContent_no() {
-		return content_no;
+	public String getUserId() {
+		return userId;
 	}
-	public void setContent_no(int content_no) {
-		this.content_no = content_no;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getName() {
-		return name;
+	public int getSex() {
+		return sex;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSex(int sex) {
+		this.sex = sex;
 	}
 	public String getSubject() {
 		return subject;
@@ -38,17 +36,11 @@ public class SqureVO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getContent() {
+		return content;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getHit() {
 		return hit;
@@ -56,17 +48,10 @@ public class SqureVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public int getHot_no() {
-		return hot_no;
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setHot_no(int hot_no) {
-		this.hot_no = hot_no;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	
 }

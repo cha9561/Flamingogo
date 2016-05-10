@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.tour.dao.AddSpotVO" alias="Add"/>
 	<typeAlias type="com.squre.dao.SqureVO" alias="Squre"/>
 	<typeAlias type="com.plan.dao.PlanDTO" alias="plan"/>
+	<typeAlias type="com.squre.dao.ReviewVO" alias="Review"/>
 </typeAliases>
 <environments default="development">
 <environment id="development">

@@ -49,7 +49,7 @@ public class MemberDAO {
 			System.out.println("Get:"+d.getPwd());
 			if(pwd.equals(d.getPwd()))
 			{
-				result=d.getName()+"|"+d.getAdmin_no();
+				result=d.getName()+"|"+d.getAdmin_no()+"|"+d.getSex();
 			}else{
 				result="NOPWD";
 			}
@@ -95,4 +95,12 @@ public class MemberDAO {
 	    	session.close();
 	    	return vo;
 	    }
+	 public static void uploadprofile(MemberDTO vo)
+	 {
+		 System.out.println("myprofileµî·Ï");
+		 SqlSession session=ssf.openSession();
+		 session.insert("uploadprofile",vo);
+		 session.close();
+	 }
+	 
 }

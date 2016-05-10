@@ -39,21 +39,21 @@ $(function(){
 </head>
 <body>
 	<center>
-    <table id="table_content" width=180>
+   <!--  <table id="table_content" width=180>
             <tr>
               <th colspan="2"> </th>
             </tr>
             <tr>
               <td>
-                    인원:
+                    인원: -->
                  <select id="grade">
                    <c:forEach var="i" begin="1" end="5">
                     <option>${i }</option>
                    </c:forEach>
                  </select>
-              </td>
+              <!-- </td>
             </tr>
-         </table>
+         </table> -->
   </center>
 </body>
 </html>

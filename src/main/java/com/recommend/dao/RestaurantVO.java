@@ -13,8 +13,15 @@ public class RestaurantVO {
    private String openhour;
    private String price;
    private int rank;
+   private String url;
    
-   public String getBrief() {
+   public String getUrl() {
+	return url;
+}
+public void setUrl(String url) {
+	this.url ="http://www.siksinhot.com"+url;
+}
+public String getBrief() {
       return brief;
    }
    public void setBrief(String brief) {

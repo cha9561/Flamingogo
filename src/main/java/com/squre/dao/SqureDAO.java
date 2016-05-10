@@ -21,6 +21,14 @@ public class SqureDAO {
     		System.out.println(ex.getMessage());
     	}
     }
+    public static void reInsert(ReviewVO rvo)
+    {
+    	System.out.println("squreInsert");
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("reInsert", rvo);
+    	System.out.println("Success reInsert");
+    	session.close();
+    }
     public static void squreInsert(SqureVO vo)
     {
     	System.out.println("squreInsert");
@@ -47,5 +55,40 @@ public class SqureDAO {
     	System.out.println("Success squreAllData");
     	session.close();
     	return list;
+    }
+    public static List<SqureVO> squreSelectData(String subject)
+    {
+    	System.out.println("squreSelectData sub: "+subject);
+    	SqlSession session=ssf.openSession();
+    	
+    	List<SqureVO> list=session.selectList("squreSelectData",subject);
+    	System.out.println("Success squreSelectData");
+    	session.close();
+    	return list;
+    }
+    public static List<ReviewVO> reviewAllData()
+    {
+    	System.out.println("reviewAllData");
+    	SqlSession session=ssf.openSession();
+    	List<ReviewVO> rlist=session.selectList("reviewAllData");
+    	System.out.println("Success reviewAllData");
+    	session.close();
+    	return rlist;
+    }
+    public static void squreDelData(int no)
+    {
+    	System.out.println("squreDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("squreDelData", no);
+    	System.out.println("squreDelData Success");
+    	session.close();
+    }
+    public static void reviewDelData(int no)
+    {
+    	System.out.println("reviewDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("reviewDelData", no);
+    	System.out.println("reviewDelData Success");
+    	session.close();
     }
 }
