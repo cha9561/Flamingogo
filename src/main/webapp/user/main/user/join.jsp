@@ -173,7 +173,7 @@ Shadowbox.init({
 
                         <tr height=35>
                              <td width=15% align=right >이메일&nbsp;&nbsp;</td>
-                             <td> <input type="text" id="email1" size="10" required / > @ <input type="text" id="email2" size="10" required/>
+                             <td> <input type="text" id="email1" size="10" required /> @ <input type="text" id="email2" size="10" required/>
   								<select id="email_select">
    								<option value="" selected="selected">::선택하기::</option>
                                 <option value="naver.com">naver.com</option>

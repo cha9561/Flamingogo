@@ -76,6 +76,7 @@ $(function(){
 <ul class="nav nav-tabs">
 	<c:choose>
 		<c:when test="${subject == 'QNA'}">
+		
 			  <li role="presentation"><a href="squrePage.do">전체</a></li>
 			  <li role="presentation" class="active"><a href="squrePage.do?subject=QNA">질문</a></li>
 			  <li role="presentation"><a href="squrePage.do?subject=INF">정보공유</a></li>
