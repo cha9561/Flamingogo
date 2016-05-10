@@ -42,7 +42,7 @@
 					<h5>review: ${vo.review }</h5>
 					<p align="right" style="padding-top: 15px">
 						<!-- Accent-colored raised button with ripple -->
-					<a href="">
+					<a href="${vo.url }">
 					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">상세보기</button>
 						<!-- <a href="http://www.booking.com/searchresults.html?aid=308767&label=_slppick111011003&ss=Villa+Saint+Exupery+Beach&si=ho&checkin_monthday=11&checkin_year_month=2016-5&checkout_monthday=12&checkout_year_month=2016-5&city=-1454990" target="_blank" class="btn-u btn-u-green">위시리스트 추가</a> -->
 					</a>
@@ -69,7 +69,7 @@
                <h5>${s.brief }</h5>
                <%-- <h5>${s.sector }</h5> --%>
                <p align="right" style="padding-top: 15px">
-               <a href="">
+               <a href="${s.url }">
                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">상세보기</button>
                </a>
                </p>

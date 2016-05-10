@@ -6,6 +6,14 @@ public class StayVO {
 	private String img;
 	private String msg;
 	private String review;
+	private String url;
+	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url ="http://www.agoda.com"+url;
+	}
 	public int getRank() {
 		return rank;
 	}
