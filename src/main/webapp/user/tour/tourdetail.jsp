@@ -102,11 +102,11 @@ a:HOVER {
 				
             <hr/>
             
-          	<strike>${vo.pinfo }</strike>
+          	<!--<strike>${vo.pinfo }</strike>
 			<p><font color=red>선착순 파격가</font><br>
-			<font color=red>${vo.pinfo }</font><br>
 			<font color=#a0a0a0>할인가: 21만원+샌딩 2만원(2존까지) </font><br>
-			<font color=#a0a0a0>3~4존 20유로, 5존 40유로 추기비용발생</font>
+			<font color=#a0a0a0>3~4존 20유로, 5존 40유로 추기비용발생</font> -->
+			<font color=red>${vo.pinfo }</font><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <c:if test="${sessionScope.id!=null and sessionScope.admin!=1}">
@@ -138,7 +138,7 @@ a:HOVER {
         </div>
         <!-- /.row -->
 
-        <!-- product imformation -->
+        <!-- product imformation 
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
   <div class="mdl-tabs__tab-bar">
     <a href="#about-panel" class="mdl-tabs__tab is-active">소개</a>
@@ -200,7 +200,7 @@ a:HOVER {
 	
   </div>
   
-</div>
+</div>-->
 </div>
 
     <!-- /.container -->
