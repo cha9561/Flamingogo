@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="com.tour.dao.AdminVO" alias="Admin"/>
 	<typeAlias type="com.tour.dao.AddSpotVO" alias="Add"/>
 	<typeAlias type="com.squre.dao.SqureVO" alias="Squre"/>
+	<typeAlias type="com.plan.dao.PlanDTO" alias="plan"/>
 	<typeAlias type="com.squre.dao.ReviewVO" alias="Review"/>
 </typeAliases>
 <environments default="development">
@@ -32,5 +33,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <mapper resource="com/tour/dao/tour-mapper.xml"/>
 <mapper resource="com/recommend/dao/recomm-mapper.xml"/>
 <mapper resource="com/squre/dao/squre-mapper.xml"/>
+<mapper resource="com/plan/dao/plan-mapper.xml"/>
 </mappers>
 </configuration>

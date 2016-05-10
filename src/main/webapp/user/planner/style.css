@@ -20,6 +20,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0px;
+
 }
 
 .gwd-page-container {
@@ -421,13 +422,6 @@ html, body {
 	top: 694px;
 }
 
-.gwd-map-12mt {
-	position: absolute;
-	left: 298px;
-	top: 177px;
-	width: 984px;
-	height: 468px;
-}
 
 html {
 	width: 100%;
