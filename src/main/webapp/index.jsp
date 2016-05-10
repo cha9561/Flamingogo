@@ -226,7 +226,7 @@
 
 		<div class="container-fluid">
 			<div class="row no-gutter">
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/paris.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -237,7 +237,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/london.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -248,7 +248,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/cinqueterre.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -260,7 +260,7 @@
 					</a>
 				</div>
 				
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/stoc.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -272,7 +272,7 @@
 					</a>
 				</div>
 				
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/praha.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -283,7 +283,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/colmar.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -294,7 +294,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/paris2.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
@@ -305,7 +305,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6 text-center">
 					<a href="#" class="tour-box"> <img src="bg/mong.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">

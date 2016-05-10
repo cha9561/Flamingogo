@@ -267,7 +267,8 @@ header .header-content .header-content-inner p {
     display: block;
     position: relative;
     margin: 0 auto;
-    max-width: 650px;
+max-width: 400px;
+margin: 40px;
 }
 
 .tour-box .tour-box-caption {

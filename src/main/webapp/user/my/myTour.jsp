@@ -65,12 +65,12 @@
    </style>
 </head>
 <body>
-<div class="row">
+<div class="row" style="margin-top:100px">
 <div class="col-md-3">
 		          <!-- Square card -->
 		          <div class="demo-card-square mdl-card mdl-shadow--2dp">
 		            <div class="mdl-card__img mdl-card--expand">
-		               <img src=user/my/img/profile.jpg width=250 height="220">
+		               <img src=user/my/img/profile.png width=250 height=220>
 		            </div>
 		            <div class="mdl-card__supporting-text">
 		                &nbsp;&nbsp;&nbsp;ID : ${id}<br>
@@ -86,7 +86,7 @@
 		          </div>
 		          </div>
 
-<div class="col-md-9">
+<div class="col-md-9" style="align:center;">
    <!-- product imformation -->
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	  <div class="mdl-tabs__tab-bar">
