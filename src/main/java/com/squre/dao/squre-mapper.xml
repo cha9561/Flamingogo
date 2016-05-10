@@ -27,9 +27,26 @@
 	    DELETE FROM reSqure
 	    WHERE no=#{no}
   	</delete>
+  	<!-- <select id="squreSelectData" resultType="Squre" parameterType="String">
+		SELECT no,userId,sex,subject,content,hit,regdate
+		FROM squreMain
+      	WHERE subject=#{subject}
+      	ORDER BY no DESC
+  	</select> -->
   	<select id="squreSelectData" resultType="Squre" parameterType="String">
-  		SELECT no,userId,sex,subject,content,hit,regdate
-		FROM squreMain ORDER BY no DESC
-		WHERE subject=#{subject}
+		SELECT no,userId,sex,subject,content,hit,regdate
+		FROM squreMain
+		WHERE subject LIKE '%'||#{subject}||'%'
+		ORDER BY no DESC
   	</select>
+  	<update id="squreRecomm" parameterType="int">
+  		UPDATE squreMain SET
+  		hit=hit+1
+  		WHERE no=#{no}
+  	</update>
+  	<update id="squreReRecomm" parameterType="int">
+  		UPDATE reSqure SET
+  		hit=hit+1
+  		WHERE no=#{no}
+  	</update>
 </mapper>
