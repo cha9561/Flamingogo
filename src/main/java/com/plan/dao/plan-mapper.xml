@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plan.dao.plan-mapper">
+	<insert id="planInsert" parameterType="plan">
+		INSERT INTO location(no,plan_id,city_name,image,startdate,latitude,longitude,latmax,lngmax)
+		VALUES((SELECT NVL(MAX(no)+1,1) FROM location),
+			#{plan_id},#{city_name},#{image},#{startdate},#{latitude},#{longitude},#{latmax},#{lngmax})
+	</insert>
+	
+		<select id="planAllData" resultType="plan" parameterType="java.util.Map">
+		SELECT no,plan_id,city_name,image,startdate,latitude,longitude,latmax,lngmax
+		FROM location
+		WHERE id=#{id} 
+		<!-- AND no=#{no} -->
+		<!-- 
+			#{start} ==> map.get("start");
+			#{no} ==> board.getNo();
+			
+			데이터 들어갈때 #
+			테이블명, 컬럼명은 $
+			WHERE ${fs} LIKE '%#{ss}%'
+		 -->
+	</select>
+
+
+</mapper>
