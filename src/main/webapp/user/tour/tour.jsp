@@ -99,83 +99,72 @@ $(function(){
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="user/tour/img/spain.gif"> 스페인
-	<a href="ctour.jsp">
-	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
-	</p>
-       <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041029"><img width="95%"  src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
+	
+	<form method="post" action="ctour.do" id="frm3">
+	<img src="user/tour/img/spain.gif"> 스페인
+	<input type="hidden" name="category" id="category" value="스페인">
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn3">더보기</button>
+	</form>
+	
+       <div class="row" style="margin-top:15px">
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>20 && vo.pno<25)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
 	</div>
 	<hr/>
 	
-	<p style="text-align:left"><img src="user/tour/img/sw.gif"> 스위스 
-	<a href="ctour.jsp">
-	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
-	</p>
-       <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041029"><img width="95%"  src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-	</div>
-	<hr/>
+	<form method="post" action="ctour.do" id="frm4">
+	<img src="user/tour/img/sw.gif"> 스위스
+	<input type="hidden" name="category" id="category" value="스위스">
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn4">더보기</button>
+	</form>
 	
-	<p style="text-align:left"><img src="user/tour/img/italy.gif"> 이탈리아 
-	<a href="ctour.jsp">
-	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
-	</p>
-       <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041029"><img width="95%"  src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
+       <div class="row" style="margin-top:15px">
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>30 && vo.pno<35)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
 	</div>
 	<hr/>
 
-	<p style="text-align:left"><img src="user/tour/img/uk.gif"> 영국
-	<a href="ctour.jsp">
-	<button class="mdl-button mdl-js-button mdl-button--raised">더보기</button></a>
-	</p>
-       <div class="row">
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041029"><img width="95%"  src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041057"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041039"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
-            <div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
-           		<a href="http://www.stubbyplanner.com/guide/index.asp?l=&serial=1110110041041"><img width="95%" src="http://placehold.it/400x300" alt=""></a>
-            </div>
+	<form method="post" action="ctour.do" id="frm5">
+	<img src="user/tour/img/italy.gif"> 이탈리아
+	<input type="hidden" name="category" id="category" value="이탈리아">
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn5">더보기</button>
+	</form>
+	
+       <div class="row" style="margin-top:15px">
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>40 && vo.pno<45)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
+	</div>
+	<hr/>
+
+	<form method="post" action="ctour.do" id="frm6">
+	<img src="user/tour/img/uk.gif"> 영국
+	<input type="hidden" name="category" id="category" value="영국">
+	<button class="mdl-button mdl-js-button mdl-button--raised" id="btn6">더보기</button>
+	</form>
+	
+       <div class="row" style="margin-top:15px">
+	       <c:forEach var="vo" items="${list }">
+		       <c:if test="${(vo.pno>50 && vo.pno<55)}">
+		       	<div class="col-sm-3 col-xs-6" style="margin-bottom:10px">
+		       	 <a href="detail.do?pno=${vo.pno }"><img width="95%" src="${vo.pic }"></a>
+		       	</div>
+		       </c:if>
+	       </c:forEach>
 	</div>
 	<hr/>
 	

@@ -213,8 +213,8 @@
 					</h2>
 					<table width="1100px">
 					<tr align=center>
-					<a href="recomm.do"><td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" src="bg/recomm.jpg"  border=0></td>
-					</tr></a>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="recomm.do"><input type="image" src="bg/recomm.jpg"  border=0></a></td>
+					</tr>
 					</table>
 				</div>
 			</div>
@@ -345,7 +345,7 @@
 					<table width="1100px">
 					<tr align=center>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" src="bg/squar.jpg"  border=0>
-					<a href="squre.do">&nbsp;&nbsp;&nbsp;&nbsp;<br><button
+					<a href="squrePage.do">&nbsp;&nbsp;&nbsp;&nbsp;<br><button
 						class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent wow tada">
 						플라밍Go 회원들 만나러 가기</button></a>
 					</td>
@@ -372,7 +372,7 @@
 					<div class="team-member">
 						<img src="팀사진.jpg" class="img-responsive img-circle" alt="">
 						<h4>차승호</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -385,7 +385,7 @@
 					<div class="team-member">
 						<img src="팀사진.jpg" class="img-responsive img-circle" alt="">
 						<h4>손민지</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -397,7 +397,7 @@
 					<div class="team-member">
 						<img src="팀사진.jpg" class="img-responsive img-circle" alt="">
 						<h4>강은진</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -413,7 +413,7 @@
 					<div class="team-member">
 						<img src="" class="img-responsive img-circle" alt="">
 						<h4>우성호</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -426,7 +426,7 @@
 					<div class="team-member">
 						<img src="팀사진.jpg" class="img-responsive img-circle" alt="">
 						<h4>김동호</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -438,7 +438,7 @@
 					<div class="team-member">
 						<img src="팀사진.jpg" class="img-responsive img-circle" alt="">
 						<h4>황희라</h4>
-						<p class="text-muted">맡은역할</p>
+						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
