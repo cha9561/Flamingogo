@@ -67,7 +67,7 @@
                 <span class="icon-bar"></span>
             </button>
         <div class="logo">
-        <a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo1.png" alt="" class="img-responsive" width=50% height=50%></a></div>
+        <a class="navbar-brand page-scroll" href="#page-top"><img src="bg/logo1.png" alt="" class="img-responsive" width=50% height=50%></a></div>
         </div>
 
         <!-- ¸ñ·Ï nav -->
@@ -370,7 +370,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="team-member">
-						<img src="ÆÀ»çÁø.jpg" class="img-responsive img-circle" alt="">
+						<img src="bg/sung.png" width="200px" height="200px" class="img-responsive img-circle" alt="">
 						<h4>Â÷½ÂÈ£</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
@@ -383,7 +383,7 @@
 
 				<div class="col-sm-4">
 					<div class="team-member">
-						<img src="ÆÀ»çÁø.jpg" class="img-responsive img-circle" alt="">
+						<img src="bg/minji.jpg" width="200px" height="200px" class="img-responsive img-circle" alt="">
 						<h4>¼Õ¹ÎÁö</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
@@ -394,9 +394,9 @@
 					</div>
 				</div>
 				<div class="col-sm-4">
-					<div class="team-member">
-						<img src="ÆÀ»çÁø.jpg" class="img-responsive img-circle" alt="">
-						<h4>°­ÀºÁø</h4>
+						<div class="team-member">
+						<img src="bg/heera.png" width="200px" height="200px" class="img-responsive img-circle" alt="">
+						<h4>È²Èñ¶ó</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -411,7 +411,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="team-member">
-						<img src="" class="img-responsive img-circle" alt="">
+						<img src="bg/sung2.jpg" width="200px" height="200px" class="img-responsive img-circle" alt="">
 						<h4>¿ì¼ºÈ£</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
@@ -424,7 +424,7 @@
 
 				<div class="col-sm-4">
 					<div class="team-member">
-						<img src="ÆÀ»çÁø.jpg" class="img-responsive img-circle" alt="">
+						<img src="bg/dongho.PNG" width="200px" height="200px" class="img-responsive img-circle" alt="">
 						<h4>±èµ¿È£</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
@@ -436,8 +436,8 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="team-member">
-						<img src="ÆÀ»çÁø.jpg" class="img-responsive img-circle" alt="">
-						<h4>È²Èñ¶ó</h4>
+						<img src="bg/jin.PNG" width="250px" height="250px" class="img-responsive img-circle" alt="">
+						<h4>°­ÀºÁø</h4>
 						<p class="text-muted"></p>
 						<ul class="list-inline social-buttons">
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -445,6 +445,7 @@
 							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 						</ul>
 					</div>
+			
 				</div>
 			</div>
 		</div>
