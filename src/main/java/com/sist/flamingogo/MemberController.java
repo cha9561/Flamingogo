@@ -138,8 +138,7 @@ public class MemberController {
 		String tel3=req.getParameter("tel3");
 		String email1=req.getParameter("email1");
 		String email2=req.getParameter("email2");
-		System.out.println("Email : "+email1);
-		System.out.println("Email2 : "+email2);
+		
 		MemberDTO vo=new MemberDTO();
 		vo.setName(name);
 		vo.setId(id);
@@ -148,7 +147,7 @@ public class MemberController {
 		vo.setBirth(birth);
 	
 		vo.setTel(tel1+"-"+tel2+"-"+tel3);
-
+		
 		vo.setEmail(email1+"@"+email2);
 		System.out.println("이름"+vo.getName());
 		MemberDAO.memberJoin(vo);
@@ -156,7 +155,7 @@ public class MemberController {
 		System.out.println("joinok->gomypage");
 		
 		req.setAttribute("id", id);
-		req.setAttribute("jsp", "mainDefault.jsp");
+		req.setAttribute("jsp", "user/join_ok.jsp");
 		return "user/main/main.jsp";
 	}
 	
@@ -180,76 +179,15 @@ public class MemberController {
 	
 	@RequestMapping("myinfo_update.do")
 	public String myinfo_update(HttpServletRequest req)
-    {	
+    {
 		String id=req.getParameter("id");
+		String page=req.getParameter("page");
 		MemberDTO vo=MemberDAO.myInfodata(id);
-    	StringTokenizer tokens= new StringTokenizer(vo.getTel(), "-");
-		String tel[]=new String[3];
-    	for(int i=0;tokens.hasMoreTokens();i++)
-		{
-    		tel[i]=tokens.nextToken();
-		}
-    	System.out.println(vo.getEmail());
-    	StringTokenizer token= new StringTokenizer(vo.getEmail(),"@");
-		String email[]=new String[2];
-    	for(int i=0;token.hasMoreTokens();i++)
-		{
-    		email[i]=token.nextToken();
-		}
-    	
+    	req.setAttribute("page",page);
     	req.setAttribute("id",id);
-    	req.setAttribute("tel1",tel[1]);
-    	req.setAttribute("tel2",tel[2]);
-    	req.setAttribute("eid", email[0]);
-    	System.out.println(email[0]);
-    	req.setAttribute("eadress", email[1]);
-    	req.setAttribute("vo",vo);
     	req.setAttribute("jsp","../my/myinfo.jsp");
     	return "user/main/main.jsp";
     }
     
-
-	@RequestMapping("update_ok.do")
-	public String upload(HttpServletRequest req) throws Exception
-	{
-		/*req.setCharacterEncoding("EUC-KR"); 
-		System.out.println("PROFILE_PICTURE");
-		//path에 가져온 파일저장해야함.
-		String path="C://springDev//springStudy//.metadata//.plugins//org.eclipse.wst.server.core//tmp0//wtpwebapps//Flamingogo//user//my//img";
-		String enctype="EUC-KR";
-		int size=1024*1024*100;
-		MultipartRequest mr=
-		    		new MultipartRequest(req,path,size,enctype,
-		    				new DefaultFileRenamePolicy());
-		    
-		HttpSession session=req.getSession();
-    	String id=(String)session.getAttribute("id");
-		String PROFILE_PICTURE=mr.getFilesystemName("profile");
-		
-		
-		MemberDTO vo=new MemberDTO();
-		MemberDTO info=MemberDAO.myInfodata(id);
-		
-		if(PROFILE_PICTURE==null)
-	    {
-	    	vo.setProfile_picture(info.getProfile_picture());
-	    }
-	    else
-	    {
-	    	File f=new File("C:\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Flamingogo\\user\\my\\img\\"+PROFILE_PICTURE);
-	    	vo.setProfile_picture(PROFILE_PICTURE);
-	    }
-		
-		
-		
-		vo.setProfile_picture(PROFILE_PICTURE);
-		vo.setId(id);
-		MemberDAO.uploadprofile(vo);
-		
-		req.setAttribute("id", id);*/
-		req.setAttribute("jsp", "my/profile_ok.jsp");
-		return "user/main/main.jsp";
-	    
-	}
 	
 }

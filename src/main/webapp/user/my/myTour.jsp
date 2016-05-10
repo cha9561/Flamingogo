@@ -79,7 +79,7 @@
 				                  나이 : ${birth}세<br>
 		            </div>
 		            <div class="mdl-card__actions mdl-card--border">
-		              <a href="myinfo_update.do?id=${id }" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+		              <a href="myinfo_update.do?id=${id }&page=${page}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
 		                  	 내정보 수정하기
 		              </a>
 		            </div>
