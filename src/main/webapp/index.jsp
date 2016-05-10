@@ -211,6 +211,11 @@
 					<h2 class="section-heading" style="color: #3f51b5">
 						<b>플라밍GO의 추천
 					</h2>
+					<table width="1100px">
+					<tr align=center>
+					<a href="recomm.do"><td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" src="bg/recomm.jpg"  border=0></td>
+					</tr></a>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -221,68 +226,92 @@
 
 		<div class="container-fluid">
 			<div class="row no-gutter">
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/1.jpg"
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/paris.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+								<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">PARIS</div>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/2.jpg"
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/london.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+								<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">LONDON</div>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/3.jpg"
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/cinqueterre.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+								<div class="project-category text-faded">Let's GO</div>
+							<div class="project-name">CINQUETERRE</div>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/4.jpg"
+				
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/stoc.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+								<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">STOCKHOLM</div>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/5.jpg"
+				
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/praha.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+								<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">PRAHA</div>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="tour-box"> <img src="img/tour/6.jpg"
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/colmar.jpg"
 						class="img-responsive" alt="">
 						<div class="tour-box-caption">
 							<div class="tour-box-caption-content">
-								<div class="project-category text-faded">Category</div>
-								<div class="project-name">Project Name</div>
+							<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">COLMAR</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/paris2.jpg"
+						class="img-responsive" alt="">
+						<div class="tour-box-caption">
+							<div class="tour-box-caption-content">
+							<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">PARIS</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<a href="#" class="tour-box"> <img src="bg/mong.jpg"
+						class="img-responsive" alt="">
+						<div class="tour-box-caption">
+							<div class="tour-box-caption-content">
+							<div class="project-category text-faded">Let's GO</div>
+								<div class="project-name">MONTMARTRE</div>
 							</div>
 						</div>
 					</a>
@@ -309,25 +338,19 @@
 	<section id="board">
 		<div class="container">
 			<div class="row">
-
-				<div class="col-lg-8 col-lg-offset-2 text-center">
+				<div class="col-lg-12 text-center">
 					<h2 class="section-heading" style="color: #3f51b5">
 						<b>광장
 					</h2>
-					<hr class="primary">
-					<p>Ready to start your next project with us? That's great! Give
-						us a call or send us an email and we will get back to you as soon
-						as possible!</p>
-				</div>
-				<div class="col-lg-4 col-lg-offset-2 text-center">
-					<i class="fa fa-phone fa-3x wow bounceIn"></i>
-					<p>123-456-6789</p>
-				</div>
-				<div class="col-lg-4 text-center">
-					<i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-					<p>
-						<a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
-					</p>
+					<table width="1100px">
+					<tr align=center>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" src="bg/squar.jpg"  border=0>
+					<a href="squre.do">&nbsp;&nbsp;&nbsp;&nbsp;<br><button
+						class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent wow tada">
+						플라밍Go 회원들 만나러 가기</button></a>
+					</td>
+					</tr>
+					</table>
 				</div>
 			</div>
 		</div>
