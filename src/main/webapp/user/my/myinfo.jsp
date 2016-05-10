@@ -24,7 +24,7 @@ Shadowbox.init({
     		Shadowbox.open({
     			content:'user/my/profile.jsp',
     			player:'iframe',
-    			width:240,
+    			width:300,
     			height:150,
     			title:'프로필 등록하기'
     		});
@@ -33,7 +33,8 @@ Shadowbox.init({
 
     	$(function(){
 	
-			   
+    		 $('#resImg').attr("src","user/my/img/updateok.png");
+			  $('#resImg').css("cursor","pointer");
 
     	});
 
@@ -64,8 +65,7 @@ Shadowbox.init({
 
 <center>
      <div class="container" style="margin-top:100px">
-    <h3><img src="user/main/img/joinus.png" border=0></h3>
-    <!-- 회원정보수정 img로 바꿀것 -->
+    <h3><img src="user/my/img/updateinfo.png" border=0></h3>
     
     <form id="join_frm" action="update_ok.do" method="post">
       <div class="form-group">
@@ -73,7 +73,7 @@ Shadowbox.init({
 			         <tr>
            			<td width ="250" height="300" rowspan="9" align=center>
            			<input type="image" src="user/my/img/profile.jpg" width="170px" height="190px" id="profile" border=0><br>
-           			<input type="image" src="user/main/img/join.png" id="upload" width="170px" border=0 onclick="upload()"></td>
+           			<input type="image" src="user/my/img/upload.png" id="upload" width="170px" border=0 onclick="upload()"></td>
            			<!-- 프로필 등록하기 이미지 넣기 -->
            			
            			</tr>
@@ -152,16 +152,16 @@ Shadowbox.init({
                             </select>
                             </td>
                         </tr>
-                        <tr height=30></tr>
+                   
 									<tr height=35>
 						             <td align=center colspan="3">
-						             <!-- ok 버튼으로 이미지 바꾸기 -->
-									<input type="image" src="user/main/img/join.png" id="resImg" border=0>
+						        
+									<input type="image" src="user/my/img/update.png" id="resImg" border=0>
 						            <input type="image" src="user/main/img/cancle.png" border=0 id="cancleBtn" onclick="javascript:history.back()">
 						              
 						             </td>
-           				</tr>
-           				</tr>
+           							</tr>
+           			
        </table>
        </div>
     </form>
@@ -169,8 +169,14 @@ Shadowbox.init({
   </center>
 </body>
 </html>
-
-
+<!-- 
+ 
+       <tr>
+        <td width=15% align="right">비밀번호</td>
+        <td width=85% align="left">
+        <input type="password" size=10 name=pwd id="pwd1">
+        </td>
+       </tr> -->
 
 
 

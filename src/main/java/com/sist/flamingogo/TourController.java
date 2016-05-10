@@ -34,6 +34,7 @@ public class TourController {
 		List<TourVO> list=TourDAO.categoryList(category);
 		System.out.println("카테고리 리스트:"+list);
 		
+		req.setAttribute("category", category);
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../tour/ctour.jsp");
 		return "user/main/main.jsp";
