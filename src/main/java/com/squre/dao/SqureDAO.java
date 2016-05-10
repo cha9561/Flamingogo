@@ -56,6 +56,16 @@ public class SqureDAO {
     	session.close();
     	return list;
     }
+    public static List<SqureVO> squreSelectData(String subject)
+    {
+    	System.out.println("squreSelectData sub: "+subject);
+    	SqlSession session=ssf.openSession();
+    	
+    	List<SqureVO> list=session.selectList("squreSelectData",subject);
+    	System.out.println("Success squreSelectData");
+    	session.close();
+    	return list;
+    }
     public static List<ReviewVO> reviewAllData()
     {
     	System.out.println("reviewAllData");
@@ -64,5 +74,21 @@ public class SqureDAO {
     	System.out.println("Success reviewAllData");
     	session.close();
     	return rlist;
+    }
+    public static void squreDelData(int no)
+    {
+    	System.out.println("squreDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("squreDelData", no);
+    	System.out.println("squreDelData Success");
+    	session.close();
+    }
+    public static void reviewDelData(int no)
+    {
+    	System.out.println("reviewDelData no: "+no);
+    	SqlSession session=ssf.openSession();
+    	session.delete("reviewDelData", no);
+    	System.out.println("reviewDelData Success");
+    	session.close();
     }
 }

@@ -95,4 +95,12 @@ public class MemberDAO {
 	    	session.close();
 	    	return vo;
 	    }
+	 public static void uploadprofile(MemberDTO vo)
+	 {
+		 System.out.println("myprofileµî·Ï");
+		 SqlSession session=ssf.openSession();
+		 session.insert("uploadprofile",vo);
+		 session.close();
+	 }
+	 
 }
